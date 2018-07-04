@@ -12,7 +12,7 @@
           <div class="box box-primary">
             <div class="box-body box-profile">
               <br>
-              <img style="margin: 0 auto; width: 160px; height: 240px; border-style: groove;" class="img-responsive" src="dist/img/4x6.jpg" alt="User profile picture">
+              <img style="margin: 0 auto; width: 160px; height: 240px; border-style: groove;" class="img-responsive" src="{{ asset('img/user-profile.png') }}" alt="User profile picture">
               <h4 class="text-center"><strong>IDA BAGUS ARI WARDANA</strong><span style="font-size: 16px;"> (Ir., M.T.)</span></h4>
               <p class="text-muted text-center">NIK. 5171040306680009<br>NPWP</p>
 
