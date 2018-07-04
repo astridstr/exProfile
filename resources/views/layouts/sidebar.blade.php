@@ -8,7 +8,7 @@
       <ul class="sidebar-menu" data-widget="tree">
         <li class="header">MAIN NAVIGATION</li>
         <li>
-          <a href="#">
+          <a href="{{ route('exprofile') }}">
             <i class="fa fa-user"></i> <span>Executive Profile</span>
           </a>
         </li>
