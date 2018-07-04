@@ -2,13 +2,6 @@
 
 @section('content')
 <div class="content-wrapper">
-    <!-- Content Header (Page header) -->
-    <section class="content-header">
-      <h1>
-        User Profile
-      </h1>
-    </section>
-
     <!-- Main content -->
     <section class="content">
 
@@ -17,12 +10,15 @@
 
           <!-- Profile Image -->
           <div class="box box-primary">
+            <div class="box-header with-border">
+              <i class="fa fa-bars margin-r-5"></i>&nbsp;<h3 class="box-title">Executive Profile</h3>
+            </div>
             <div class="box-body ">
               <div class="row">
               <div class="col-md-4">
               <img class="img-responsive" src="dist/img/images.jpg" style="width: 150px; height: 200px;" alt="Photo">
               </div>
-              <div class="col-md-6 box-comment">
+              <div class="col-md-8 box-comment">
               <div class= "comment-text">
               <h2 class="profile-username text-left"><b>IDA BAGUS ARI WARDANA</b></h2>
               <p class="text-muted text-left">Kepala Divisi Operasi Jawa Timur, Bali dan Nusa Tenggara PT.PLN (Persero)</p>
@@ -34,10 +30,16 @@
                   <i class="fa fa-heart margin-r-5"></i> Hindu <br>
                 </li>
               </ul>
+                      <div class="col-md-12">
+                        <a href="{{action('PdfGenerateController@download')}}" class="pull-right">
+                          <button type="submit" class="btn btn-primary pull-right btn-block btn-sm">Download as PDF
+                          </button>
+                        </a>
+                      </div>
               </div>
               </div>
             <div class="box-header with-border">
-              <i class="fa fa-file-text margin-r-5"></i><h3 class="box-title">Hasil Assesment</h3>
+              <i class="fa fa-file-text margin-r-5"></i>&nbsp;<h3 class="box-title">Hasil Assesment</h3>
             </div>
             <!-- /.box-header -->
             <div class="box-body">
@@ -81,7 +83,7 @@
           <div class="box box-widget widget-user-2">
             <!-- Add the bg color to the header using any of the bg-* classes -->
             <div class="box-header with-border">
-              <i class="fa fa-file-text margin-r-5"></i><h3 class="box-title">Certification</h3>
+              <i class="fa fa-file-text margin-r-5"></i>&nbsp;<h3 class="box-title">Certification</h3>
             </div>
             <div class="box-footer no-padding">
               <ul class="nav nav-stacked">
@@ -118,7 +120,7 @@
           <div class="box box-widget widget-user-2">
             <!-- Add the bg color to the header using any of the bg-* classes -->
             <div class="box-header with-border">
-              <i class="fa fa-file-text margin-r-5"></i><h3 class="box-title">Area of Expertise</h3>
+              <i class="fa fa-file-text margin-r-5"></i>&nbsp;<h3 class="box-title">Area of Expertise</h3>
             </div>
             <div class="box-footer no-padding">
               <ul class="nav nav-stacked">
@@ -137,7 +139,7 @@
           <div class="box box-widget widget-user-2">
             <!-- Add the bg color to the header using any of the bg-* classes -->
             <div class="box-header with-border">
-              <i class="fa fa-file-text margin-r-5"></i><h3 class="box-title">Career Interest</h3>
+              <i class="fa fa-file-text margin-r-5"></i>&nbsp;<h3 class="box-title">Career Interest</h3>
             </div>
             <div class="box-footer no-padding">
               <ul class="nav nav-stacked">
@@ -160,7 +162,8 @@
         <!-- /.col -->
         <div class="col-md-6">
           <!-- About Me Box -->
-          <div class="box box-primary"><div class="box-header with-border">
+          <div class="box box-primary">
+            <div class="box-header with-border">
               <i class="fa fa-bars margin-r-5"></i><h3 class="box-title">About and Experience</h3>
             </div>
             <p class="text-muted text-left" style="padding-left: 10px">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>

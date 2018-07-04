@@ -43,7 +43,7 @@
         <div class="col-md-8">
           <div class="box box-primary">
             <div class="box-header with-border">
-              <h4><i class="fa fa-users fa-fw" aria-hidden="true"></i>&nbsp; Keterangan Keluarga dan Referensi</h4>
+              <i class="fa fa-users margin-r-5"></i>&nbsp;<h3 class="box-title">Keterangan Keluarga dan Referensi</h3>
             </div>
             <!-- /.box-header -->
             <div class="box-body">

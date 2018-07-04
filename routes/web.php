@@ -22,6 +22,5 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/exprofile', function () {
-    return view('exprofile');
-})->name('exprofile');
+Route::get('/executive/profile', 'ExecutiveController@index')->name('exprofile');
+Route::get('/executive/profile/download', 'PdfGenerateController@download')->name('pdfDownload');
