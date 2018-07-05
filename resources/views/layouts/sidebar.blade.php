@@ -13,6 +13,11 @@
           </a>
         </li>
         <li>
+          <a href="{{ route('index') }}">
+            <i class="fa fa-archive"></i> <span>Upload File</span>
+          </a>
+        </li>
+        <li>
           <a href="{{ route('riwayat') }}">
             <i class="fa fa-dashboard"></i> <span>Riwayat Diri <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dan Jabatan</span>
           </a>

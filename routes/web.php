@@ -22,5 +22,22 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+<<<<<<< Updated upstream
 Route::get('/executive/profile', 'ExecutiveController@index')->name('exprofile');
 Route::get('/executive/profile/download', 'PdfGenerateController@download')->name('pdfDownload');
+=======
+Route::get('/exprofile', function () {
+    return view('exprofile');
+})->name('exprofile');
+
+Route::get('/formexprofile', function () {
+    return view('formexprofile');
+})->name('formexprofile');
+
+Route::get('/upload', 'UploadController@index')->name('index');
+Route::post('import', 'UploadController@import')->name('import');
+
+// Route::get('/upload', 'StudentController@index')->name('index');
+// Route::post('import', 'StudentController@import')->name('import');
+
+>>>>>>> Stashed changes
