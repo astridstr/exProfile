@@ -11,13 +11,12 @@ class PdfGenerateController extends Controller
 {
     public function download()
     {
-        // $nota = DB::table('transaksi')
-        // ->join('nasabah', 'nasabah.no_rekening', '=', 'transaksi.no_rekening')
-        // ->where('transaksi.id_transaksi', $id_transaksi)
-        // ->select('transaksi.*', 'nasabah.nama_nasabah')
-        // ->get(); 
+        $exprofile = DB::table('exprofiles')
+            ->where('NIP', '6795025 P')
+            ->select('*')
+            ->first(); 
         PDF::setOptions(['dpi' => 150, "default_paper_size" => "a4", "default_font" => "verdana"]);
-        $pdf = PDF::loadView('pdf.exprofile')->setPaper('a4', 'landscape');
+        $pdf = PDF::loadView('pdf.exprofile', ['exprofile' => $exprofile])->setPaper('a4', 'landscape');
         // return $pdf->download('ExecutiveProfile.pdf');
         return $pdf->stream();
     }
