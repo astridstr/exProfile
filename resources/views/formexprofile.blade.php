@@ -361,6 +361,11 @@
                       <textarea class="form-control" id="inputExperience" placeholder="Masterpiece"></textarea>
                     </div>
                   </div>
+                  <div class="checkbox">
+                  <label>
+                    <input type="checkbox"> Jadikan Ini Biggest Masterpiece
+                  </label>
+                </div>
                 </form>
               </div>
               <div class="modal-footer">
