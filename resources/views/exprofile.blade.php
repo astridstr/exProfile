@@ -33,34 +33,19 @@
                     </li>
                   </ul>
                   <div class="col-md-12">
-                    <a href="{{action('PdfGenerateController@download')}}" class="pull-right">
-                      <button type="submit" class="btn btn-primary pull-right btn-block btn-sm">Download as PDF</button>
-                    </a>
+                    <div class="col-md-7">
+                      <a href="{{ route('formexprofile') }}" class="pull-right">
+                        <button type="submit" class="btn btn-danger pull-right btn-block btn-sm">Edit</button>
+                      </a>
+                    </div>
+                    <div class="col-md-5">
+                      <a href="{{action('PdfGenerateController@download')}}" class="pull-right">
+                        <button type="submit" class="btn btn-primary pull-right btn-block btn-sm">Download as PDF</button>
+                      </a>
+                    </div>
                   </div>
                 </div>
               </div>
-<<<<<<< HEAD
-              <ul class="list-group list-group-unbordered">
-                <li class="list-group-item">
-                  <i class="fa fa-birthday-cake margin-r-5"></i> Banyuwangi, 03 Juni 1968 <br>
-                  <i class="fa fa-phone margin-r-5"></i>+6282335619807 <br>
-                  <i class="fa fa-heart margin-r-5"></i> Hindu <br>
-                </li>
-              </ul>
-                      <div class="col-md-12">
-                      <div class="col-md-7">
-                        <a href="{{ route('formexprofile') }}" class="pull-right">
-                          <button type="submit" class="btn btn-danger pull-right btn-block btn-sm">Edit
-                          </button>
-                        </a>
-                        </div>
-                        <div class="col-md-5">
-                        <a href="{{action('PdfGenerateController@download')}}" class="pull-right">
-                          <button type="submit" class="btn btn-primary pull-right btn-block btn-sm">Download as PDF
-                          </button>
-                        </a>
-                        </div>
-=======
               <!-- end of user profile -->
 
               <div class="box-header with-border">
@@ -92,7 +77,6 @@
                         <h3>2.67</h3>
 
                         <p>Global</p>
->>>>>>> exp4
                       </div>
                       <div class="icon">
                         <i class="fa fa-globe"></i>
