@@ -9,14 +9,14 @@
 
       <div class="row">
         <div class="col-md-4">
-
+        @foreach($user as $data)
           <!-- Profile Image -->
           <div class="box box-primary">
             <div class="box-body box-profile">
               <br>
               <img style="margin: 0 auto; width: 160px; height: 240px; border-style: groove;" class="img-responsive" src="dist/img/4x6.jpg" alt="User profile picture">
-              <h4 class="text-center"><strong>IDA BAGUS ARI WARDANA</strong><span style="font-size: 16px;"> (Ir., M.T.)</span></h4>
-              <p class="text-muted text-center">NIK. 5171040306680009<br>NPWP</p>
+              <h4 class="text-center"><strong>{{$data->Nama_Lengkap}}</strong><span style="font-size: 16px;"> (Ir., M.T.)</span></h4>
+              <p class="text-muted text-center">NIK. {{$data->NIP}}<br>NPWP</p>
 
               <ul class="list-group list-group-unbordered">
                 <li class="list-group-item">
@@ -38,6 +38,7 @@
             </div>
             <!-- /.box-body -->
           </div>
+          @endforeach
           <!-- /.box -->
 
         </div>

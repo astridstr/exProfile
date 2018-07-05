@@ -31,10 +31,18 @@
                 </li>
               </ul>
                       <div class="col-md-12">
+                      <div class="col-md-7">
+                        <a href="{{ route('formexprofile') }}" class="pull-right">
+                          <button type="submit" class="btn btn-danger pull-right btn-block btn-sm">Edit
+                          </button>
+                        </a>
+                        </div>
+                        <div class="col-md-5">
                         <a href="{{action('PdfGenerateController@download')}}" class="pull-right">
                           <button type="submit" class="btn btn-primary pull-right btn-block btn-sm">Download as PDF
                           </button>
                         </a>
+                        </div>
                       </div>
               </div>
               </div>
