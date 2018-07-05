@@ -11,9 +11,12 @@ class TampilRiwayatController extends Controller
 {
     public function profile1(Request $request)
     {
-        $user = Exprofile::where('kota_lahir','PADANG')->first(); 
-        //dd($user); 
-        //return ($user);    
-        return view('riwayat', ['user' => $user]);
+        $exprofile = DB::table('exprofiles')
+            ->where('NIP', '6693081Z')
+            ->select('*')
+            ->first();
+        //dd($exprofile); 
+        //return ($user->Nama_Lengkap);    
+        return view('keterangan', ['exprofile' => $exprofile]);
     }
 }

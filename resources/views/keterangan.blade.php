@@ -9,36 +9,35 @@
 
       <div class="row">
         <div class="col-md-4">
-        @foreach($user as $data)
+        $exprofile 
           <!-- Profile Image -->
           <div class="box box-primary">
             <div class="box-body box-profile">
               <br>
               <img style="margin: 0 auto; width: 160px; height: 240px; border-style: groove;" class="img-responsive" src="dist/img/4x6.jpg" alt="User profile picture">
-              <h4 class="text-center"><strong>{{$data->Nama_Lengkap}}</strong><span style="font-size: 16px;"> (Ir., M.T.)</span></h4>
-              <p class="text-muted text-center">NIK. {{$data->NIP}}<br>NPWP</p>
+              <h4 class="text-center"><strong>{{$exprofile->Nama_Lengkap}}</strong><span style="font-size: 16px;"> (Ir., M.T.)</span></h4>
+              <p class="text-muted text-center">NIK. {{$exprofile->NIP}}<br>NPWP</p>
 
               <ul class="list-group list-group-unbordered">
                 <li class="list-group-item">
-                  <i class="fa fa-info fa-fw" aria-hidden="true"></i>&nbsp; Banyuwangi, 1968-06-03
+                  <i class="fa fa-info fa-fw" aria-hidden="true"></i>&nbsp; {{$exprofile->Kota_Lahir}}, {{$exprofile->tgl_lahir}}
                 </li>
                 <li class="list-group-item">
-                  <i class="fa fa-black-tie fa-fw" aria-hidden="true"></i>&nbsp; Kepala Divisi Operasi Jawa Timur, Bali dan Nusa Tenggara PT PLN (Persero)
+                  <i class="fa fa-black-tie fa-fw" aria-hidden="true"></i>&nbsp; {{$exprofile->Jabatan_Saat_ini}}
                 </li>
                 <li class="list-group-item">
-                  <i class="fa fa-phone fa-fw" aria-hidden="true"></i>&nbsp; 087980872323
+                  <i class="fa fa-phone fa-fw" aria-hidden="true"></i>&nbsp; {{$exprofile->handphone}}
                 </li>
                 <li class="list-group-item">
-                  <i class="fa fa-envelope-o fa-fw" aria-hidden="true"></i>&nbsp; bagus.wardana68@gmail.com
+                  <i class="fa fa-envelope-o fa-fw" aria-hidden="true"></i>&nbsp; {{$exprofile->email_korporat}}
                 </li>
                 <li class="list-group-item">
-                  <i class="fa fa-home fa-fw" aria-hidden="true"></i>&nbsp; Delta Sari Indah Blok AD-12 Waru Sidoarjo Jawa Timur
+                  <i class="fa fa-home fa-fw" aria-hidden="true"></i>&nbsp; {{$exprofile->Kota_Domisili_Utama}}
                 </li>
               </ul>
             </div>
             <!-- /.box-body -->
           </div>
-          @endforeach
           <!-- /.box -->
 
         </div>
@@ -64,7 +63,7 @@
                     <i class="fa bg-blue"></i>
 
                     <div class="timeline-item">
-                      <h3 class="timeline-header"><a href="#">Kepala Divisi Operasi Jawa Timur, Bali dan Nusa Tenggara</a> - PT PLN (Persero)</h3>
+                      <h3 class="timeline-header"><a href="#">{{$exprofile->Jabatan_Saat_ini}}</a> - PT PLN (Persero)</h3>
 
                       <div class="timeline-body">
                         <i class="fa fa-hand-pointer-o fa-fw" aria-hidden="true"></i>&nbsp; <b>Tugas dan Kewenangan</b><br>

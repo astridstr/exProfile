@@ -506,25 +506,71 @@
              <div class="form-group">
                 <label> 1st Interest</label>
                 <select class="form-control select2" style="width: 100%;">
-                  <option selected="selected">Bussiness Planing</option>
-                  <option>Human Capital</option>
+                  <option selected="selected">Human Capital (SDM)</option>
+                  <option>Distribusi Wilayah</option>
+                  <option>Pembangkit</option>
+                  <option>Transmisi</option>
+                  <option>Konstruksi</option>
+                  <option>Enjiniring</option>
+                  <option>Energi Primer</option>
+                  <option>Business Planning</option>
+                  <option>Marketing and Service</option>
+                  <option>Pendidikan dan Pelatihan</option>
+                  <option>Keuangan</option>
+                  <option>Procurement</option>
+                  <option>Penelitian dan Pengembang</option>
+                  <option>Teknologi Informasi</option>
+                  <option>Auditor</option>
+                  <option>Legal dan Kepatuhan</option>
+                  <option>Communication and Public Relation</option>
                 </select>
               </div>
               <div class="form-group">
                 <label> 2nd Interest</label>
                 <select class="form-control select2" style="width: 100%;">
-                  <option selected="selected">Bussiness Planing</option>
-                  <option>Human Capital</option>
+                  <option selected="selected">Human Capital (SDM)</option>
+                  <option>Distribusi Wilayah</option>
+                  <option>Pembangkit</option>
+                  <option>Transmisi</option>
+                  <option>Konstruksi</option>
+                  <option>Enjiniring</option>
+                  <option>Energi Primer</option>
+                  <option>Business Planning</option>
+                  <option>Marketing and Service</option>
+                  <option>Pendidikan dan Pelatihan</option>
+                  <option>Keuangan</option>
+                  <option>Procurement</option>
+                  <option>Penelitian dan Pengembang</option>
+                  <option>Teknologi Informasi</option>
+                  <option>Auditor</option>
+                  <option>Legal dan Kepatuhan</option>
+                  <option>Communication and Public Relation</option>
                 </select>
               </div>
               <div class="form-group">
                 <label> 3rd Interest</label>
                 <select class="form-control select2" style="width: 100%;">
-                  <option selected="selected">Bussiness Planing</option>
-                  <option>Human Capital</option>
+                  <option selected="selected">Human Capital (SDM)</option>
+                  <option>Distribusi Wilayah</option>
+                  <option>Pembangkit</option>
+                  <option>Transmisi</option>
+                  <option>Konstruksi</option>
+                  <option>Enjiniring</option>
+                  <option>Energi Primer</option>
+                  <option>Business Planning</option>
+                  <option>Marketing and Service</option>
+                  <option>Pendidikan dan Pelatihan</option>
+                  <option>Keuangan</option>
+                  <option>Procurement</option>
+                  <option>Penelitian dan Pengembang</option>
+                  <option>Teknologi Informasi</option>
+                  <option>Auditor</option>
+                  <option>Legal dan Kepatuhan</option>
+                  <option>Communication and Public Relation</option>
                 </select>
               </div>
               <!-- /.form-group -->
+              <a class="btn btn-primary btn-md pull-right" data-toggle="modal" data-target="#modal-default"> Simpan </a>
             </div>
             <!-- /.col -->
           </div>
