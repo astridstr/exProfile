@@ -2300,7 +2300,7 @@ th {
 .table-condensed > thead > tr > td,
 .table-condensed > tbody > tr > td,
 .table-condensed > tfoot > tr > td {
-  padding: 1.7px 5px;
+  padding: 5px;
 }
 .table-bordered {
   border: 1px solid #ddd;

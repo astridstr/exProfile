@@ -12,7 +12,7 @@ class PdfGenerateController extends Controller
     public function download()
     {
         $exprofile = DB::table('exprofiles')
-            ->where('NIP', '6795025 P')
+            ->where('NIP', '6894001Z')
             ->select('*')
             ->first(); 
         PDF::setOptions(['dpi' => 150, "default_paper_size" => "a4", "default_font" => "verdana"]);

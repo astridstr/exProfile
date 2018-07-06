@@ -14,7 +14,7 @@
         <div class="col-md-6">
           <div class="box box-primary">
             <div class="box-header with-border">
-              <i class="fa fa-user fa-fw" aria-hidden="true"></i>&nbsp;<h3 class="box-title">Bio</h3>
+              <i class="fa fa-user fa-fw" aria-hidden="true"></i>&nbsp;<h3 class="box-title"><strong>Bio</strong></h3>
             </div>
             <div class="box-body ">
               <!-- User Profile -->
@@ -64,7 +64,7 @@
               <!-- end of user profile -->
 
               <div class="box-header with-border">
-                <i class="fa fa-file-text fa-fw" aria-hidden="true"></i>&nbsp; <h3 class="box-title">Hasil Assesment</h3>
+                <i class="fa fa-file-text fa-fw" aria-hidden="true"></i>&nbsp; <h3 class="box-title"><strong>Assesment Result</strong></h3>
                 </div>
 
               <!-- /.box-header -->
@@ -109,7 +109,7 @@
                 <div class="col-md-12">
                   <div class="box box-widget widget-user-2">
                     <div class="box-header with-border">
-                      <i class="fa fa-file-text fa-fw" aria-hidden="true"></i>&nbsp; <h3 class="box-title">Certification</h3>
+                      <i class="fa fa-file-text fa-fw" aria-hidden="true"></i>&nbsp; <h3 class="box-title"><strong>Certification</strong></h3>
                       </div>
                     <div class="box-footer no-padding">
                       <ul class="nav nav-stacked">
@@ -128,7 +128,7 @@
                 <div class="col-md-12">
                   <div class="box box-widget widget-user-2">
                     <div class="box-header with-border">
-                      <i class="fa fa-file-text fa-fw" aria-hidden="true"></i>&nbsp; <h3 class="box-title">Education</h3>
+                      <i class="fa fa-file-text fa-fw" aria-hidden="true"></i>&nbsp; <h3 class="box-title"><strong>Education</strong></h3>
                       </div>
                     <div class="box-footer no-padding">
                       <ul class="nav nav-stacked">
@@ -146,7 +146,7 @@
                 <div class="col-md-12">
                   <div class="box box-widget widget-user-2">
                     <div class="box-header with-border">
-                      <i class="fa fa-file-text fa-fw" aria-hidden="true"></i>&nbsp; <h3 class="box-title">Area of Expertise</h3>
+                      <i class="fa fa-file-text fa-fw" aria-hidden="true"></i>&nbsp; <h3 class="box-title"><strong>Area of Expertise</strong></h3>
                       </div>
                     <div class="box-footer no-padding">
                       <ul class="nav nav-stacked">
@@ -165,7 +165,7 @@
                 <div class="col-md-12">
                   <div class="box box-widget widget-user-2">
                     <div class="box-header with-border">
-                      <i class="fa fa-file-text fa-fw" aria-hidden="true"></i>&nbsp; <h3 class="box-title">Career Interest</h3>
+                      <i class="fa fa-file-text fa-fw" aria-hidden="true"></i>&nbsp; <h3 class="box-title"><strong>Career Interest</strong></h3>
                     </div>
                     <div class="box-footer no-padding">
                       <ul class="nav nav-stacked">
@@ -187,27 +187,35 @@
         <div class="col-md-6">
           <!-- About Me Box -->
           <div class="box box-primary">
-            <div class="box-header with-border">
-              <i class="fa fa-bars fa-fw" aria-hidden="true"></i>&nbsp; <h3 class="box-title">About and Experience</h3>
+            <div class="box-body">
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="box-header with-border">
+                    <i class="fa fa-bars fa-fw" aria-hidden="true"></i>&nbsp; <h3 class="box-title"><strong>About and Experience</strong></h3>
+                  </div>
+                  <div class="box-footer no-padding">
+                    <p style="text-align: justify;text-justify: inter-word;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    {{$exprofile->About_and_Experience_1}}
+                    <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    {{$exprofile->About_and_Experience_2}}
+                    <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    {{$exprofile->About_and_Experience_3}}</p>
+                  </div>
+                </div>
+                <div class="col-md-12">
+                  <div class="box-header with-border">
+                    <i class="fa fa-bars fa-fw" aria-hidden="true"></i>&nbsp; <h3 class="box-title"><strong>3 Biggest Masterpiece</strong></h3>
+                  </div>
+                  <div class="box-footer no-padding">
+                    <ul>
+                      <li>{{$exprofile->Masterpiece_1}}</li>
+                      <li>{{$exprofile->Masterpiece_2}}</li>
+                      <li>{{$exprofile->Masterpiece_3}}</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
             </div>
-            <p class="text-muted text-left" style="padding-left: 10px">{{$exprofile->About_and_Experience}}</p>
-          </div>
-           <div class="box box-primary"><div class="box-header with-border">
-              <i class="fa fa-bars fa-fw" aria-hidden="true"></i>&nbsp; <h3 class="box-title">3 Masterpiece</h3>
-            </div>
-            <div class="box-footer ">
-              <ul class="nav nav-stacked">
-                <li><a href="#">1st Masterpiece</a></li>
-                 <div class = "col-md -12">
-                 <p class="text-muted text-left">{{$exprofile->Masterpiece_1}}</p>
-                 </div>
-                <li><a href="#">2nd Masterpiece</a></li>
-                 <p class="text-muted text-left">{{$exprofile->Masterpiece_2}}</p>
-                <li><a href="#">3rd Masterpiece</a></li>
-                 <p class="text-muted text-left">{{$exprofile->Masterpiece_3}}</p>
-              </ul>
-            </div>
-           
           </div>
           <!-- /.box -->
         </div>
