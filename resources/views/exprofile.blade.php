@@ -2,49 +2,64 @@
 
 @section('content')
 <div class="content-wrapper">
-    <!-- Main content -->
+    <!-- judul halaman -->
+    <section class="content-header">
+      <h1>
+        Executive Profile 
+      </h1>
+    </section>
+
     <section class="content">
       <div class="row">
         <div class="col-md-6">
-
-          <!-- Profile Image -->
           <div class="box box-primary">
             <div class="box-header with-border">
-              <i class="fa fa-bars margin-r-5"></i>&nbsp;<h3 class="box-title">Executive Profile</h3>
+              <i class="fa fa-user fa-fw" aria-hidden="true"></i>&nbsp;<h3 class="box-title">Bio</h3>
             </div>
             <div class="box-body ">
               <!-- User Profile -->
               <div class="row">
-                <!-- foto -->
-                <div class="col-md-4">
-                  <img class="img-responsive" src="dist/img/images.jpg" style="width: 150px; height: 200px;" alt="User Profile Photo">
-                  </div>
-                <!-- biodata -->
-                <div class="col-md-8 box-comment">
-                  <div class= "comment-text">
-                    <h2 class="profile-username text-left"><b>{{$exprofile->Nama_Lengkap}}</b><span class="pull-right">{{$exprofile->NIP}}</span></h2>
-                    <p class="text-muted text-left">{{$exprofile->Jabatan_Saat_ini}}</p>
-                  </div>
-                  <ul class="list-group list-group-unbordered">
-                    <li class="list-group-item">
-                      <i class="fa fa-birthday-cake fa-fw" aria-hidden="true"></i>&nbsp; {{$exprofile->Kota_Lahir}}, {{$exprofile->tgl_lahir}} <br>
-                      <i class="fa fa-phone fa-fw" aria-hidden="true"></i>&nbsp; {{$exprofile->handphone}} <br>
-                      <i class="fa fa-heart fa-fw" aria-hidden="true"></i>&nbsp; {{$exprofile->Religion}}<br>
-                    </li>
-                  </ul>
-                  <div class="col-md-12">
-                    <div class="col-md-7">
-                      <a href="{{ route('formexprofile') }}" class="pull-right">
-                        <button type="submit" class="btn btn-danger pull-right btn-block btn-sm">Edit</button>
-                      </a>
-                    </div>
-                    <div class="col-md-5">
-                      <a href="{{action('PdfGenerateController@download')}}" class="pull-right">
-                        <button type="submit" class="btn btn-primary pull-right btn-block btn-sm">Download as PDF</button>
-                      </a>
-                    </div>
-                  </div>
+                <div class="col-md-12">
+                  <table>
+                    <tr>
+                      <!-- foto profil -->
+                      <td rowspan="3" style="width: 40%">
+                        <img style="margin: 0 auto; width: 160px; height: 240px; border-style: groove;" class="img-responsive" src="{{ asset('img/user-profile.png') }}" alt="User profile picture">
+                      </td>
+
+                      <!-- nama lengkap -->
+                      <td style="width: 40%"><p style="font-size: 18px;"><b>{{$exprofile->Nama_Lengkap}}</b></p></td>
+
+                      <!-- NIP / Grade -->
+                      <td style="width: 20%" valign="middle"><p><span class="label label-primary" style="font-size: 18px;">{{$exprofile->NIP}} / {{$exprofile->Grade}}</span></p></td>
+                    </tr>
+                    <tr>
+                      <!-- Jabatan & Divisi -->
+                      <td colspan="2">
+                        <p class="text-muted text-left">{{$exprofile->Jabatan_Saat_ini}}</p>
+                        <p class="text-muted text-left">{{$exprofile->Divisi_Satuan}}</p>
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <!-- keterangan -->
+                      <td>
+                        <ul class="list-group">
+                          <li class="list-group-item">
+                            <i class="fa fa-user fa-fw" aria-hidden="true"></i>&nbsp; {{$exprofile->Gender}}<br>
+                            <i class="fa fa-birthday-cake fa-fw" aria-hidden="true"></i>&nbsp; {{$exprofile->Kota_Lahir}}, {{$exprofile->tgl_lahir}} <br>
+                            <i class="fa fa-phone fa-fw" aria-hidden="true"></i>&nbsp; {{$exprofile->handphone}} <br>
+                            <i class="fa fa-heart fa-fw" aria-hidden="true"></i>&nbsp; {{$exprofile->Religion}}<br>
+                          </li>
+                        </ul>
+                      </td>
+
+                      <!-- umur -->
+                      <td valign="top"><p><span class="label label-primary pull-right" style="font-size: 18px;">21 years old  </span></p></td>
+                    </tr>
+                  </table>
                 </div>
+                
               </div>
               <!-- end of user profile -->
 
@@ -167,7 +182,6 @@
             </div>
             <!-- /.box-body -->
           </div>
-          <!-- /.box -->
         </div>
         <!-- /.col -->
         <div class="col-md-6">

@@ -9,138 +9,181 @@
     <?php include(public_path().'/dist/bower_components/font-awesome/css/font-awesome.css');?>
     <?php include(public_path().'/dist/bower_components/Ionicons/css/ionicons.css');?>
     <?php include(public_path().'/dist/dist/css/AdminLTE.css');?>
-
-    tr {
-
+    @page {
+      padding: 0px;
+      margin-bottom: -10px;
     }
-
     td {
-      font-size: 10.5px;
+      font-size: 11px;
+      padding: 0px;
     }
-    header {
-                position: fixed;
-                top: -1cm;
-                left: 0cm;
-                right: 0cm;
-                height: 1.2cm;
-
-                /** Extra personal styles **/
-                background-color: #03a9f4;
-                color: white;
-                text-align: center;
-                line-height: 1cm;
+    p {
+      padding: 0px;
+    }
+    @page {
+                margin: 0cm 0cm;
             }
 
-    footer {
-                position: fixed; 
-                bottom: 0cm; 
-                left: 0cm; 
-                right: 0cm;
-                height: 2cm;
+            /** Define now the real margins of every page in the PDF **/
+            body {
+                margin-top: 1cm;
+                margin-left: -5.5cm;
+                margin-right: 0.5cm;
+                margin-bottom: 0cm;
+            }
 
-                /** Extra personal styles **/
-                background-color: #03a9f4;
-                color: white;
-                text-align: center;
-                line-height: 1.5cm;
+            /** Define the header rules **/
+            header {
+                position: fixed;
+                top: 0cm;
+                left: 7cm;
+                right: 0cm;
+                height: 1.3cm;
             }
    </style>
   </head>
   <body>
     <header>
-      <h4><b></b></h4>
-    </header>
-    <footer>
-      <h4><b></b></h4>
-    </footer>
+            <img src="{{ base_path() }}/public/img/header.png" width="100%" height="100%">
+        </header>
     <main>
       <div class="content-wrapper">
         <section class="content">
           <div class="row" style="border-top: 3px solid #03a9f4;">
-            <div class="col-xs-12">
-                <table class="table table-condensed">
-                  <tr>
+                <table class="table table-condensed table-responsive">
+                  <tr style="height: 4cm;">
                     <td style="width: 50%;" valign="top">
-                        <table class="table table-condensed">
-                          <tr><th colspan="2">EXECUTIVE PROFILE</th></tr>
-                          <tr>
-                            <!-- biodata -->
-                            <td rowspan="3" style="width: 36%">
-                              <img src="{{ base_path() }}/public/img/user-profile.png" class="img-responsive" alt="Photo" width="1200">
+                        <table class="table table-condensed" style="table-layout: fixed;">
+                        <!-- biodata -->
+                          <tr><th colspan="3">BIO</th></tr>
+                          <!-- foto profil & nip/grade -->
+                          <tr style="padding: 0px;">
+                            <!-- foto profil -->
+                            <td rowspan="5" style="width: 40%; vertical-align: bottom;" align="center">
+                              <img src="{{ base_path() }}/public/foto/6693081Z1_Didik Mardiyanto.JPG" alt="Photo" style="width: 4.8cm; height: 6.8cm; margin-top: 16px;">
                             </td>
-                            <td style="width: 64%">
-                              <p style="font-size: 13px;"><b>{{$exprofile->Nama_Lengkap}}</b><span class="pull-right">{{$exprofile->NIP}} / ADV02</span></p>
+                            <!-- nip/grade -->
+                            <td colspan="2" style="vertical-align: middle; text-align: center; background-color: #03a9f4; color: white;">
+                              <b style="font-size: 16px; text-align: center;">{{$exprofile->NIP}} / {{$exprofile->Grade}}</b>
+                            </td>                          
+                          </tr>
+                          <!-- nama lengkap -->
+                          <tr>
+                            <td colspan="2" style="width: 60%; vertical-align: middle;">
+                              <b style="font-size: 16px;">{{$exprofile->Nama_Lengkap}}</b>
+                            </td>
+                          </tr>
+                          <!-- jabatan saat ini -->
+                          <tr>
+                            <td colspan="2" style="vertical-align: middle;">
                               <p class="text-muted text-left">{{$exprofile->Jabatan_Saat_ini}}</p>
+                            </td>
+                          </tr>
+                          <!-- divisi satuan -->
+                          <tr>
+                            <td colspan="2" style="vertical-align: middle;">
                               <p class="text-muted text-left">{{$exprofile->Divisi_Satuan}}</p>
                             </td>
                           </tr>
+                          <!-- keterangan -->
                           <tr>
-                            <td><b>{{$exprofile->Gender}}</b>, lahir di <b>{{$exprofile->Kota_Lahir }}</b>, <b>{{$exprofile-> tgl_lahir}}</b>, <b>{{$exprofile->Religion}}</b></td>
+                            <td colspan="2">
+                              <b>{{$exprofile->Gender}}</b>, lahir di <b>{{$exprofile->Kota_Lahir }}</b>, <b>{{$exprofile-> tgl_lahir}}</b>, <b>{{$exprofile->Religion}}</b><br>
+                            Email: {{$exprofile->email_korporat}}; HP: {{$exprofile->handphone}}<br>{{$exprofile->Sosmed_Aktif}}: {{$exprofile-> akun_sosmed_aktif_twitter_instagram_facebook}};</td>
                           </tr>
-                          <tr>
-                            <td>Email: {{$exprofile->email_korporat}}; HP: {{$exprofile->handphone}}<br>{{$exprofile->Sosmed_Aktif}}: {{$exprofile-> akun_sosmed_aktif_twitter_instagram_facebook}};</td>
-                          </tr>
-                          <!-- end of biodata -->
+                        <!-- end of biodata -->
 
-                          <!-- certification -->
-                          <tr><th colspan="2">CERTIFICATION</th></tr>
+                        <!-- certification -->
+                          <tr><th colspan="3">CERTIFICATION</th></tr>
+                          @if (!empty($exprofile->Professional_Certification_1))
                           <tr>
                             <td>1<sub>st</sub>&nbsp;&nbsp;&nbsp;Professional Certification&nbsp;&nbsp;:</td>
-                            <td class="text-right">{{$exprofile->Professional_Certification_1}}</td>
+                            <td colspan="2">{{$exprofile->Professional_Certification_1}}</td>
                           </tr>
+                          @else
+                          @endif
+                          @if (!empty($exprofile->Professional_Certification_2))
                           <tr>
                             <td>2<sup>nd</sup>&nbsp;&nbsp;Professional Certification&nbsp;&nbsp;:</td>
-                            <td class="text-right">{{$exprofile->Professional_Certification_2}}</td>
+                            <td colspan="2">{{$exprofile->Professional_Certification_2}}</td>
                           </tr>
+                          @else
+                          @endif
+                          @if (!empty($exprofile->Professional_Certification_3))
                           <tr>
                             <td>3<sup>rd</sup>&nbsp;&nbsp;&nbsp;Professional Certification&nbsp;&nbsp;:</td>
-                            <td class="text-right">{{$exprofile->Professional_Certification_3}}</td>
+                            <td colspan="2">{{$exprofile->Professional_Certification_3}}</td>
                           </tr>
-                          <!-- end of certification -->
+                          @else
+                          @endif
+                        <!-- end of certification -->
 
-                          <!-- education -->
-                          <tr><th colspan="2" class="judul3">EDUCATION</th></tr>
-                          <tr><td colspan="2">{{$exprofile->Education_1}}</td></tr>
-                          <tr><td colspan="2">{{$exprofile->Education_2}}</td></tr>
-                          <!-- end of education -->
-
-                          <!-- area of expertise -->
+                        <!-- education -->
+                          <tr><th colspan="3" class="judul3">EDUCATION</th></tr>
                           <tr>
-                            <th colspan="2">AREA OF EXPERTISE</th>
+                            <td colspan="3">
+                            @if (!empty($exprofile->Education_1))
+                              {{$exprofile->Education_1}}<br>
+                            @else
+                            @endif
+                            @if (!empty($exprofile->Education_2))
+                              {{$exprofile->Education_2}}
+                            @else
+                            @endif
+                            </td>
                           </tr>
+                        <!-- end of education -->
+
+                        <!-- area of expertise -->
+                          <tr><th colspan="3">AREA OF EXPERTISE</th></tr>
+                          @if (!empty($exprofile->Area_of_Expertise_1))
                           <tr>
                             <td>1<sup>st</sup>&nbsp;&nbsp;&nbsp;Area of Expertise&nbsp;&nbsp;:</td>
-                            <td>{{$exprofile->Area_of_Expertise_1}}</td>
+                            <td colspan="2">{{$exprofile->Area_of_Expertise_1}}</td>
                           </tr>
+                          @else
+                          @endif
+                          @if (!empty($exprofile->Area_of_Expertise_2))
                           <tr>
                             <td>2<sup>nd</sup>&nbsp;&nbsp;Area of Expertise&nbsp;&nbsp;:</td>
-                            <td>{{$exprofile->Area_of_Expertise_2}}</td>
+                            <td colspan="2">{{$exprofile->Area_of_Expertise_2}}</td>
                           </tr>
+                          @else
+                          @endif
+                          @if (!empty($exprofile->Area_of_Expertise_3))
                           <tr>
                             <td>3<sup>rd</sup>&nbsp;&nbsp;&nbsp;Area of Expertise&nbsp;&nbsp;:</td>
-                            <td>{{$exprofile->Area_of_Expertise_3}}</td>
+                            <td colspan="2">{{$exprofile->Area_of_Expertise_3}}</td>
                           </tr>
-                          <!-- end of area of expertise -->
+                          @else
+                          @endif
+                        <!-- end of area of expertise -->
 
-                          <!-- career interest -->
-                          <tr>
-                            <th colspan="2">CAREER INTEREST</th>
-                          </tr>
+                        <!-- career interest -->
+                          <tr><th colspan="3">CAREER INTEREST</th></tr>
+                          @if (!empty($exprofile->Career_Interest_1))
                           <tr>
                             <td>1<sup>st</sup>&nbsp;&nbsp;&nbsp;Career Interest&nbsp;&nbsp;:</td>
-                            <td>{{$exprofile->Career_Interest_1}}</td>
+                            <td colspan="2">{{$exprofile->Career_Interest_1}}</td>
                           </tr>
+                          @else
+                          @endif
+                          @if (!empty($exprofile->Career_Interest_2))
                           <tr>
                             <td>2<sup>nd</sup>&nbsp;&nbsp;Career Interest&nbsp;&nbsp;:</td>
-                            <td>{{$exprofile->Career_Interest_2}}</td>
+                            <td colspan="2">{{$exprofile->Career_Interest_2}}</td>
                           </tr>
+                          @else
+                          @endif
+                          @if (!empty($exprofile->Career_Interest_3))
                           <tr>
                             <td>3<sup>rd</sup>&nbsp;&nbsp;&nbsp;Career Interest&nbsp;&nbsp;:</td>
-                            <td>{{$exprofile->Career_Interest_3}}</td>
+                            <td colspan="2">{{$exprofile->Career_Interest_3}}</td>
                           </tr>
-                          <!-- end of career interest -->
+                          @else
+                          @endif
+                        <!-- end of career interest -->
                         </table>
-
                     </td>
                     <td style="width: 50%;" valign="top">
                       <table class="table table-condensed">
@@ -153,33 +196,22 @@
                               <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                 Selain berkarir di PLN, Fulan adalah orang yang aktif menjadi narasumber di luar lingkungan PLN. Salah satu di antaranya adalah sebagai Pembicara dalam Supply Chain International Forum (SCIF) 2017, beberapa karya tulis telah dihasilkan oleh Fulan dengan tema yang berkaitan dengan Supply Chain dan Pengembangan Mutu SDM.</p></td>
                         </tr>
+                      <!-- masterpiece -->
                         <tr><th style="text-align: center;">3 BIGGEST MASTERPIECE</th></tr>
                         <tr>
                           <td>
-                            <p style="text-align: justify;text-justify: inter-word;">
-                                {{$exprofile->Masterpiece_1}}
-                            </p>
+                            <ul style="padding-left: 10px;">
+                              <li><p style="text-align: justify;text-justify: inter-word;">{{$exprofile->Masterpiece_1}}</p></li>
+                              <li><p style="text-align: justify;text-justify: inter-word;">{{$exprofile->Masterpiece_2}}</p></li>
+                              <li><p style="text-align: justify;text-justify: inter-word;">{{$exprofile->Masterpiece_3}}</p></li>
+                            </ul>
                           </td>
                         </tr>
-                        <tr>
-                          <td>
-                            <p style="text-align: justify;text-justify: inter-word;">
-                                {{$exprofile->Masterpiece_2}}
-                            </p>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>
-                            <p style="text-align: justify;text-justify: inter-word;">
-                                {{$exprofile->Masterpiece_3}}
-                            </p>
-                          </td>
-                        </tr>
+                      <!-- end of masterpiece -->
                       </table>
                     </td>
                   </tr>
                 </table>
-            </div>
           </div>
         </section>
       </div>
