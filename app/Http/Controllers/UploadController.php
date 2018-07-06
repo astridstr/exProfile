@@ -33,11 +33,12 @@ class UploadController extends Controller
  
                     foreach ($data as $key => $value) {
                         $insert[] = [
-                        'no' => $value->no,
                         'foto' => $value->foto,
+                        'file_foto' => $value->file_foto,
 			            'nama_lengkap'=> $value->nama_lengkap,
 			            'nip'=> $value->nip,
 			            'grade'=> $value->grade,
+                        'jenjang'=> $value->jenjang,
 			            'education_1'=> $value->education_1,
 			            'education_2'=> $value->education_2,
 			            'kota_lahir'=> $value->kota_lahir,
@@ -45,6 +46,7 @@ class UploadController extends Controller
 			            'gender'=> $value->gender,
 			            'religion'=> $value->religion,
 			            'kota_domisili_utama'=> $value->kota_domisili_utama,
+                        'alamat_tinggal_saat_ini' => $value->alamat_tinggal_saat_ini,
 			            'email_korporat'=> $value->email_korporat,
 			            'handphone'=> $value->handphone,
 			            'sosmed_aktif'=> $value->sosmed_aktif,
@@ -63,7 +65,9 @@ class UploadController extends Controller
 			            'masterpiece_1' => $value->masterpiece_1,
 			            'masterpiece_2' => $value->masterpiece_2,
 			            'masterpiece_3' => $value->masterpiece_3,
-			            'about_and_experience' => $value->about_and_experience,
+			            'about_and_experience_1' => $value->about_and_experience_1,
+                        'about_and_experience_2' => $value->about_and_experience_2,
+                        'about_and_experience_3' => $value->about_and_experience_3,
 			            ];
                     }
  

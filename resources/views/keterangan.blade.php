@@ -9,12 +9,17 @@
 
       <div class="row">
         <div class="col-md-4">
-        $exprofile 
           <!-- Profile Image -->
           <div class="box box-primary">
             <div class="box-body box-profile">
               <br>
-              <img style="margin: 0 auto; width: 160px; height: 240px; border-style: groove;" class="img-responsive" src="dist/img/4x6.jpg" alt="User profile picture">
+              @if(File::exists(public_path("fotoupload/".$exprofile->File_Foto.".jpg")))
+                  <img style="margin: 0 auto; width: 160px; height: 240px; border-style: groove;" class="img-responsive" src="{{ asset('fotoupload/'.$exprofile->File_Foto.'.jpg')  }}" alt= "User profile" />
+              @elseif(File::exists(public_path("fotoupload/".$exprofile->File_Foto.".png"))) 
+                  <img style="margin: 0 auto; width: 160px; height: 240px; border-style: groove;" class="img-responsive" src="{{ asset('fotoupload/'.$exprofile->File_Foto.'.png')  }}" alt= "User profile" />
+              @else
+                  <img style="margin: 0 auto; width: 300px; height: 240px; border-style: groove;" src="{{ asset('img/user-profile.png') }}" alt="User profile" />
+              @endif
               <h4 class="text-center"><strong>{{$exprofile->Nama_Lengkap}}</strong><span style="font-size: 16px;"> (Ir., M.T.)</span></h4>
               <p class="text-muted text-center">NIK. {{$exprofile->NIP}}<br>NPWP</p>
 

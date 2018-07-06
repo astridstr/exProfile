@@ -15,11 +15,12 @@ class CreateExprofilesTable extends Migration
     {
         Schema::create('exprofiles', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('No', 190)->nullable();
             $table->string('Foto')->nullable();
+            $table->string('File_Foto')->nullable();
             $table->string('Nama_Lengkap', 190)->nullable();
             $table->string('NIP', 190)->nullable();
             $table->string('Grade', 190)->nullable();
+            $table->string('Jenjang', 190)->nullable();
             $table->string('Education_1', 190)->nullable();
             $table->string('Education_2', 190)->nullable();
             $table->string('Kota_Lahir', 190)->nullable();
@@ -27,6 +28,7 @@ class CreateExprofilesTable extends Migration
             $table->string('Gender', 190)->nullable();
             $table->string('Religion', 190)->nullable();
             $table->string('Kota_Domisili_Utama', 190)->nullable();
+            $table->string('Alamat_Tinggal_Saat_Ini', 190)->nullable();
             $table->string('email_korporat', 190)->nullable();
             $table->string('handphone', 190)->nullable();
             $table->string('Sosmed_Aktif', 190)->nullable();
@@ -45,7 +47,9 @@ class CreateExprofilesTable extends Migration
             $table->longText('Masterpiece_1', 190)->nullable();
             $table->longText('Masterpiece_2', 190)->nullable();
             $table->longText('Masterpiece_3', 190)->nullable();
-            $table->longText('About_and_Experience')->nullable();
+            $table->longText('About_and_Experience_1')->nullable();
+            $table->longText('About_and_Experience_2')->nullable();
+            $table->longText('About_and_Experience_3')->nullable();
         });
     }
 

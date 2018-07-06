@@ -34,3 +34,6 @@ Route::get('/formexprofile', function () {
 Route::get('/upload', 'UploadController@index')->name('index');
 Route::post('import', 'UploadController@import')->name('import');
 
+Route::get('/formexprofilev1', function () {
+    return view('formexprofilev1');
+})->name('formexprofilev1');

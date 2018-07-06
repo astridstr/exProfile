@@ -10,7 +10,7 @@ class ExecutiveController extends Controller
     public function index()
     {
         $exprofile = DB::table('exprofiles')
-            ->where('NIP', '6795025 P')
+            ->where('NIP', '6894001Z')
             ->select('*')
             ->first();
         // dd($exprofile);
