@@ -10,9 +10,10 @@ class FormController extends Controller
     public function formview()
     {
     	 $exprofile = DB::table('exprofiles')
-            ->where('NIP', '6792085Z')
+            ->where('NIP', '6894001Z')
             ->select('*')
             ->first();
+        //dd($exprofile);
 
         $divisi = DB::table('divisi')
             ->select('nama_divisi')
@@ -21,17 +22,18 @@ class FormController extends Controller
         return view('formexprofilev1', ['exprofile' => $exprofile,'divisi' => $divisi] );
     }
 
-    public function formedit(Request $request)
+    public function formeditdiri(Request $request)
     {
         $exprofile = DB::table('exprofiles')
             ->where('NIP', '6792085Z')
             ->select('*')
             ->first();
+
         dd($exprofile);
-        $exprofile->name = $request->input('nama');
-        $exprofile->type_bisnis = $request->input('tipe_bisnis');
-        $exprofile->nama_bisnis = $request->input('nama_bisnis');
-        $exprofile->email = $request->input('email');
+        $exprofile->Nama_Lengkap = $request->input('nama');
+        $exprofile->NIP = $request->input('nip');
+        $exprofile->Grade = $request->input('grade');
+        $exprofile->Jenjang = $request->input('email');
         $exprofile->alamat = $request->input('alamat');
         $exprofile->no_hp = $request->input('no_hp');
 
