@@ -84,7 +84,10 @@ tr > th {
                           <!-- nip/grade -->
                           <tr>
                             <td colspan="2" style="vertical-align: middle; text-align: center; background-color: #03a9f4; color: white;">
-                              <b style="font-size: 16px; text-align: center;">{{$exprofile->NIP}} / {{$exprofile->Grade}}</b>
+                              <table>
+                                <tr><td class="text-justify"><b style="font-size: 16px; text-align: center;">{{$exprofile->NIP}} / {{$exprofile->Grade}}</b></td></tr>
+                                <tr><td><b style="font-size: 16px; text-align: center;">{{$exprofile->NIP}} / {{$exprofile->Grade}}</b></td></tr>
+                              </table>
                             </td>  
                           </tr>
                           <!-- jabatan saat ini -->
@@ -141,8 +144,8 @@ tr > th {
                               {{$exprofile->Education_1}}<br>
                             @else
                             @endif
-                            @if (!empty($exprofile->Education_1))
-                              {{$exprofile->Education_1}}
+                            @if (!empty($exprofile->Education_2))
+                              {{$exprofile->Education_2}}
                             @else
                             @endif
                             </td>
