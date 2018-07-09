@@ -26,8 +26,8 @@ Route::get('/', function () {
 // Superadmin Route
 Route::group(['prefix' => 'WxYz0', 'middleware' => ['auth', 'role:superadmin']], function(){
     Route::get('/dashboard', 'SuperadminController@index')->name('superadmin.dashboard');
-	Route::get('/upload', 'UploadController@index')->name('upload');
-	Route::post('import', 'UploadController@import')->name('import');
+	//Route::get('/upload', 'UploadController@index')->name('upload');
+	//Route::post('import', 'UploadController@import')->name('import');
 });
 
 
@@ -66,9 +66,14 @@ Route::get('/formexprofile', function () {
 })->name('formexprofile');
 
 
-Route::get('/formexprofilev1', function () {
-    return view('formexprofilev1');
-})->name('formexprofilev1');
+Route::get('/upload', 'UploadController@index')->name('upload');
+Route::post('import', 'UploadController@import')->name('import');
 
 Route::post('/formexprofilev1','FormController@formeditdiri')->name('formeditdiri');
 Route::get('/formexprofilev1','FormController@formview')->name('formview');
+
+Route::post('/formexprofilev1edu','FormController@formeditedu')->name('formeditedu');
+Route::post('/formexprofilev1career','FormController@formeditcareer')->name('formeditcareer');
+Route::post('/formexprofilev1master','FormController@formeditmaster')->name('formeditmaster');
+
+

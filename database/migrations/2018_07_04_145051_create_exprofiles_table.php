@@ -24,7 +24,7 @@ class CreateExprofilesTable extends Migration
             $table->string('Education_1', 190)->nullable();
             $table->string('Education_2', 190)->nullable();
             $table->string('Kota_Lahir', 190)->nullable();
-            $table->date('tgl_lahir', 190)->nullable();
+            $table->string('tgl_lahir', 190)->nullable();
             $table->string('Gender', 190)->nullable();
             $table->string('Religion', 190)->nullable();
             $table->string('Kota_Domisili_Utama', 190)->nullable();
