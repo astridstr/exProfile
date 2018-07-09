@@ -74,7 +74,19 @@ tr > th {
                           <tr style="padding: 0px;">
                             <!-- foto profil -->
                             <td rowspan="5" style="width: 40%; vertical-align: bottom;" align="center">
-                              <img src="{{ base_path() }}/public/foto/6693081Z1_Didik Mardiyanto.JPG" alt="Photo" style="width: 4.8cm; height: 6.8cm; margin-top: 16px;">
+                              @if(File::exists(base_path("public/fotoupload/".$exprofile->File_Foto.".JPG")))
+                              <img src="{{ base_path() }}/public/fotoupload/{{$exprofile->File_Foto}}.JPG" alt="Photo" style="width: 4.8cm; height: 6.8cm; margin-top: 16px;">
+                              @elseif(File::exists(base_path("public/fotoupload/".$exprofile->File_Foto.".PNG")))
+                              <img src="{{ base_path() }}/public/fotoupload/{{$exprofile->File_Foto}}.PNG" alt="Photo" style="width: 4.8cm; height: 6.8cm; margin-top: 16px;">
+                              @elseif(File::exists(base_path("public/fotoupload/".$exprofile->File_Foto.".jpg")))
+                              <img src="{{ base_path() }}/public/fotoupload/{{$exprofile->File_Foto}}.jpg" alt="Photo" style="width: 4.8cm; height: 6.8cm; margin-top: 16px;">
+                              @elseif(File::exists(base_path("public/fotoupload/".$exprofile->File_Foto.".png")))
+                              <img src="{{ base_path() }}/public/fotoupload/{{$exprofile->File_Foto}}.png" alt="Photo" style="width: 4.8cm; height: 6.8cm; margin-top: 16px;">
+                              @elseif(File::exists(base_path("public/fotoupload/".$exprofile->File_Foto.".jpeg")))
+                              <img src="{{ base_path() }}/public/fotoupload/{{$exprofile->File_Foto}}.jpeg" alt="Photo" style="width: 4.8cm; height: 6.8cm; margin-top: 16px;">
+                              @else
+                              <img src="{{ base_path() }}/public/img/user-profile.png" alt="Photo" style="width: 4.8cm; height: 6.8cm; margin-top: 16px;">
+                              @endif
                             </td>
                             <!-- nama lengkap -->
                             <td colspan="2" style="width: 60%; vertical-align: middle;">
