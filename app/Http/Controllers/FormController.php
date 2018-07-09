@@ -25,11 +25,12 @@ class FormController extends Controller
             ->select('nama_divisi')
             ->get();
 
-         $interest = DB::table('interest')
+        $interest = DB::table('interest')
             ->select('nama_interest')
             ->get();
 
-        return view('formexprofilev1', ['exprofile' => $exprofile,'divisi' => $divisi, 'interest' => $interest] );
+        return view('pegawai.form-exprofile', ['exprofile' => $exprofile,'divisi' => $divisi, 'interest' => $interest] );
+
     }
 
     public function formeditdiri(Request $request)

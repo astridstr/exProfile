@@ -38,6 +38,7 @@
     }
   </style>
 </head>
+
 <body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">
 
@@ -54,8 +55,6 @@
     <!-- Header Navbar: style can be found in header.less -->
     @include('layouts.navbar')
   </header>
-  <!-- Left side column. contains the logo and sidebar -->
-  @include('layouts.sidebar')
 
   <!-- Content Wrapper. Contains page content -->
   @yield('content')
