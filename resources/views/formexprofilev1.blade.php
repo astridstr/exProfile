@@ -139,16 +139,17 @@
       </div>
     <!-- /.tab-pane -->
     <div class="tab-pane" id="pendidikan">
-        <div class="box-body">
+     <form action="{{url('/formexprofilev1edu')}}" method="post" enctype="multipart/form-data">
+       <div class="box-body">
           <div class="row">
               <div class="col-md-6"> 
               <div class="form-group">
                   <label>Pendidikan Terakhir 1</label>
-                  <textarea class="form-control" rows="3" placeholder="{{$exprofile->Education_1}} " name="edu1"></textarea>
+                  <textarea class="form-control" rows="3" value="{{$exprofile->Education_1}} " name="edu1" placeholder="Pendidikan Terakhir 1" >{{$exprofile->Education_1}}</textarea>
               </div>
               <div class="form-group">
                   <label>Pendidikan Terakhir 1</label>
-                  <textarea class="form-control" rows="3" placeholder="{{$exprofile->Education_2}}"  name="edu2"></textarea>
+                  <textarea class="form-control" rows="3" value="{{$exprofile->Education_2}}"  name="edu2" placeholder="Pendidikan Terakhir 2">{{$exprofile->Education_1}}</textarea>
               </div>
           <!-- /.form-group -->
               </div>
@@ -156,24 +157,25 @@
             <div class="col-md-6"> 
                 <div class="form-group">
                   <label>Penghargaan 1</label>
-                  <textarea class="form-control" rows="3" placeholder="{{$exprofile->Professional_Certification_1}}"></textarea>
+                  <textarea class="form-control" rows="3" value="{{$exprofile->Professional_Certification_1}}" name="certif1" placeholder="Penghargaan atau Sertifikasi">{{$exprofile->Professional_Certification_1}</textarea>
               </div>
               <div class="form-group">
                   <label>Penghargaan 2</label>
-                  <textarea class="form-control" rows="3" placeholder="{{$exprofile->Professional_Certification_2}} "></textarea>
+                  <textarea class="form-control" rows="3" value="{{$exprofile->Professional_Certification_2}}" placeholder="Penghargaan atau Sertifikasi" name="certif2">{{$exprofile->Professional_Certification_2}}</textarea>
               </div>
               <div class="form-group">
                   <label>Penghargaan 2</label>
-                  <textarea class="form-control" rows="3" placeholder="{{$exprofile->Professional_Certification_3}} "></textarea>
+                  <textarea class="form-control" rows="3" value="{{$exprofile->Professional_Certification_3}} " placeholder="Penghargaan atau Sertifikasi" name="certif3">{{$exprofile->Professional_Certification_3}}</textarea>
               </div>
               <!-- /.form-group -->
             </div>
             <!-- /.col -->
           </div>
-          <a class="btn btn-primary btn-md pull-left" data-toggle="modal" data-target="#modal-default"> Simpan </a>
+          <button type="submit" class="btn btn-primary">Simpan</button>
           <!-- /.row -->
         </div>
         <!-- /.box-body -->           
+    </form>
     </div>        
 
       <div class="tab-pane" id="carier">       
