@@ -3,11 +3,13 @@
 namespace App\Http\Controllers;
  
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
 use Session;
 use Excel;
 use File;
- 
+use App\User;
+use App\UserRole;
 class UploadController extends Controller
 {
     public function index()
@@ -70,11 +72,24 @@ class UploadController extends Controller
                         'about_and_experience_3' => $value->about_and_experience_3,
 			            ];
                     }
+
+                    foreach ($data as $key => $value) {
+                        $user = User::create([
+                            'email' => $value->nip,
+                            'password' => Hash::make($value->tgl_lahir),
+                        ]);
+                        
+                        $role = UserRole::create([
+                            'role_id' => '4',
+                            'user_id' => $user->id,
+                        ]);
+                    }
  
                     if(!empty($insert)){
 
  
                         $insertData = DB::table('exprofiles')->insert($insert);
+                        
                         if ($insertData) {
                             Session::flash('success', 'Your Data has successfully imported');
                         }else {                        

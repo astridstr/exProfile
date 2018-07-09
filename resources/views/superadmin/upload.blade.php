@@ -7,7 +7,7 @@
     <section class="content-header">
       <h1>
         Upload File
-        <small>Excel/CSV</small>
+        <small>Data Pegawai</small>
       </h1>
     </section>
     <!-- Main content -->
