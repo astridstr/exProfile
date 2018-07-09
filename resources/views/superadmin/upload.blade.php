@@ -1,7 +1,10 @@
 
-@extends('superadmin.app')
+@extends('layouts.app')
 
 @section('content')
+
+@include('superadmin.sidebar')
+
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">

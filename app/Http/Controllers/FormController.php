@@ -23,7 +23,7 @@ class FormController extends Controller
             ->select('nama_divisi')
             ->get();
 
-        return view('formexprofilev1', ['exprofile' => $exprofile,'divisi' => $divisi] );
+        return view('pegawai.form-exprofile', ['exprofile' => $exprofile,'divisi' => $divisi] );
     }
 
     public function formeditdiri(Request $request)

@@ -85,7 +85,9 @@ tr > th {
                           <tr>
                             <td colspan="2" style="vertical-align: middle; text-align: center; background-color: #03a9f4; color: white;">
                               <table>
-                                <tr><td class="text-justify"><b style="font-size: 16px; text-align: center;">{{$exprofile->NIP}} / {{$exprofile->Grade}}</b></td></tr>
+                                <tr><td class="text-center"><b style="font-size: 16px; text-align: center;">
+                                ITMS Stat : 
+                                @if ($exprofile->Jenjang == 'Manajemen Atas')</b></td></tr>
                                 <tr><td><b style="font-size: 16px; text-align: center;">{{$exprofile->NIP}} / {{$exprofile->Grade}}</b></td></tr>
                               </table>
                             </td>  

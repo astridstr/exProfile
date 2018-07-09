@@ -8,6 +8,9 @@
         <ul class="nav navbar-nav">
           <!-- Control Sidebar Toggle Button -->
           <li>
+             <a class="dropdown-item" href="#">Selamat Datang, {{$exprofile->Nama_Lengkap}}</a>
+          </li>
+          <li>
              <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">{{ __('Logout') }}</a>
              <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                @csrf
