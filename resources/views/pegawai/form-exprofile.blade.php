@@ -3,7 +3,6 @@
 @section('content')
 
 @include('pegawai.sidebar')
-
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
@@ -25,7 +24,7 @@
             </ul>
     <div class="tab-content">
       <div class="active tab-pane" id="activity">
-      <form action="{{url('/formexprofilev1')}}" method="post" enctype="multipart/form-data">
+      <form action="{{route('formeditdiri')}}" method="post" enctype="multipart/form-data">
       {{ csrf_field() }}
       <!-- /.box-header -->
         <div class="box-body">
@@ -33,32 +32,32 @@
             <div class="col-md-6">
               <div class="form-group">
                   <label for="exampleInputEmail1">Nama</label>
-                  <input type="text" class="form-control" id="exampleInputEmail1" value="{{$exprofile->Nama_Lengkap}}" placeholder="Nama Pegawai" name="nama" >
+                  <input type="text" class="form-control" id="exampleInputEmail1" value="{{$exprofile->Nama_Lengkap}}" placeholder="Nama Pegawai" name="nama" disabled>
               </div>
               <div class="form-group">
                   <label for="exampleInputPassword1">Grade</label>
-                  <input type="text" class="form-control" id="exampleInputPassword1" value="{{$exprofile->Grade}}" placeholder="Grade" name="grade">
+                  <input type="text" class="form-control" id="exampleInputPassword1" value="{{$exprofile->Grade}}" placeholder="Grade" name="grade" disabled>
               </div>
               <div class="form-group">
                 <label> Divisi</label>
-                <select class="form-control select2" style="width: 100%;" name="divisi">
+                <select class="form-control select2" style="width: 100%;" name="divisi" disabled>
                 <option selected="selected" value="{{$exprofile->Divisi_Satuan}}" >{{$exprofile->Divisi_Satuan}}</option>
                 @foreach($divisi as $div)
-                  <option>{{$div->nama_divisi}}</option>
+                  <option value="{{$div->nama_divisi}}">{{$div->nama_divisi}}</option>
                 @endforeach
                 </select>
               </div>
               <div class="form-group">
                   <label for="exampleInputPassword1">Kota Lahir</label>
-                  <input type="text" class="form-control" id="exampleInputPassword1" value ="{{$exprofile->Kota_Lahir}}" placeholder="Kota Kelahiran" name="kota_lahir" >
+                  <input type="text" class="form-control" id="exampleInputPassword1" value ="{{$exprofile->Kota_Lahir}}" placeholder="Kota Kelahiran" name="kota_lahir" disabled>
               </div>
               <div class="form-group">
                   <label for="exampleInputPassword1">Agama</label>
-                  <input type="text" class="form-control" id="exampleInputPassword1" value ="{{$exprofile->Religion}}" placeholder="Kota Kelahiran" name="agama" >
+                  <input type="text" class="form-control" id="exampleInputPassword1" value ="{{$exprofile->Religion}}" placeholder="Kota Kelahiran" name="agama" disabled>
               </div>
               <div class="form-group">
                   <label for="exampleInputPassword1">Email</label>
-                  <input type="email" class="form-control" id="exampleInputPassword1" value="{{$exprofile->email_korporat}}" placeholder="Email Korporat" name="email" >
+                  <input type="email" class="form-control" id="exampleInputPassword1" value="{{$exprofile->email_korporat}}" placeholder="Email Korporat" name="email" disabled >
               </div>
               <div class="form-group">
                   <label for="exampleInputPassword1">Media Sosial</label>
@@ -92,19 +91,19 @@
             <div class="col-md-6">
               <div class="form-group">
                   <label for="exampleInputPassword1">NIP</label>
-                  <input type="text" class="form-control" id="exampleInputPassword1" value="{{$exprofile->NIP}}" placeholder="NIP" name="nip" >
+                  <input type="text" class="form-control" id="exampleInputPassword1" value="{{$exprofile->NIP}}" placeholder="NIP" name="nip" disabled>
               </div>
               <div class="form-group">
                   <label for="exampleInputPassword1">Posisi</label>
-                  <input type="text" class="form-control" id="exampleInputPassword1" value ="{{$exprofile->Jabatan_Saat_ini}}" placeholder="Posisi Saat Ini" name="jabatan">
+                  <input type="text" class="form-control" id="exampleInputPassword1" value ="{{$exprofile->Jabatan_Saat_ini}}" placeholder="Posisi Saat Ini" name="jabatan" disabled>
               </div>
               <div class="form-group">
                   <label for="exampleInputPassword1">Jenjang</label>
-                  <input type="text" class="form-control" id="exampleInputPassword1" placeholder="{{$exprofile->Jenjang}}" value="{{$exprofile->Jenjang}}" name="jenjang">
+                  <input type="text" class="form-control" id="exampleInputPassword1" placeholder="{{$exprofile->Jenjang}}" value="{{$exprofile->Jenjang}}" name="jenjang" disabled>
               </div>
               <div class="form-group">
                   <label for="exampleInputPassword1">Tanggal Lahir</label>
-                  <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Tanggal Kelahiran" value="{{$exprofile->tgl_lahir}}" name="tgl_lahir">
+                  <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Tanggal Kelahiran" value="{{$exprofile->tgl_lahir}}" name="tgl_lahir" disabled>
               </div>
               <div class="form-group">
                 <label>Jenis Kelamin</label>
@@ -142,7 +141,8 @@
       </div>
     <!-- /.tab-pane -->
     <div class="tab-pane" id="pendidikan">
-     <form action="{{url('/formexprofilev1edu')}}" method="post" enctype="multipart/form-data">
+     <form action="{{route('formeditedu')}}" method="post" enctype="multipart/form-data">
+      {{ csrf_field() }}
        <div class="box-body">
           <div class="row">
               <div class="col-md-6"> 
@@ -167,7 +167,7 @@
                   <textarea class="form-control" rows="3" value="{{$exprofile->Professional_Certification_2}}" placeholder="Penghargaan atau Sertifikasi" name="certif2">{{$exprofile->Professional_Certification_2}}</textarea>
               </div>
               <div class="form-group">
-                  <label>Penghargaan 2</label>
+                  <label>Penghargaan 3</label>
                   <textarea class="form-control" rows="3" value="{{$exprofile->Professional_Certification_3}} " placeholder="Penghargaan atau Sertifikasi" name="certif3">{{$exprofile->Professional_Certification_3}}</textarea>
               </div>
               <!-- /.form-group -->
@@ -181,43 +181,58 @@
     </form>
     </div>        
 
-      <div class="tab-pane" id="carier">       
+      <div class="tab-pane" id="carier">
+      <form action="{{route('formeditcareer')}}" method="post" enctype="multipart/form-data">
+      {{ csrf_field() }}       
         <!-- /.box-header -->
         <div class="box-body">
           <div class="row">
             <div class="col-md-6">
               <div class="form-group">
                   <label for="exampleInputEmail1">1st Expertise </label>
-                  <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Keahlian 1">
+                  <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Keahlian 1" name="expert1" value="{{$exprofile->Area_of_Expertise_1}} ">
               </div>
               <div class="form-group">
                   <label for="exampleInputPassword1">2nd Expertise</label>
-                  <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Keahlian 2">
+                  <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Keahlian 2" name="expert2" value="{{$exprofile->Area_of_Expertise_2}} ">
               </div>
               <div class="form-group">
                   <label for="exampleInputPassword1">3rd Expertise</label>
-                  <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Keahlian 3">
+                  <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Keahlian 3" name="expert3" value="{{$exprofile->Area_of_Expertise_3}} ">
               </div>
-              <a class="btn btn-primary btn-md pull-left" data-toggle="modal" data-target="#modal-default"> Simpan </a>
+              <button type="submit" class="btn btn-primary">Simpan</button>
             </div>
             <!-- /.col -->
             <div class="col-md-6">
              <div class="form-group">
                 <label> 1st Interest</label>
-                <select class="form-control select2" style="width: 100%;">
-                  <option >Human Capital (SDM)</option>
+                <select class="form-control select2" style="width: 100%;" name="interest1">
+                <option selected value="{{$exprofile->Career_Interest_1}}">{{$exprofile->Career_Interest_1}}</option>
+                <option value=""></option>
+                @foreach($interest as $inter)
+                  <option value="{{$inter->nama_interest}}">{{$inter->nama_interest}}</option>
+                @endforeach
+                <option value="{{$inter->nama_interest}}"></option>
                 </select>
               </div>
               <div class="form-group">
                 <label> 2nd Interest</label>
-                <select class="form-control select2" style="width: 100%;">
-                  <option>Human Capital (SDM)</option>
+                <select class="form-control select2" style="width: 100%;" name="interest2">
+                <option selected value="{{$exprofile->Career_Interest_2}}">{{$exprofile->Career_Interest_2}}</option>
+                <option value=""></option>
+                @foreach($interest as $inter)
+                  <option value="{{$inter->nama_interest}}">{{$inter->nama_interest}}</option>
+                @endforeach
                 </select>
               </div>
               <div class="form-group">
                 <label> 3rd Interest</label>
-                <select class="form-control select2" style="width: 100%;">
-                  <option>Human Capital (SDM)</option>
+                <select class="form-control select2" style="width: 100%;" name="interest3">
+                <option selected value="{{$exprofile->Career_Interest_3}}">{{$exprofile->Career_Interest_3}}</option>
+                <option value=""></option>
+                @foreach($interest as $inter)
+                  <option value="{{$inter->nama_interest}}">{{$inter->nama_interest}}</option>
+                @endforeach
                 </select>
               </div>
               <!-- /.form-group -->
@@ -227,32 +242,36 @@
           <!-- /.row -->
         </div>
         <!-- /.box-body -->
+        </form>
         </div>
       <!-- /.tab-pane -->
       <div class="tab-pane" id="masterpiece">
+      <form action="{{route('formeditmaster')}}" method="post" enctype="multipart/form-data">
+      {{ csrf_field() }} 
         <div class="box-body">
           <div class="row">
               <div class="col-md-6"> 
               <div class="form-group">
                   <label>Masterpiece 1</label>
-                  <textarea class="form-control" rows="3" placeholder="Masterpiece 1 "></textarea>
+                  <textarea class="form-control" rows="3" placeholder="Masterpiece 1 " value ="{{$exprofile->Masterpiece_1}}" name="master1" > {{$exprofile->Masterpiece_1}}</textarea>
               </div>
               <div class="form-group">
                   <label>Masterpiece 2</label>
-                  <textarea class="form-control" rows="3" placeholder="Masterpiece 2 "></textarea>
+                  <textarea class="form-control" rows="3" placeholder="Masterpiece 2 " value ="{{$exprofile->Masterpiece_1}}" name="master2"> {{$exprofile->Masterpiece_2}}</textarea>
               </div>
               <div class="form-group">
                   <label>Masterpiece 3</label>
-                  <textarea class="form-control" rows="3" placeholder="Masterpiece 3 "></textarea>
+                  <textarea class="form-control" rows="3" placeholder="Masterpiece 3 " value ="{{$exprofile->Masterpiece_1}}" name="master3"> {{$exprofile->Masterpiece_3}}</textarea>
               </div>
           <!-- /.form-group -->
               </div>
             <!-- /.col -->
           </div>
-          <a class="btn btn-primary btn-md pull-left" data-toggle="modal" data-target="#modal-default"> Simpan </a>
+          <button type="submit" class="btn btn-primary">Simpan</button>
           <!-- /.row -->
         </div>
-        <!-- /.box-body -->           
+        <!-- /.box-body -->
+      </form>           
     </div>
             </div>
             <!-- /.tab-content -->

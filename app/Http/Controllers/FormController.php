@@ -75,7 +75,7 @@ class FormController extends Controller
             $exprofile->save();
         }
         
-        return redirect('formexprofilev1');
+        return redirect()->intended(route('form.view'));
     }
 
 
@@ -90,7 +90,7 @@ class FormController extends Controller
         $exprofile->Professional_Certification_3 = $request->input('certif3');
 
         $exprofile->save();
-        return redirect('formexprofilev1');
+        return redirect()->intended(route('form.view'));
     }
 
      public function formeditcareer(Request $request)
@@ -105,7 +105,7 @@ class FormController extends Controller
         $exprofile->Career_Interest_3 = $request->input('interest3');
        
         $exprofile->save();
-        return redirect('formexprofilev1');
+        return redirect()->intended(route('form.view'));
     }
 
     public function formeditmaster(Request $request)
@@ -117,7 +117,7 @@ class FormController extends Controller
         $exprofile->Masterpiece_3 = $request->input('master3');
        
         $exprofile->save();
-        return redirect('formexprofilev1');
+        return redirect()->intended(route('form.view'));
     }
 
 

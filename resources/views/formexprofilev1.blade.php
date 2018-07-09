@@ -22,7 +22,7 @@
             </ul>
     <div class="tab-content">
       <div class="active tab-pane" id="activity">
-      <form action="{{url('/formexprofilev1')}}" method="post" enctype="multipart/form-data">
+      <form action="{{url('/formexprofile/v1')}}" method="post" enctype="multipart/form-data">
       {{ csrf_field() }}
       <!-- /.box-header -->
         <div class="box-body">
@@ -139,7 +139,7 @@
       </div>
     <!-- /.tab-pane -->
     <div class="tab-pane" id="pendidikan">
-     <form action="{{url('/formexprofilev1edu')}}" method="post" enctype="multipart/form-data">
+     <form action="{{url('/formexprofile/v1edu')}}" method="post" enctype="multipart/form-data">
       {{ csrf_field() }}
        <div class="box-body">
           <div class="row">
@@ -180,7 +180,7 @@
     </div>        
 
       <div class="tab-pane" id="carier">
-      <form action="{{url('/formexprofilev1career')}}" method="post" enctype="multipart/form-data">
+      <form action="{{url('/formexprofile/v1career')}}" method="post" enctype="multipart/form-data">
       {{ csrf_field() }}       
         <!-- /.box-header -->
         <div class="box-body">
@@ -244,7 +244,7 @@
         </div>
       <!-- /.tab-pane -->
       <div class="tab-pane" id="masterpiece">
-      <form action="{{url('/formexprofilev1master')}}" method="post" enctype="multipart/form-data">
+      <form action="{{url('/formexprofile/v1master')}}" method="post" enctype="multipart/form-data">
       {{ csrf_field() }} 
         <div class="box-body">
           <div class="row">

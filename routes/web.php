@@ -52,6 +52,9 @@ Route::group(['prefix' => '4', 'middleware' => ['auth', 'role:pegawai']], functi
     Route::get('/dashboard', 'ExecutiveController@index')->name('pegawai.dashboard');
     Route::post('/form/exprofile/v1','FormController@formeditdiri')->name('formeditdiri');
     Route::get('/form/exprofile/v1','FormController@formview')->name('form.view');
+    Route::post('/form/exprofile/v1edu','FormController@formeditedu')->name('formeditedu');
+    Route::post('/form/exprofile/v1career','FormController@formeditcareer')->name('formeditcareer');
+    Route::post('/form/exprofile/v1master','FormController@formeditmaster')->name('formeditmaster');
 
 
 });
@@ -72,6 +75,4 @@ Route::get('/executive/profile/download', 'PdfGenerateController@download')->nam
 
 Route::get('/keterangan','TampilRiwayatController@profile1')->name('keterangan');
 
-Route::post('/formexprofilev1edu','FormController@formeditedu')->name('formeditedu');
-Route::post('/formexprofilev1career','FormController@formeditcareer')->name('formeditcareer');
-Route::post('/formexprofilev1master','FormController@formeditmaster')->name('formeditmaster');
+
