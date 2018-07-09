@@ -8,7 +8,8 @@ use Illuminate\Http\Request;
 use Session;
 use Excel;
 use File;
- 
+use App\User;
+use App\UserRole;
 class UploadController extends Controller
 {
     public function index()
@@ -73,9 +74,14 @@ class UploadController extends Controller
                     }
 
                     foreach ($data as $key => $value) {
-                        return User::create([
-                            'nip' => $data['nip'],
-                            'password' => Hash::make($data['password']),
+                        $user = User::create([
+                            'email' => $value->nip,
+                            'password' => Hash::make($value->tgl_lahir),
+                        ]);
+                        
+                        $role = UserRole::create([
+                            'role_id' => '4',
+                            'user_id' => $user->id,
                         ]);
                     }
  

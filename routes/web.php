@@ -16,7 +16,13 @@ Route::get('/', function () {
                return redirect()->route('superadmin.dashboard');
         }
         elseif ( $userrole->role_id == '2' ) {
-               return redirect()->route('petugas.home');
+               return redirect()->route('plnpusat.dashboard');
+        }
+        elseif ( $userrole->role_id == '3' ) {
+               return redirect()->route('unit.dashboard');
+        }
+        elseif ( $userrole->role_id == '4' ) {
+               return redirect()->route('pegawai.dashboard');
         }     
         return view('home'); 
     }
@@ -24,7 +30,7 @@ Route::get('/', function () {
 })->name('index');
 
 // Superadmin Route
-Route::group(['prefix' => 'WxYz0', 'middleware' => ['auth', 'role:superadmin']], function(){
+Route::group(['prefix' => '1', 'middleware' => ['auth', 'role:superadmin']], function(){
     Route::get('/dashboard', 'SuperadminController@index')->name('superadmin.dashboard');
 	Route::get('/upload', 'UploadController@index')->name('upload');
 	Route::post('import', 'UploadController@import')->name('import');
@@ -32,18 +38,19 @@ Route::group(['prefix' => 'WxYz0', 'middleware' => ['auth', 'role:superadmin']],
 
 
 // Superadmin Route
-Route::group(['prefix' => '1', 'middleware' => ['auth', 'role:plnpusat']], function(){
+Route::group(['prefix' => '2', 'middleware' => ['auth', 'role:plnpusat']], function(){
     Route::get('/dashboard', 'SuperadminController@index')->name('plnpusat.dashboard');
 });
 
 // Superadmin Route
-Route::group(['prefix' => '2', 'middleware' => ['auth', 'role:unit']], function(){
+Route::group(['prefix' => '3', 'middleware' => ['auth', 'role:unit']], function(){
     Route::get('/dashboard', 'SuperadminController@index')->name('unit.dashboard');
 });
 
 // Superadmin Route
-Route::group(['prefix' => '0', 'middleware' => ['auth', 'role:pegawai']], function(){
-    Route::get('/dashboard', 'SuperadminController@index')->name('pegawai.dashboard');
+Route::group(['prefix' => '4', 'middleware' => ['auth', 'role:pegawai']], function(){
+    Route::get('/dashboard', 'ExecutiveController@index')->name('pegawai.dashboard');
+    
 });
 
 
