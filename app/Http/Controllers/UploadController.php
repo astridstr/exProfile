@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
  
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
 use Session;
 use Excel;
@@ -70,11 +71,19 @@ class UploadController extends Controller
                         'about_and_experience_3' => $value->about_and_experience_3,
 			            ];
                     }
+
+                    foreach ($data as $key => $value) {
+                        return User::create([
+                            'nip' => $data['nip'],
+                            'password' => Hash::make($data['password']),
+                        ]);
+                    }
  
                     if(!empty($insert)){
 
  
                         $insertData = DB::table('exprofiles')->insert($insert);
+                        
                         if ($insertData) {
                             Session::flash('success', 'Your Data has successfully imported');
                         }else {                        

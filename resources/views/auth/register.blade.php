@@ -11,14 +11,13 @@
     <p class="login-box-msg">{{ __('Register') }}</p>
 
     <form method="POST" action="{{ route('register') }}" aria-label="{{ __('Register') }}">
-                        @csrf
-                        
+      @csrf                   
       <div class="form-group has-feedback">
-        <label for="username" class="col-form-label text-md-right">{{ __('Username') }}</label>
-        <input id="username" type="text" class="form-control{{ $errors->has('username') ? ' is-invalid' : '' }}" name="username" value="{{ old('username') }}" required autofocus>
-        @if ($errors->has('name'))
+        <label for="email" class="col-form-label text-md-right">{{ __('Username') }}</label>
+        <input id="email" type="text" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required autofocus>
+        @if ($errors->has('email'))
         <span class="invalid-feedback" role="alert">
-          <strong>{{ $errors->first('name') }}</strong>
+          <strong>{{ $errors->first('email') }}</strong>
         </span>
         @endif
         <span class="glyphicon glyphicon-user form-control-feedback"></span>

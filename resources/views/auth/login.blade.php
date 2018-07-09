@@ -13,12 +13,12 @@
     <form method="POST" action="{{ route('login') }}" aria-label="{{ __('Login') }}">
       @csrf
       <!-- username -->
-      <div class="form-group has-feedback">
-        <label for="username" class="col-form-label text-md-right">{{ __('NIP') }}</label>
-        <input id="username" type="text" placeholder="NIP" class="form-control{{ $errors->has('username') ? ' is-invalid' : '' }}" name="username" value="{{ old('username') }}" required autofocus>
-        @if ($errors->has('username'))
+      <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }} has-feedback">
+        <label for="email" class="col-form-label text-md-right">{{ __('NIP') }}</label>
+        <input id="email" type="text" placeholder="NIP" class="form-control" name="email" value="{{ old('email') }}" required autofocus>
+        @if ($errors->has('email'))
         <span class="invalid-feedback" role="alert">
-          <strong>{{ $errors->first('username') }}</strong>
+          <strong>{{ $errors->first('email') }}</strong>
         </span>
         @endif
         <span class="glyphicon glyphicon-user form-control-feedback"></span>
@@ -26,9 +26,9 @@
       <!-- end of username -->
 
       <!-- password -->
-      <div class="form-group has-feedback">
+      <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }} has-feedback">
         <label for="password" class="col-form-label text-md-right">{{ __('Password') }}</label>
-        <input id="password" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" placeholder="Tanggal lahir (yyyy-mm-dd)" name="password" required>
+        <input id="password" type="password" class="form-control" placeholder="Tanggal lahir (yyyy-mm-dd)" name="password" required>
         @if ($errors->has('password'))
         <span class="invalid-feedback" role="alert">
           <strong>{{ $errors->first('password') }}</strong>
