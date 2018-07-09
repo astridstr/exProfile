@@ -58,7 +58,7 @@
                       </td>
 
                       <!-- umur -->
-                      <td valign="top"><p><span class="label label-primary pull-right" style="font-size: 18px;">21 years old  </span></p></td>
+                      <td valign="top"><p><span class="pull-right" style="font-size: 18px;">21 years old  </span></p></td>
                     </tr>
                   </table>
                 </div>

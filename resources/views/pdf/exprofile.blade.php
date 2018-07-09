@@ -58,8 +58,8 @@ tr > th {
   </head>
   <body>
     <header>
-            <img src="{{ base_path() }}/public/img/header.png" width="100%" height="100%">
-        </header>
+        <img src="{{ base_path() }}/public/img/header.png" width="100%" height="100%">
+    </header>
     <main>
       <div class="content-wrapper">
         <section class="content">
@@ -87,7 +87,12 @@ tr > th {
                               <table>
                                 <tr><td class="text-center"><b style="font-size: 16px; text-align: center;">
                                 ITMS Stat : 
-                                @if ($exprofile->Jenjang == 'Manajemen Atas')</b></td></tr>
+                                @if ($exprofile->Jenjang == 'Manajemen Atas') BOD-1
+                                @elseif ($exprofile->Jenjang == 'Manajemen Menengah') BOD-2
+                                @elseif ($exprofile->Jenjang == 'Manajemen Dasar') BOD-3
+                                @elseif ($exprofile->Jenjang == 'Supervisior Atas') BOD-4
+                                @elseif ($exprofile->Jenjang == 'Supervisior Dasar') BOD-5
+                                @endif</b></td></tr>
                                 <tr><td><b style="font-size: 16px; text-align: center;">{{$exprofile->NIP}} / {{$exprofile->Grade}}</b></td></tr>
                               </table>
                             </td>  
@@ -120,6 +125,7 @@ tr > th {
                             <td>1<sub>st</sub>&nbsp;&nbsp;&nbsp;Professional Certification&nbsp;&nbsp;:</td>
                             <td colspan="2">{{$exprofile->Professional_Certification_1}}</td>
                           </tr>
+                          @elseif ($exprofile->Professional_Certification_1 == '-')
                           @else
                           @endif
                           @if (!empty($exprofile->Professional_Certification_2))
