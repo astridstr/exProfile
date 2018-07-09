@@ -12,7 +12,7 @@ class TampilRiwayatController extends Controller
     public function profile1(Request $request)
     {
         $exprofile = DB::table('exprofiles')
-            ->where('NIP', '6792085Z')
+            ->where('NIP', '6894001Z')
             ->select('*')
             ->first();
         //dd($exprofile); 

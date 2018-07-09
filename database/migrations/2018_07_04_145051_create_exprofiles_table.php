@@ -50,6 +50,8 @@ class CreateExprofilesTable extends Migration
             $table->longText('About_and_Experience_1')->nullable();
             $table->longText('About_and_Experience_2')->nullable();
             $table->longText('About_and_Experience_3')->nullable();
+            $table->rememberToken();
+            $table->timestamps();
         });
     }
 

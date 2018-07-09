@@ -30,16 +30,16 @@
             <div class="col-md-6">
               <div class="form-group">
                   <label for="exampleInputEmail1">Nama</label>
-                  <input type="text" class="form-control" id="exampleInputEmail1" value="{{$exprofile->Nama_Lengkap}}" placeholder="Nama Pegawai" name="nama" disabled>
+                  <input type="text" class="form-control" id="exampleInputEmail1" value="{{$exprofile->Nama_Lengkap}}" placeholder="Nama Pegawai" name="nama" >
               </div>
               <div class="form-group">
                   <label for="exampleInputPassword1">Grade</label>
-                  <input type="text" class="form-control" id="exampleInputPassword1" value="{{$exprofile->Grade}}" placeholder="Grade" name="grade"disabled>
+                  <input type="text" class="form-control" id="exampleInputPassword1" value="{{$exprofile->Grade}}" placeholder="Grade" name="grade">
               </div>
               <div class="form-group">
                 <label> Divisi</label>
-                <select class="form-control select2" style="width: 100%;" disabled>
-                <option selected="selected" value="{{$exprofile->Divisi_Satuan}}" name="divisi">{{$exprofile->Divisi_Satuan}}</option>
+                <select class="form-control select2" style="width: 100%;" name="divisi">
+                <option selected="selected" value="{{$exprofile->Divisi_Satuan}}" >{{$exprofile->Divisi_Satuan}}</option>
                 @foreach($divisi as $div)
                   <option>{{$div->nama_divisi}}</option>
                 @endforeach
@@ -47,19 +47,19 @@
               </div>
               <div class="form-group">
                   <label for="exampleInputPassword1">Kota Lahir</label>
-                  <input type="text" class="form-control" id="exampleInputPassword1" value ="{{$exprofile->Kota_Lahir}}" placeholder="Kota Kelahiran" name="kota_lahir" disabled>
+                  <input type="text" class="form-control" id="exampleInputPassword1" value ="{{$exprofile->Kota_Lahir}}" placeholder="Kota Kelahiran" name="kota_lahir" >
               </div>
               <div class="form-group">
                   <label for="exampleInputPassword1">Agama</label>
-                  <input type="text" class="form-control" id="exampleInputPassword1" value ="{{$exprofile->Religion}}" placeholder="Kota Kelahiran" name="agama" disabled>
+                  <input type="text" class="form-control" id="exampleInputPassword1" value ="{{$exprofile->Religion}}" placeholder="Kota Kelahiran" name="agama" >
               </div>
               <div class="form-group">
                   <label for="exampleInputPassword1">Email</label>
-                  <input type="email" class="form-control" id="exampleInputPassword1" value="{{$exprofile->email_korporat}}" placeholder="Email Korporat" name="email" disabled>
+                  <input type="email" class="form-control" id="exampleInputPassword1" value="{{$exprofile->email_korporat}}" placeholder="Email Korporat" name="email" >
               </div>
               <div class="form-group">
                   <label for="exampleInputPassword1">Media Sosial</label>
-                  <input type="email" class="form-control" id="exampleInputPassword1" value="{{$exprofile->Sosmed_Aktif}}" placeholder="Jenis Media Sosial Aktif" name="media_sosial">
+                  <input type="text" class="form-control" id="exampleInputPassword1" value="{{$exprofile->Sosmed_Aktif}}" placeholder="Jenis Media Sosial Aktif" name="media_sosial">
               </div>
               <div class="form-group">
                   <label for="exampleInputPassword1">Alamat Tinggal</label>
@@ -69,15 +69,15 @@
                   <label>About and Experience</label>
                   <br>
                   <small>Paragraf 1</small>
-                  <textarea class="form-control" rows="3" placeholder="Data Diri" name ="ae1">{{$exprofile->About_and_Experience_1}}</textarea>
+                  <textarea class="form-control" rows="3" placeholder="Data Diri" name ="ae_1" value="{{$exprofile->About_and_Experience_1}}">{{$exprofile->About_and_Experience_1}}</textarea>
                   <small>Paragraf 2</small>
-                  <textarea class="form-control" rows="3" placeholder="Riwayat Jabatan dan Karir" name="ae2">{{$exprofile->About_and_Experience_2}}</textarea>
+                  <textarea class="form-control" rows="3" placeholder="Riwayat Jabatan dan Karir" name="ae_2" value="{{$exprofile->About_and_Experience_2}}" >{{$exprofile->About_and_Experience_2}}</textarea>
                   <small>Paragraf 3</small>
-                  <textarea class="form-control" rows="3" placeholder="Bidang Minat" name="ae3">{{$exprofile->About_and_Experience_3}}</textarea>
+                  <textarea class="form-control" rows="3" placeholder="Bidang Minat" name="ae_3" value="{{$exprofile->About_and_Experience_3}}">{{$exprofile->About_and_Experience_3}}</textarea>
               </div>
               <div class="form-group">
                   <label for="exampleInputFile">Foto</label>
-                  <input type="file" id="exampleInputFile">
+                  <input type="file" id="exampleInputFile" name="foto">
 
                   <p class="help-block">jpg/png max 10MB</p>
               </div>
@@ -89,38 +89,43 @@
             <div class="col-md-6">
               <div class="form-group">
                   <label for="exampleInputPassword1">NIP</label>
-                  <input type="text" class="form-control" id="exampleInputPassword1" value="{{$exprofile->NIP}}" placeholder="NIP" disabled>
+                  <input type="text" class="form-control" id="exampleInputPassword1" value="{{$exprofile->NIP}}" placeholder="NIP" name="nip" >
               </div>
               <div class="form-group">
                   <label for="exampleInputPassword1">Posisi</label>
-                  <input type="text" class="form-control" id="exampleInputPassword1" value ="{{$exprofile->Jabatan_Saat_ini}}" placeholder="Posisi Saat Ini" disabled>
+                  <input type="text" class="form-control" id="exampleInputPassword1" value ="{{$exprofile->Jabatan_Saat_ini}}" placeholder="Posisi Saat Ini" name="jabatan">
               </div>
               <div class="form-group">
                   <label for="exampleInputPassword1">Jenjang</label>
-                  <input type="text" class="form-control" id="exampleInputPassword1" placeholder="{{$exprofile->Jenjang}}" value="{{$exprofile->Jenjang}}" disabled>
+                  <input type="text" class="form-control" id="exampleInputPassword1" placeholder="{{$exprofile->Jenjang}}" value="{{$exprofile->Jenjang}}" name="jenjang">
               </div>
               <div class="form-group">
                   <label for="exampleInputPassword1">Tanggal Lahir</label>
-                  <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Tanggal Kelahiran" value="{{$exprofile->tgl_lahir}}" disabled>
+                  <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Tanggal Kelahiran" value="{{$exprofile->tgl_lahir}}" name="tgl_lahir">
               </div>
               <div class="form-group">
                 <label>Jenis Kelamin</label>
-                <select class="form-control select2" style="width: 100%;">
-                  <option selected="selected" value="{{$exprofile->Gender}}">Laki Laki</option>
-                  <option>Perempuan</option>
+                <select class="form-control select2" style="width: 100%;" name="gender">
+                @if($exprofile->Gender == 'LAKI LAKI')
+                  <option selected="selected" value="LAKI LAKI">Laki Laki</option>
+                  <option value="PEREMPUAN" >Perempuan</option>
+                @else
+                  <option selected="selected" value="LAKI LAKI" >Perempuan</option>
+                  <option value="PEREMPUAN" >Laki Laki</option>
+                @endif
                 </select>
               </div>
               <div class="form-group">
                   <label for="exampleInputPassword1">HP</label>
-                  <input type="text" class="form-control" id="exampleInputPassword1" value="{{$exprofile->handphone}}" placeholder="Nomor Handphone">
+                  <input type="text" class="form-control" id="exampleInputPassword1" value="{{$exprofile->handphone}}" placeholder="Nomor Handphone" name="handphone">
               </div>
               <div class="form-group">
                   <label for="exampleInputPassword1">Akun</label>
-                  <input type="email" class="form-control" id="exampleInputPassword1" value="{{$exprofile->akun_sosmed_aktif_twitter_instagram_facebook}}" placeholder="Akun Media Sosial Aktif">
+                  <input type="text" class="form-control" id="exampleInputPassword1" value="{{$exprofile->akun_sosmed_aktif_twitter_instagram_facebook}}" placeholder="Akun Media Sosial Aktif" name="akun">
               </div>
               <div class="form-group">
                   <label for="exampleInputPassword1">Domisili</label>
-                  <input type="text" class="form-control" id="exampleInputPassword1" value="{{$exprofile->Kota_Domisili_Utama}}">
+                  <input type="text" class="form-control" id="exampleInputPassword1" value="{{$exprofile->Kota_Domisili_Utama}}" name="domisili">
               </div>
               <!-- /.form-group -->
             </div>
@@ -139,11 +144,11 @@
               <div class="col-md-6"> 
               <div class="form-group">
                   <label>Pendidikan Terakhir 1</label>
-                  <textarea class="form-control" rows="3" placeholder="{{$exprofile->Education_1}} "></textarea>
+                  <textarea class="form-control" rows="3" placeholder="{{$exprofile->Education_1}} " name="edu1"></textarea>
               </div>
               <div class="form-group">
                   <label>Pendidikan Terakhir 1</label>
-                  <textarea class="form-control" rows="3" placeholder="{{$exprofile->Education_2}} "></textarea>
+                  <textarea class="form-control" rows="3" placeholder="{{$exprofile->Education_2}}"  name="edu2"></textarea>
               </div>
           <!-- /.form-group -->
               </div>
