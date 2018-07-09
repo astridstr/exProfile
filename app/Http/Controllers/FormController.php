@@ -15,8 +15,9 @@ class FormController extends Controller
 {
     public function formview()
     {
-    	 $exprofile = DB::table('exprofiles')
-            ->where('NIP', '6894001Z')
+    	$user = Auth::user();
+        $exprofile = DB::table('exprofiles')
+            ->where('NIP', $user->email)
             ->select('*')
             ->first();
         //dd($exprofile);
@@ -35,7 +36,8 @@ class FormController extends Controller
 
     public function formeditdiri(Request $request)
     {
-        $exprofile=Exprofile::where('NIP','6894001Z')->first();
+        $user = Auth::user();
+        $exprofile=Exprofile::where('NIP',$user->email)->first();
 
         // $exprofile->Nama_Lengkap = $request->input('nama');
         // $exprofile->NIP = $request->input('nip');
@@ -71,7 +73,8 @@ class FormController extends Controller
             $foto = $request->file('foto');
             $foto_name = $foto_new . '.' .$foto->getClientOriginalExtension();
             Image::make($foto)->resize(300, 300)->save( public_path('/fotoupload/' . $foto_name ) );
-            $exprofile=Exprofile::where('NIP','6894001Z')->first();
+            $user = Auth::user();
+            $exprofile=Exprofile::where('NIP',$user->email)->first();
             $exprofile->save();
         }
         
@@ -81,7 +84,8 @@ class FormController extends Controller
 
     public function formeditedu(Request $request)
     {
-        $exprofile=Exprofile::where('NIP','6894001Z')->first();
+        $user = Auth::user();
+        $exprofile=Exprofile::where('NIP',$user->email)->first();
 
         $exprofile->Education_1 = $request->input('edu1');
         $exprofile->Education_2 = $request->input('edu2');
@@ -95,7 +99,8 @@ class FormController extends Controller
 
      public function formeditcareer(Request $request)
     {
-        $exprofile=Exprofile::where('NIP','6894001Z')->first();
+        $user = Auth::user();
+        $exprofile=Exprofile::where('NIP',$user->email)->first();
 
         $exprofile->Area_of_Expertise_1 = $request->input('expert1');
         $exprofile->Area_of_Expertise_2 = $request->input('expert2');
@@ -110,7 +115,8 @@ class FormController extends Controller
 
     public function formeditmaster(Request $request)
     {
-        $exprofile=Exprofile::where('NIP','6894001Z')->first();
+        $user = Auth::user();
+        $exprofile=Exprofile::where('NIP',$user->email)->first();
 
         $exprofile->Masterpiece_1 = $request->input('master1');
         $exprofile->Masterpiece_2 = $request->input('master2');
