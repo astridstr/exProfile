@@ -14,6 +14,6 @@ class SuperadminController extends Controller
             ->select('*')
             ->first();
         // dd($exprofile);
-        return view('exprofile', ['exprofile' => $exprofile]);
+        return view('superadmin.upload', ['exprofile' => $exprofile]);
     }
 }

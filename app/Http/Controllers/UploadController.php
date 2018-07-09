@@ -12,7 +12,7 @@ class UploadController extends Controller
 {
     public function index()
     {
-        return view('add-student');
+        return view('superadmin.upload');
     }
  
     public function import(Request $request){
