@@ -3,6 +3,8 @@
 
 @section('content')
 
+@include('superadmin.navbar')
+
 @include('superadmin.sidebar')
 
 <div class="content-wrapper">

@@ -53,7 +53,7 @@
     </a>
 
     <!-- Header Navbar: style can be found in header.less -->
-    @include('layouts.navbar')
+    
   </header>
 
   <!-- Content Wrapper. Contains page content -->
