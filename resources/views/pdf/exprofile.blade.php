@@ -58,8 +58,8 @@ tr > th {
   </head>
   <body>
     <header>
-            <img src="{{ base_path() }}/public/img/header.png" width="100%" height="100%">
-        </header>
+        <img src="{{ base_path() }}/public/img/header.png" width="100%" height="100%">
+    </header>
     <main>
       <div class="content-wrapper">
         <section class="content">
@@ -74,7 +74,19 @@ tr > th {
                           <tr style="padding: 0px;">
                             <!-- foto profil -->
                             <td rowspan="5" style="width: 40%; vertical-align: bottom;" align="center">
-                              <img src="{{ base_path() }}/public/foto/6693081Z1_Didik Mardiyanto.JPG" alt="Photo" style="width: 4.8cm; height: 6.8cm; margin-top: 16px;">
+                              @if(File::exists(base_path("public/fotoupload/".$exprofile->File_Foto.".JPG")))
+                              <img src="{{ base_path() }}/public/fotoupload/{{$exprofile->File_Foto}}.JPG" alt="Photo" style="width: 4.8cm; height: 6.8cm; margin-top: 16px;">
+                              @elseif(File::exists(base_path("public/fotoupload/".$exprofile->File_Foto.".PNG")))
+                              <img src="{{ base_path() }}/public/fotoupload/{{$exprofile->File_Foto}}.PNG" alt="Photo" style="width: 4.8cm; height: 6.8cm; margin-top: 16px;">
+                              @elseif(File::exists(base_path("public/fotoupload/".$exprofile->File_Foto.".jpg")))
+                              <img src="{{ base_path() }}/public/fotoupload/{{$exprofile->File_Foto}}.jpg" alt="Photo" style="width: 4.8cm; height: 6.8cm; margin-top: 16px;">
+                              @elseif(File::exists(base_path("public/fotoupload/".$exprofile->File_Foto.".png")))
+                              <img src="{{ base_path() }}/public/fotoupload/{{$exprofile->File_Foto}}.png" alt="Photo" style="width: 4.8cm; height: 6.8cm; margin-top: 16px;">
+                              @elseif(File::exists(base_path("public/fotoupload/".$exprofile->File_Foto.".jpeg")))
+                              <img src="{{ base_path() }}/public/fotoupload/{{$exprofile->File_Foto}}.jpeg" alt="Photo" style="width: 4.8cm; height: 6.8cm; margin-top: 16px;">
+                              @else
+                              <img src="{{ base_path() }}/public/img/user-profile.png" alt="Photo" style="width: 4.8cm; height: 6.8cm; margin-top: 16px;">
+                              @endif
                             </td>
                             <!-- nama lengkap -->
                             <td colspan="2" style="width: 60%; vertical-align: middle;">
@@ -87,7 +99,12 @@ tr > th {
                               <table>
                                 <tr><td class="text-center"><b style="font-size: 16px; text-align: center;">
                                 ITMS Stat : 
-                                @if ($exprofile->Jenjang == 'Manajemen Atas')</b></td></tr>
+                                @if ($exprofile->Jenjang == 'Manajemen Atas') BOD-1
+                                @elseif ($exprofile->Jenjang == 'Manajemen Menengah') BOD-2
+                                @elseif ($exprofile->Jenjang == 'Manajemen Dasar') BOD-3
+                                @elseif ($exprofile->Jenjang == 'Supervisior Atas') BOD-4
+                                @elseif ($exprofile->Jenjang == 'Supervisior Dasar') BOD-5
+                                @endif</b></td></tr>
                                 <tr><td><b style="font-size: 16px; text-align: center;">{{$exprofile->NIP}} / {{$exprofile->Grade}}</b></td></tr>
                               </table>
                             </td>  
@@ -120,6 +137,7 @@ tr > th {
                             <td>1<sub>st</sub>&nbsp;&nbsp;&nbsp;Professional Certification&nbsp;&nbsp;:</td>
                             <td colspan="2">{{$exprofile->Professional_Certification_1}}</td>
                           </tr>
+                          @elseif ($exprofile->Professional_Certification_1 == '-')
                           @else
                           @endif
                           @if (!empty($exprofile->Professional_Certification_2))

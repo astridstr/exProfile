@@ -63,12 +63,13 @@
                             <i class="fa fa-birthday-cake fa-fw" aria-hidden="true"></i>&nbsp; {{$exprofile->Kota_Lahir}}, {{$exprofile->tgl_lahir}} <br>
                             <i class="fa fa-phone fa-fw" aria-hidden="true"></i>&nbsp; {{$exprofile->handphone}} <br>
                             <i class="fa fa-heart fa-fw" aria-hidden="true"></i>&nbsp; {{$exprofile->Religion}}<br>
+                            <i class="fa fa-address-book fa-fw" aria-hidden="true"></i>&nbsp; {{$exprofile->akun_sosmed_aktif_twitter_instagram_facebook}}<br>
                           </li>
                         </ul>
                       </td>
 
                       <!-- umur -->
-                      <td valign="top"><p><span class="label label-primary pull-right" style="font-size: 18px;">21 years old  </span></p></td>
+                      <td valign="top"><p><span class="pull-right" style="font-size: 18px;">21 years old  </span></p></td>
                     </tr>
                   </table>
                 </div>
