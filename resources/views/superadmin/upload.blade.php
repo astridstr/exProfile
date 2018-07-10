@@ -1,9 +1,6 @@
-
-@extends('layouts.app')
+@extends('superadmin.app')
 
 @section('content')
-
-@include('superadmin.navbar')
 
 @include('superadmin.sidebar')
 
@@ -54,9 +51,6 @@
     </div>
 </div>
 @endif
-            <div class="box-header with-border">
-              <h3 class="box-title">Upload File</h3>
-            </div>
             <!-- /.box-header -->
             <!-- form start -->
             <form role="form" action="{{ route('import') }}" method="POST" enctype="multipart/form-data">

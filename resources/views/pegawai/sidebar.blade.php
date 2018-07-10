@@ -12,12 +12,12 @@
             <i class="fa fa-user"></i> <span>Executive Profile</span>
           </a>
         </li>
-        <!-- <li>
-          <a href="{{ route('keterangan') }}">
-            <i class="fa fa-dashboard"></i> <span>Riwayat Diri <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dan Jabatan</span>
+        <li>
+          <a href="{{ route('form.view') }}">
+            <i class="fa fa-edit"></i> <span>Edit Profile</span>
           </a>
         </li>
-        <li>
+<!--         <li>
           <a href="{{ route('riwayat') }}">
             <i class="fa fa-dashboard"></i> <span>Keterangan Keluarga <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; dan Referensi</span>
           </a>

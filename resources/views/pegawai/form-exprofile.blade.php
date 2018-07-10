@@ -1,8 +1,6 @@
-@extends('layouts.app')
+@extends('pegawai.app')
 
 @section('content')
-
-@include('layouts.navbar')
 
 @include('pegawai.sidebar')
 <div class="content-wrapper">

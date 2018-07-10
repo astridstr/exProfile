@@ -1,8 +1,6 @@
-@extends('layouts.app')
+@extends('pegawai.app')
 
 @section('content')
-
-@include('layouts.navbar')
 
 @include('pegawai.sidebar')
 
@@ -56,23 +54,31 @@
                         <p class="text-muted text-left">{{$exprofile->Divisi_Satuan}}</p>
                       </td>
                     </tr>
-
                     <tr>
                       <!-- keterangan -->
-                      <td>
+                      <td colspan="2">
+                        <ul class="list-group box-primary">
+                          <li class="list-group-item">
+                            <b style="font-size: 16px; text-align: center;">
+                                ITMS Stat : 
+                                @if ($exprofile->Jenjang == 'Manajemen Atas') BOD-1
+                                @elseif ($exprofile->Jenjang == 'Manajemen Menengah') BOD-2
+                                @elseif ($exprofile->Jenjang == 'Manajemen Dasar') BOD-3
+                                @elseif ($exprofile->Jenjang == 'Supervisior Atas') BOD-4
+                                @elseif ($exprofile->Jenjang == 'Supervisior Dasar') BOD-5
+                                @endif</b>
+                          </li>
+                        </ul>
                         <ul class="list-group">
                           <li class="list-group-item">
-                            <i class="fa fa-user fa-fw" aria-hidden="true"></i>&nbsp; {{$exprofile->Gender}}<br>
-                            <i class="fa fa-birthday-cake fa-fw" aria-hidden="true"></i>&nbsp; {{$exprofile->Kota_Lahir}}, {{$exprofile->tgl_lahir}} <br>
+                            <i class="fa fa-user fa-fw" aria-hidden="true"></i>&nbsp; {{$exprofile->Gender}}, {{$exprofile->Kota_Lahir}}, {{$exprofile->tgl_lahir}}<br>
+                            <i class="fa fa-birthday-cake fa-fw" aria-hidden="true"></i>&nbsp;  <br>
                             <i class="fa fa-phone fa-fw" aria-hidden="true"></i>&nbsp; {{$exprofile->handphone}} <br>
                             <i class="fa fa-heart fa-fw" aria-hidden="true"></i>&nbsp; {{$exprofile->Religion}}<br>
-                            <i class="fa fa-address-book fa-fw" aria-hidden="true"></i>&nbsp; {{$exprofile->akun_sosmed_aktif_twitter_instagram_facebook}}<br>
+                            <i class="fa fa-address-book fa-fw" aria-hidden="true"></i>&nbsp; {{$exprofile->Sosmed_Aktif}} : {{$exprofile->akun_sosmed_aktif_twitter_instagram_facebook}}<br>
                           </li>
                         </ul>
                       </td>
-
-                      <!-- umur -->
-                      <td valign="top"><p><span class="pull-right" style="font-size: 18px;">21 years old  </span></p></td>
                     </tr>
                   </table>
                 </div>
@@ -132,18 +138,27 @@
                       <div class="box-body">
                         <table class="table table-condensed table-responsive">                        
                           <tbody>
+                            @if (!empty($exprofile->Professional_Certification_1))
                             <tr>
                               <td>1<sup>st</sup> Professional Certification</td>
                               <td>{{$exprofile->Professional_Certification_1}}</td>
                             </tr>
+                            @else
+                            @endif
+                            @if (!empty($exprofile->Professional_Certification_2))
                             <tr>
                               <td>2<sup>nd</sup> Professional Certification</td>
                               <td>{{$exprofile->Professional_Certification_2}}</td>
                             </tr>
+                            @else
+                            @endif
+                            @if (!empty($exprofile->Professional_Certification_1))
                             <tr>
                               <td>3<sup>rd</sup> Professional Certification</td>
                               <td>{{$exprofile->Professional_Certification_3}}</td>
                             </tr>
+                            @else
+                            @endif
                           </tbody>
                         </table>
                       </div>
@@ -162,12 +177,18 @@
                       <div class="box-body">
                         <table class="table table-condensed table-responsive">                        
                           <tbody>
+                            @if (!empty($exprofile->Education_1))
                             <tr>
                               <td>{{$exprofile->Education_1}}</td>
                             </tr>
+                            @else
+                            @endif
+                            @if (!empty($exprofile->Education_2))
                             <tr>
                               <td>{{$exprofile->Education_2}}</td>
                             </tr>
+                            @else
+                            @endif
                           </tbody>
                         </table>
                       </div>
@@ -186,18 +207,27 @@
                       <div class="box-body">
                         <table class="table table-condensed table-responsive">                        
                           <tbody>
+                            @if (!empty($exprofile->Area_of_Expertise_1))
                             <tr>
                               <td>1<sup>st</sup> Area of Expertise</td>
                               <td>{{$exprofile->Area_of_Expertise_1}}</td>
                             </tr>
+                            @else
+                            @endif
+                            @if (!empty($exprofile->Area_of_Expertise_2))
                             <tr>
                               <td>2<sup>nd</sup> Area of Expertise</td>
                               <td>{{$exprofile->Area_of_Expertise_2}}</td>
                             </tr>
+                            @else
+                            @endif
+                            @if (!empty($exprofile->Area_of_Expertise_3))
                             <tr>
                               <td>3<sup>rd</sup> Area of Expertisen</td>
                               <td>{{$exprofile->Area_of_Expertise_3}}</td>
                             </tr>
+                            @else
+                            @endif
                           </tbody>
                         </table>
                       </div>
@@ -216,18 +246,27 @@
                       <div class="box-body">
                         <table class="table table-condensed table-responsive">                        
                           <tbody>
+                            @if (!empty($exprofile->Career_Interest_1))
                             <tr>
                               <td>1<sup>st</sup> Career Interest</td>
                               <td>{{$exprofile->Career_Interest_1}}</td>
                             </tr>
+                            @else
+                            @endif
+                            @if (!empty($exprofile->Career_Interest_2))
                             <tr>
                               <td>2<sup>nd</sup> Career Interest2}}</td>
                               <td>{{$exprofile->Career_Interest_2}}</td>
                             </tr>
+                            @else
+                            @endif
+                            @if (!empty($exprofile->Career_Interest_3))
                             <tr>
                               <td>3<sup>rd</sup> Career Interest</td>
                               <td>{{$exprofile->Career_Interest_3}}</td>
                             </tr>
+                            @else
+                            @endif
                           </tbody>
                         </table>
                       </div>
