@@ -30,16 +30,17 @@
                       <!-- foto profil -->
                       <td rowspan="3" style="width: 40%">
                       @if(File::exists(public_path("fotoupload/".$exprofile->File_Foto.".jpg")))
-                      <img style="padding: 10px auto; width: 120px; height: 210px; border-style: groove;" class="img-responsive" src="{{ asset('fotoupload/'.$exprofile->File_Foto.'.jpg')  }}" alt= "User profile" />
+                      <img style="width: 5cm; height: 7cm; border-style: groove;" class="img-responsive" src="{{ asset('fotoupload/'.$exprofile->File_Foto.'.jpg')  }}" alt= "User profile" />
                       @elseif(File::exists(public_path("fotoupload/".$exprofile->File_Foto.".png"))) 
-                      <img style="padding: 10px auto; width: 120px; height: 210px; border-style: groove;" class="img-responsive" src="{{ asset('fotoupload/'.$exprofile->File_Foto.'.png')  }}" alt= "User profile" />
+                      <img style="width: 5cm; height: 7cm; border-style: groove;" class="img-responsive" src="{{ asset('fotoupload/'.$exprofile->File_Foto.'.png')  }}" alt= "User profile" />
                       @elseif(File::exists(public_path("fotoupload/".$exprofile->File_Foto.".JPG"))) 
-                      <img style="padding: 10px auto; width: 120px; height: 210px;; border-style: groove;" class="img-responsive" src="{{ asset('fotoupload/'.$exprofile->File_Foto.'.JPG')  }}" alt= "User profile" />
+                      <img style="width: width: 5cm; height: 7cm; border-style: groove;" class="img-responsive" src="{{ asset('fotoupload/'.$exprofile->File_Foto.'.JPG')  }}" alt= "User profile" />
                       @elseif(File::exists(public_path("fotoupload/".$exprofile->File_Foto.".jpeg"))) 
-                      <img style="padding: 10px auto; width: 120px; height: 210px; border-style: groove;" class="img-responsive" src="{{ asset('fotoupload/'.$exprofile->File_Foto.'.jpeg')  }}" alt= "User profile" />
+                      <img style="width: width: 5cm; height: 7cm; border-style: groove;" class="img-responsive" src="{{ asset('fotoupload/'.$exprofile->File_Foto.'.jpeg')  }}" alt= "User profile" />
                       @else
-                      <img style="margin: 0 auto; width: 160px; height: 240px; border-style: groove;" src="{{ asset('img/user-profile.png') }}" alt="User profile" />
+                      <img style="margin: 0 auto; width: width: 4cm; height: 6cm; border-style: groove;" src="{{ asset('img/user-profile.png') }}" alt="User profile" />
                       @endif
+                      <br>
                       </td>
 
                       <!-- nama lengkap -->

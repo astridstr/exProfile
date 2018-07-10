@@ -11,6 +11,7 @@ class ExecutiveController extends Controller
     public function index()
     {
     	$user = Auth::user();
+        
         $exprofile = DB::table('exprofiles')
             ->where('NIP', $user->email)
             ->select('*')
