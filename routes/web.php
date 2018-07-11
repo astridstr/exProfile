@@ -55,7 +55,7 @@ Route::group(['prefix' => '4', 'middleware' => ['auth', 'role:pegawai']], functi
     Route::post('/form/exprofile/v1edu','FormController@formeditedu')->name('formeditedu');
     Route::post('/form/exprofile/v1career','FormController@formeditcareer')->name('formeditcareer');
     Route::post('/form/exprofile/v1master','FormController@formeditmaster')->name('formeditmaster');
-    Route::get('/executive/profile/download', 'PdfGenerateController@download')->name('pdfDownload');
+    Route::get('/profile/download', 'PdfGenerateController@download')->name('pdfDownload');
 });
 
 

@@ -26,31 +26,21 @@
                   <table class="table table-condensed table-responsive">
                     <tr>
                       <!-- foto profil -->
-<<<<<<< HEAD
                       <td rowspan="4" style="width: 37%;">
                       @if(File::exists(public_path("fotoupload/".$exprofile->File_Foto.".JPG")))
-                      <img style="margin: 0px 7px; width: 5cm; height: 7cm; border-style: groove; vertical-align: bottom;"  class="img-responsive" src="{{ asset('fotoupload/'.$exprofile->File_Foto.'.JPG')  }}" alt= "User profile" />
+                      <img style="margin: 0; width: 5cm; height: 7cm; border-style: groove; vertical-align: bottom;"  class="img-responsive" src="{{ asset('fotoupload/'.$exprofile->File_Foto.'.JPG')  }}" alt= "User profile" />
                       @elseif(File::exists(public_path("fotoupload/".$exprofile->File_Foto.".PNG"))) 
-                      <img style="margin: 0px 7px; width: 5cm; height: 7cm; border-style: groove; vertical-align: bottom;" class="img-responsive" src="{{ asset('fotoupload/'.$exprofile->File_Foto.'.PNG')  }}" alt= "User profile" />
+                      <img style="margin: 0; width: 5cm; height: 7cm; border-style: groove; vertical-align: bottom;" class="img-responsive" src="{{ asset('fotoupload/'.$exprofile->File_Foto.'.PNG')  }}" alt= "User profile" />
                       @elseif(File::exists(public_path("fotoupload/".$exprofile->File_Foto.".jpg"))) 
-                      <img style="margin: 0px 7px; width: 5cm; height: 7cm; border-style: groove; vertical-align: bottom;" class="img-responsive" src="{{ asset('fotoupload/'.$exprofile->File_Foto.'.jpg')  }}" alt= "User profile" />
-                      @elseif(File::exists(public_path("fotoupload/".$exprofile->File_Foto.".jpg"))) 
-                      <img style="margin: 0px 7px; width: 5cm; height: 7cm; border-style: groove; vertical-align: bottom;" class="img-responsive" src="{{ asset('fotoupload/'.$exprofile->File_Foto.'.jpg')  }}" alt= "User profile" />
-                      @elseif(File::exists(public_path("fotoupload/".$exprofile->File_Foto.".JPEG"))) 
-                      <img style="margin: 0px 7px; width: 5cm; height: 7cm; border-style: groove; vertical-align: bottom;" class="img-responsive" src="{{ asset('fotoupload/'.$exprofile->File_Foto.'.JPEG')  }}" alt= "User profile" />
-=======
-                      <td rowspan="4" style="width: 35%;" align="center" valign="middle">
-                      @if(File::exists(public_path("fotoupload/".$exprofile->File_Foto.".jpg")))
-                      <img style="margin: 0; width: 4.8cm; height: 6.8cm; border-style: groove; vertical-align: middle;"  class="img-responsive" src="{{ asset('fotoupload/'.$exprofile->File_Foto.'.jpg')  }}" alt= "User profile" />
+                      <img style="margin: 0; width: 5cm; height: 7cm; border-style: groove; vertical-align: bottom;" class="img-responsive" src="{{ asset('fotoupload/'.$exprofile->File_Foto.'.jpg')  }}" alt= "User profile" />
                       @elseif(File::exists(public_path("fotoupload/".$exprofile->File_Foto.".png"))) 
-                      <img style="margin: 0; width: 4.8cm; height: 6.8cm; border-style: groove; vertical-align: middle;" class="img-responsive" src="{{ asset('fotoupload/'.$exprofile->File_Foto.'.png')  }}" alt= "User profile" />
-                      @elseif(File::exists(public_path("fotoupload/".$exprofile->File_Foto.".JPG"))) 
-                      <img style="margin: 0; width: 4.8cm; height: 6.8cm; border-style: groove; vertical-align: middle;" class="img-responsive" src="{{ asset('fotoupload/'.$exprofile->File_Foto.'.JPG')  }}" alt= "User profile" />
->>>>>>> exp16
+                      <img style="margin: 0; width: 5cm; height: 7cm; border-style: groove; vertical-align: bottom;" class="img-responsive" src="{{ asset('fotoupload/'.$exprofile->File_Foto.'.png')  }}" alt= "User profile" />
+                      @elseif(File::exists(public_path("fotoupload/".$exprofile->File_Foto.".JPEG"))) 
+                      <img style="margin: 0; width: 5cm; height: 7cm; border-style: groove; vertical-align: bottom;" class="img-responsive" src="{{ asset('fotoupload/'.$exprofile->File_Foto.'.JPEG')  }}" alt= "User profile" />
                       @elseif(File::exists(public_path("fotoupload/".$exprofile->File_Foto.".jpeg"))) 
-                      <img style="margin: 0; width: 4.8cm; height: 6.8cm; border-style: groove; vertical-align: middle;" class="img-responsive" src="{{ asset('fotoupload/'.$exprofile->File_Foto.'.jpeg')  }}" alt= "User profile" />
+                      <img style="margin: 0; width: 5cm; height: 7cm; border-style: groove; vertical-align: bottom;" class="img-responsive" src="{{ asset('fotoupload/'.$exprofile->File_Foto.'.jpef')  }}" alt= "User profile" />
                       @else
-                      <img style="margin: 0; width: 4.8cm; height: 6.8cm; border-style: groove; vertical-align: middle;" class="img-responsive" src="{{ asset('img/user-profile.png') }}" alt="User profile" />
+                      <img style="margin: 0 width: 5cm; height: 7cm; border-style: groove; vertical-align: bottom;" class="img-responsive" src="{{ asset('img/user-profile.png') }}" alt= "User profile" />
                       @endif
                       </td>
 
