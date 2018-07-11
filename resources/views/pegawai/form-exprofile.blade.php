@@ -60,8 +60,30 @@
                   <input type="email" class="form-control" id="exampleInputPassword1" value="{{$exprofile->email_korporat}}" placeholder="Email Korporat" name="email" disabled >
               </div>
               <div class="form-group">
-                  <label for="exampleInputPassword1">Media Sosial</label>
-                  <input type="text" class="form-control" id="exampleInputPassword1" value="{{$exprofile->Sosmed_Aktif}}" placeholder="Jenis Media Sosial Aktif" name="media_sosial">
+                <label>Media Sosial</label>
+                <select class="form-control select2" style="width: 100%;" name="media_sosial">
+                @if($exprofile->Sosmed_Aktif == 'Instagram')
+                  <option selected="selected" value="Instagram">Instagram</option>
+                  <option value="Facebook" >Facebook</option>
+                  <option value="Twitter" >Twitter</option>
+                  <option value="" ></option>
+                @elseif($exprofile->Sosmed_Aktif == 'Facebook')
+                  <option selected="selected" value="Facebook">Facebook</option>
+                  <option value="Instagram" >Instagram</option>
+                  <option value="Twitter" >Twitter</option>
+                  <option value="" ></option>
+                @elseif($exprofile->Sosmed_Aktif == 'Twitter')
+                  <option selected="selected" value="Twitter" >Twitter</option>
+                  <option value="Instagram" >Instagram</option>
+                  <option value="Facebook" >Facebook</option>
+                  <option value="" ></option>
+                @else
+                  <option selected="selected" value="" ></option>
+                  <option value="Instagram">Instagram</option>
+                  <option value="Facebook" >Facebook</option>
+                  <option value="Twitter" >Twitter</option>
+                @endif
+                </select>
               </div>
               <div class="form-group">
                   <label for="exampleInputPassword1">Alamat Tinggal</label>
