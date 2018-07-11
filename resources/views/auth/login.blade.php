@@ -4,11 +4,12 @@
 <body class="hold-transition login-page">
 <div class="login-box">
   <div class="login-logo">
-    <a href="#"><b>PT</b> PLN (Persero)</a>
+    <p><a href="{{route('index')}}"><img class="img-responsive" style="height: 80px; width: auto; display: inline;" src="{{ asset('img/logo_pln_1.png')  }}" alt= "User profile" /><b>&nbsp;&nbsp;PT PLN (Persero)</b></a></p>
+    
   </div>
   <!-- /.login-logo -->
   <div class="login-box-body">
-    <p class="login-box-msg">Login</p>
+    <p class="login-box-msg"><strong>Login</strong></p>
 
     <form method="POST" action="{{ route('login') }}" aria-label="{{ __('Login') }}">
       @csrf
@@ -48,9 +49,6 @@
         <!-- /.col -->
       </div>
     </form>
-    <a href="#">I forgot my password</a><br>
-    <a href="{{route('register')}}" class="text-center">Register a new membership</a>
-
   </div>
   <!-- /.login-box-body -->
 </div>

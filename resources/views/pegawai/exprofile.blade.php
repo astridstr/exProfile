@@ -26,7 +26,7 @@
                   <table class="table table-condensed table-responsive">
                     <tr>
                       <!-- foto profil -->
-                      <td rowspan="4" style="width: 37%;">
+                      <td rowspan="4" style="width: 37%;" align="center" valign="middle">
                       @if(File::exists(public_path("fotoupload/".$exprofile->File_Foto.".JPG")))
                       <img style="margin: 0; width: 5cm; height: 7cm; border-style: groove; vertical-align: bottom;"  class="img-responsive" src="{{ asset('fotoupload/'.$exprofile->File_Foto.'.JPG')  }}" alt= "User profile" />
                       @elseif(File::exists(public_path("fotoupload/".$exprofile->File_Foto.".PNG"))) 
@@ -81,7 +81,18 @@
                             <i class="fa fa-birthday-cake fa-fw" aria-hidden="true"></i>&nbsp; {{$exprofile->Kota_Lahir}}, {{$exprofile->tgl_lahir}}<br>
                             <i class="fa fa-phone fa-fw" aria-hidden="true"></i>&nbsp; {{$exprofile->handphone}} <br>
                             <i class="fa fa-heart fa-fw" aria-hidden="true"></i>&nbsp; {{$exprofile->Religion}}<br>
-                            <i class="fa fa-address-book fa-fw" aria-hidden="true"></i>&nbsp; {{$exprofile->Sosmed_Aktif}} : {{$exprofile->akun_sosmed_aktif_twitter_instagram_facebook}}<br>
+                            @if(!empty($exprofile->Akun_Facebook))<i class="fa fa-facebook-square fa-fw" aria-hidden="true"></i>&nbsp;{{$exprofile->Akun_Facebook}}
+                            @else
+                            @endif
+                            @if(!empty($exprofile->Akun_Twitter))<i class="fa fa-twitter-square fa-fw" aria-hidden="true"></i>&nbsp;{{$exprofile->Akun_Twitter}}<br>
+                            @else
+                            @endif
+                            @if(!empty($exprofile->Akun_Instagram))<i class="fa fa-instagram fa-fw" aria-hidden="true"></i>&nbsp;{{$exprofile->Akun_Instagram}}
+                            @else
+                            @endif
+                            @if(!empty($exprofile->Akun_LinkedIn))<i class=" fa fa-linkedin-square fa-fw" aria-hidden="true"></i>&nbsp;{{$exprofile->Akun_LinkedIn}}
+                            @else
+                            @endif
                           </li>
                         </ul>
                       </td>
