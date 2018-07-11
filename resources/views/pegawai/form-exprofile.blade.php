@@ -91,10 +91,10 @@
                   <textarea class="form-control" rows="3" placeholder="Deskripsikan Data Diri Anda
 " name ="ae_1" value="{{$exprofile->About_and_Experience_1}}" required>{{$exprofile->About_and_Experience_1}}</textarea>
                   <small>Paragraf 2</small>
-                  <textarea class="form-control" rows="3" placeholder="Jabarkan Riwayat Jabatan dan Karir (Align pada Career and Interest )
+                  <textarea class="form-control" rows="3" placeholder="Jabarkan Riwayat Jabatan dan Karir (Align dengan Career and Interest )
 " name="ae_2" value="{{$exprofile->About_and_Experience_2}}" required>{{$exprofile->About_and_Experience_2}}</textarea>
                   <small>Paragraf 3</small>
-                  <textarea class="form-control" rows="3" placeholder=" Jabarkan Bidang dan Minat Anda (Align pada Career and Interest)
+                  <textarea class="form-control" rows="3" placeholder=" Jabarkan Bidang dan Minat Anda (Align dengan Career and Interest)
 " name="ae_3" value="{{$exprofile->About_and_Experience_3}}" required>{{$exprofile->About_and_Experience_3}}</textarea>
               </div>
               <div class="form-group">
@@ -180,15 +180,15 @@
             <div class="col-md-6"> 
                 <div class="form-group">
                   <label>Penghargaan 1</label>
-                  <textarea class="form-control" rows="3" value="{{$exprofile->Professional_Certification_1}}" name="certif1" placeholder="Penghargaan atau Sertifikasi">{{$exprofile->Professional_Certification_1}}</textarea>
+                  <textarea class="form-control" rows="3" value="{{$exprofile->Professional_Certification_1}}" name="certif1" placeholder="Penghargaan atau Sertifikasi Terkait Kompetensi dan/atau Minat, Baik Nasional Maupun Internasional (Sertakan Asal Penghargaan dan Tahun)">{{$exprofile->Professional_Certification_1}}</textarea>
               </div>
               <div class="form-group">
                   <label>Penghargaan 2</label>
-                  <textarea class="form-control" rows="3" value="{{$exprofile->Professional_Certification_2}}" placeholder="Penghargaan atau Sertifikasi" name="certif2">{{$exprofile->Professional_Certification_2}}</textarea>
+                  <textarea class="form-control" rows="3" value="{{$exprofile->Professional_Certification_2}}" placeholder="Penghargaan atau Sertifikasi Terkait Kompetensi dan/atau Minat, Baik Nasional Maupun Internasional (Sertakan Asal Penghargaan dan Tahun)" name="certif2">{{$exprofile->Professional_Certification_2}}</textarea>
               </div>
               <div class="form-group">
                   <label>Penghargaan 3</label>
-                  <textarea class="form-control" rows="3" value="{{$exprofile->Professional_Certification_3}} " placeholder="Penghargaan atau Sertifikasi" name="certif3" >{{$exprofile->Professional_Certification_3}}</textarea>
+                  <textarea class="form-control" rows="3" value="{{$exprofile->Professional_Certification_3}} " placeholder="Penghargaan atau Sertifikasi Terkait Kompetensi dan/atau Minat, Baik Nasional Maupun Internasional (Sertakan Asal Penghargaan dan Tahun)" name="certif3" >{{$exprofile->Professional_Certification_3}}</textarea>
               </div>
               <!-- /.form-group -->
             </div>
@@ -210,11 +210,11 @@
             <div class="col-md-6">
               <div class="form-group">
                   <label for="exampleInputEmail1">1st Expertise </label>
-                  <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Keahlian 1" name="expert1" value="{{$exprofile->Area_of_Expertise_1}} " required>
+                  <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Keahlian 1" name="expert1" value="{{$exprofile->Area_of_Expertise_1}}" required>
               </div>
               <div class="form-group">
                   <label for="exampleInputPassword1">2nd Expertise</label>
-                  <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Keahlian 2" name="expert2" value="{{$exprofile->Area_of_Expertise_2}} " required>
+                  <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Keahlian 2" name="expert2" value="{{$exprofile->Area_of_Expertise_2}}" required>
               </div>
               <div class="form-group">
                   <label for="exampleInputPassword1">3rd Expertise</label>
@@ -290,15 +290,15 @@
               <div class="col-md-6"> 
               <div class="form-group">
                   <label>Masterpiece 1</label>
-                  <textarea class="form-control" rows="3" placeholder="Masterpiece 1 " value ="{{$exprofile->Masterpiece_1}}" name="master1" > {{$exprofile->Masterpiece_1}}</textarea>
+                  <textarea class="form-control" rows="3" placeholder="Tuliskan Pencapaian Terbaik Anda Selama Bekerja " value ="{{$exprofile->Masterpiece_1}}" name="master1" > {{$exprofile->Masterpiece_1}}</textarea>
               </div>
               <div class="form-group">
                   <label>Masterpiece 2</label>
-                  <textarea class="form-control" rows="3" placeholder="Masterpiece 2 " value ="{{$exprofile->Masterpiece_1}}" name="master2"> {{$exprofile->Masterpiece_2}}</textarea>
+                  <textarea class="form-control" rows="3" placeholder="Tuliskan Pencapaian Terbaik Anda Selama Bekerja " value ="{{$exprofile->Masterpiece_1}}" name="master2"> {{$exprofile->Masterpiece_2}}</textarea>
               </div>
               <div class="form-group">
                   <label>Masterpiece 3</label>
-                  <textarea class="form-control" rows="3" placeholder="Masterpiece 3 " value ="{{$exprofile->Masterpiece_1}}" name="master3"> {{$exprofile->Masterpiece_3}}</textarea>
+                  <textarea class="form-control" rows="3" placeholder="Tuliskan Pencapaian Terbaik Anda Selama Bekerja " value ="{{$exprofile->Masterpiece_1}}" name="master3"> {{$exprofile->Masterpiece_3}}</textarea>
               </div>
           <!-- /.form-group -->
               </div>
