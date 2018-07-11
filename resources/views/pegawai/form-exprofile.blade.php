@@ -180,15 +180,15 @@
             <div class="col-md-6"> 
                 <div class="form-group">
                   <label>Penghargaan 1</label>
-                  <textarea class="form-control" rows="3" value="{{$exprofile->Professional_Certification_1}}" name="certif1" placeholder="Penghargaan atau Sertifikasi" required>{{$exprofile->Professional_Certification_1}}</textarea>
+                  <textarea class="form-control" rows="3" value="{{$exprofile->Professional_Certification_1}}" name="certif1" placeholder="Penghargaan atau Sertifikasi">{{$exprofile->Professional_Certification_1}}</textarea>
               </div>
               <div class="form-group">
                   <label>Penghargaan 2</label>
-                  <textarea class="form-control" rows="3" value="{{$exprofile->Professional_Certification_2}}" placeholder="Penghargaan atau Sertifikasi" name="certif2" required>{{$exprofile->Professional_Certification_2}}</textarea>
+                  <textarea class="form-control" rows="3" value="{{$exprofile->Professional_Certification_2}}" placeholder="Penghargaan atau Sertifikasi" name="certif2">{{$exprofile->Professional_Certification_2}}</textarea>
               </div>
               <div class="form-group">
                   <label>Penghargaan 3</label>
-                  <textarea class="form-control" rows="3" value="{{$exprofile->Professional_Certification_3}} " placeholder="Penghargaan atau Sertifikasi" name="certif3" required>{{$exprofile->Professional_Certification_3}}</textarea>
+                  <textarea class="form-control" rows="3" value="{{$exprofile->Professional_Certification_3}} " placeholder="Penghargaan atau Sertifikasi" name="certif3" >{{$exprofile->Professional_Certification_3}}</textarea>
               </div>
               <!-- /.form-group -->
             </div>
@@ -210,15 +210,15 @@
             <div class="col-md-6">
               <div class="form-group">
                   <label for="exampleInputEmail1">1st Expertise </label>
-                  <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Keahlian 1" name="expert1" value="{{$exprofile->Area_of_Expertise_1}} ">
+                  <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Keahlian 1" name="expert1" value="{{$exprofile->Area_of_Expertise_1}} " required>
               </div>
               <div class="form-group">
                   <label for="exampleInputPassword1">2nd Expertise</label>
-                  <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Keahlian 2" name="expert2" value="{{$exprofile->Area_of_Expertise_2}} ">
+                  <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Keahlian 2" name="expert2" value="{{$exprofile->Area_of_Expertise_2}} " required>
               </div>
               <div class="form-group">
                   <label for="exampleInputPassword1">3rd Expertise</label>
-                  <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Keahlian 3" name="expert3" value="{{$exprofile->Area_of_Expertise_3}} ">
+                  <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Keahlian 3" name="expert3" value="{{$exprofile->Area_of_Expertise_3}} " required>
               </div>
               <button type="submit" class="btn btn-primary">Simpan</button>
             </div>
@@ -226,33 +226,50 @@
             <div class="col-md-6">
              <div class="form-group">
                 <label> 1st Interest</label>
-                <select class="form-control select2" style="width: 100%;" name="interest1">
-                <option selected value="{{$exprofile->Career_Interest_1}}">{{$exprofile->Career_Interest_1}}</option>
-                <option value=""></option>
-                @foreach($interest as $inter)
-                  <option value="{{$inter->nama_interest}}">{{$inter->nama_interest}}</option>
-                @endforeach
-                <option value="{{$inter->nama_interest}}"></option>
+                <select class="form-control select2" style="width: 100%;" name="interest1"  required>
+                @if(is_null($exprofile->Career_Interest_1))
+                <option value="" disabled selected> Mohon Diisi </option>
+                  @foreach($interest as $inter)
+                    <option value="{{$inter->nama_interest}}">{{$inter->nama_interest}}</option>
+                  @endforeach
+                @else
+                 <option selected value="{{$exprofile->Career_Interest_1}}" >{{$exprofile->Career_Interest_1}}</option>
+                  @foreach($interest as $inter)
+                    <option value="{{$inter->nama_interest}}">{{$inter->nama_interest}}</option>
+                  @endforeach
+                @endif
                 </select>
               </div>
               <div class="form-group">
                 <label> 2nd Interest</label>
-                <select class="form-control select2" style="width: 100%;" name="interest2">
-                <option selected value="{{$exprofile->Career_Interest_2}}">{{$exprofile->Career_Interest_2}}</option>
-                <option value=""></option>
-                @foreach($interest as $inter)
-                  <option value="{{$inter->nama_interest}}">{{$inter->nama_interest}}</option>
-                @endforeach
+                <select class="form-control select2" style="width: 100%;" name="interest2"  required>
+                @if(is_null($exprofile->Career_Interest_2))
+                <option value="" disabled selected> Mohon Diisi </option>
+                  @foreach($interest as $inter)
+                    <option value="{{$inter->nama_interest}}">{{$inter->nama_interest}}</option>
+                  @endforeach
+                @else
+                 <option selected value="{{$exprofile->Career_Interest_2}}" >{{$exprofile->Career_Interest_2}}</option>
+                  @foreach($interest as $inter)
+                    <option value="{{$inter->nama_interest}}">{{$inter->nama_interest}}</option>
+                  @endforeach
+                @endif
                 </select>
               </div>
               <div class="form-group">
                 <label> 3rd Interest</label>
-                <select class="form-control select2" style="width: 100%;" name="interest3">
-                <option selected value="{{$exprofile->Career_Interest_3}}">{{$exprofile->Career_Interest_3}}</option>
-                <option value=""></option>
-                @foreach($interest as $inter)
-                  <option value="{{$inter->nama_interest}}">{{$inter->nama_interest}}</option>
-                @endforeach
+                <select class="form-control select2" style="width: 100%;" name="interest3"  required>
+                @if(is_null($exprofile->Career_Interest_3))
+                <option value="" disabled selected> Mohon Diisi </option>
+                  @foreach($interest as $inter)
+                    <option value="{{$inter->nama_interest}}">{{$inter->nama_interest}}</option>
+                  @endforeach
+                @else
+                 <option selected value="{{$exprofile->Career_Interest_3}}" >{{$exprofile->Career_Interest_3}}</option>
+                  @foreach($interest as $inter)
+                    <option value="{{$inter->nama_interest}}">{{$inter->nama_interest}}</option>
+                  @endforeach
+                @endif
                 </select>
               </div>
               <!-- /.form-group -->
