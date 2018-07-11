@@ -18,12 +18,12 @@
           </a>
         </li>
         <li>
-          <a href="{{ route('keterangan') }}">
+          <a href="#">
             <i class="fa fa-dashboard"></i> <span>Riwayat Diri <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dan Jabatan</span>
           </a>
         </li>
         <li>
-          <a href="{{ route('riwayat') }}">
+          <a href="#">
             <i class="fa fa-dashboard"></i> <span>Keterangan Keluarga <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; dan Referensi</span>
           </a>
         </li>

@@ -17,11 +17,6 @@
             <i class="fa fa-archive"></i> <span>Upload File</span>
           </a>
         </li>
-<!--         <li>
-          <a href="{{ route('riwayat') }}">
-            <i class="fa fa-dashboard"></i> <span>Keterangan Keluarga <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; dan Referensi</span>
-          </a>
-        </li> -->
       </ul>
     </section>
     <!-- /.sidebar -->
