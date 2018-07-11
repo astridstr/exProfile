@@ -97,6 +97,7 @@ class UploadController extends Controller
                     if(!empty($insert)){
 
                         // $insertData = DB::table('exprofiles')->insert($insert);
+                        // $insertData = Exprofile::insert($insert);
 
                         if ($insert) {
                             Session::flash('success', 'Your Data has successfully imported');

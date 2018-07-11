@@ -45,6 +45,7 @@
 
                       <!-- nama lengkap -->
                       <td style="width: 40%"><p style="font-size: 18px;"><b>{{$exprofile->Nama_Lengkap}}</b></p></td>
+                      <p>{{ $exprofile->age }} years</p>
 
                       <!-- NIP / Grade -->
                       <td style="width: 20%" valign="middle"><p><span class="label label-warning" style="font-size: 18px;">{{$exprofile->NIP}} / {{$exprofile->Grade}}</span></p></td>

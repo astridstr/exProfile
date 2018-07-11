@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Carbon\Carbon;
 
 class Exprofile extends Model
 {
@@ -45,4 +46,9 @@ class Exprofile extends Model
     'About_and_Experience_2',
     'About_and_Experience_3',
     ];
+
+    public function getAgeAttribute()
+    {
+        return Carbon::parse($this->attributes['tgl_lahir'])->age;
+    }
 }

@@ -26,7 +26,7 @@
                       <td rowspan="3" style="width: 40%">
                         <img style="margin: 0 auto; width: 160px; height: 240px; border-style: groove;" class="img-responsive" src="{{ asset('img/user-profile.png') }}" alt="User profile picture">
                       </td>
-
+                      <p>{{ $exprofile->age }} years</p>
                       <!-- nama lengkap -->
                       <td style="width: 40%"><p style="font-size: 18px;"><b>{{$exprofile->Nama_Lengkap}}</b></p></td>
 
