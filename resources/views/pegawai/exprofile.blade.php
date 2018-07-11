@@ -26,40 +26,38 @@
                   <table>
                     <tr>
                       <!-- foto profil -->
-                      <td rowspan="3" style="width: 40%">
+                      <td rowspan="4" style="width: 37%;">
                       @if(File::exists(public_path("fotoupload/".$exprofile->File_Foto.".jpg")))
-                      <img style="width: 5cm; height: 7cm; border-style: groove;" class="img-responsive" src="{{ asset('fotoupload/'.$exprofile->File_Foto.'.jpg')  }}" alt= "User profile" />
+                      <img style="margin: 0px 7px; width: 5cm; height: 7cm; border-style: groove; vertical-align: bottom;"  class="img-responsive" src="{{ asset('fotoupload/'.$exprofile->File_Foto.'.jpg')  }}" alt= "User profile" />
                       @elseif(File::exists(public_path("fotoupload/".$exprofile->File_Foto.".png"))) 
-                      <img style="width: 5cm; height: 7cm; border-style: groove;" class="img-responsive" src="{{ asset('fotoupload/'.$exprofile->File_Foto.'.png')  }}" alt= "User profile" />
+                      <img style="margin: 0px 7px; width: 5cm; height: 7cm; border-style: groove; vertical-align: bottom;" class="img-responsive" src="{{ asset('fotoupload/'.$exprofile->File_Foto.'.png')  }}" alt= "User profile" />
                       @elseif(File::exists(public_path("fotoupload/".$exprofile->File_Foto.".JPG"))) 
-                      <img style="width: width: 5cm; height: 7cm; border-style: groove;" class="img-responsive" src="{{ asset('fotoupload/'.$exprofile->File_Foto.'.JPG')  }}" alt= "User profile" />
+                      <img style="margin: 0px 7px; width: 5cm; height: 7cm; border-style: groove; vertical-align: bottom;" class="img-responsive" src="{{ asset('fotoupload/'.$exprofile->File_Foto.'.JPG')  }}" alt= "User profile" />
                       @elseif(File::exists(public_path("fotoupload/".$exprofile->File_Foto.".jpeg"))) 
-                      <img style="width: width: 5cm; height: 7cm; border-style: groove;" class="img-responsive" src="{{ asset('fotoupload/'.$exprofile->File_Foto.'.jpeg')  }}" alt= "User profile" />
+                      <img style="margin: 0px 7px; width: 5cm; height: 7cm; border-style: groove; vertical-align: bottom;" class="img-responsive" src="{{ asset('fotoupload/'.$exprofile->File_Foto.'.jpeg')  }}" alt= "User profile" />
                       @else
-                      <img style="margin: 0 auto; width: width: 4cm; height: 6cm; border-style: groove;" src="{{ asset('img/user-profile.png') }}" alt="User profile" />
+                      <img style="margin: 0px 7px; width: 5cm; height: 7cm; border-style: groove; vertical-align: bottom;" class="img-responsive" src="{{ asset('img/user-profile.png') }}" alt="User profile" />
                       @endif
                       <br>
                       </td>
 
                       <!-- nama lengkap -->
-                      <td style="width: 40%"><p style="font-size: 18px;"><b>{{$exprofile->Nama_Lengkap}}</b></p></td>
-                      <p>{{ $exprofile->age }} years</p>
+                      <td style="width: 45%;" style="padding: 0;"><p style="font-size: 28px;"><b>{{$exprofile->Nama_Lengkap}}</b></p></td>
 
                       <!-- NIP / Grade -->
-                      <td style="width: 20%" valign="middle"><p><span class="label label-warning" style="font-size: 18px;">{{$exprofile->NIP}} / {{$exprofile->Grade}}</span></p></td>
+                      <td style="width: 20%;" valign="top"><p><span class="label label-info" style="font-size: 14px;">{{$exprofile->NIP}} / {{$exprofile->Grade}}</span></p></td>
                     </tr>
                     <tr>
                       <!-- Jabatan & Divisi -->
-                      <td colspan="2">
-                        <p class="text-muted text-left">{{$exprofile->Jabatan_Saat_ini}}</p>
-                        <p class="text-muted text-left">{{$exprofile->Divisi_Satuan}}</p>
+                      <td colspan="2" style="margin: 0px;"> 
+                        <p style="margin: 2px;" class="text-muted text-left" style="font-size: 16px;">{{$exprofile->Jabatan_Saat_ini}}</p>
+                        <p style="margin: 2px;" class="text-muted text-left" style="font-size: 16px;">{{$exprofile->Divisi_Satuan}}</p>
                       </td>
                     </tr>
-                    <tr>
-                      <!-- keterangan -->
-                      <td colspan="2">
+                    <tr style="margin: 0;">
+                      <td>
                         <ul class="list-group box-primary">
-                          <li class="list-group-item">
+                          <li class="list-group-item" style="padding: 0;">
                             <b style="font-size: 16px; text-align: center;">
                                 ITMS Stat : 
                                 @if ($exprofile->Jenjang == 'Manajemen Atas') BOD-1
@@ -70,10 +68,22 @@
                                 @endif</b>
                           </li>
                         </ul>
-                        <ul class="list-group">
-                          <li class="list-group-item">
-                            <i class="fa fa-user fa-fw" aria-hidden="true"></i>&nbsp; {{$exprofile->Gender}}, {{$exprofile->Kota_Lahir}}, {{$exprofile->tgl_lahir}}<br>
-                            <i class="fa fa-birthday-cake fa-fw" aria-hidden="true"></i>&nbsp;  <br>
+                      </td>
+                      <td>
+                        <ul class="list-group box-primary">
+                          <li class="list-group-item" style="padding: 0;">
+                            <b style="font-size: 16px;">{{ $exprofile->age }} y.o</b>
+                          </li>
+                        </ul>
+                      </td>
+                    </tr>
+                    <tr>
+                      <!-- keterangan -->
+                      <td colspan="2">
+                        <ul class="list-group" style="margin-top: -20px;">
+                          <li class="list-group-item" style="padding: 0;">
+                            <i class="fa fa-user fa-fw" aria-hidden="true"></i>&nbsp; {{$exprofile->Gender}}<br>
+                            <i class="fa fa-birthday-cake fa-fw" aria-hidden="true"></i>&nbsp; {{$exprofile->Kota_Lahir}}, {{$exprofile->tgl_lahir}}<br>
                             <i class="fa fa-phone fa-fw" aria-hidden="true"></i>&nbsp; {{$exprofile->handphone}} <br>
                             <i class="fa fa-heart fa-fw" aria-hidden="true"></i>&nbsp; {{$exprofile->Religion}}<br>
                             <i class="fa fa-address-book fa-fw" aria-hidden="true"></i>&nbsp; {{$exprofile->Sosmed_Aktif}} : {{$exprofile->akun_sosmed_aktif_twitter_instagram_facebook}}<br>
@@ -98,32 +108,32 @@
                     <!-- small box -->
                     <div class="small-box bg-green">
                       <div class="inner">
-                        <h3>2.92</h3>
+                        <h3>?</h3>
 
                         <p>Domestic</p>
                       </div>
                       <div class="icon">
                         <i class="fa fa-home"></i>
                       </div>
-                      <a href="#" class="small-box-footer">
+                      <!-- <a href="#" class="small-box-footer">
                         Dapat Disarankan <i class="fa fa-file"></i>
-                      </a>
+                      </a> -->
                     </div>
                 </div>
                 <div class="col-lg-6">
                     <!-- small box -->
                     <div class="small-box bg-yellow" style="">
                       <div class="inner">
-                        <h3>2.67</h3>
+                        <h3>?</h3>
 
                         <p>Global</p>
                       </div>
                       <div class="icon">
                         <i class="fa fa-globe"></i>
                       </div>
-                      <a href="#" class="small-box-footer">
+                      <!-- <a href="#" class="small-box-footer">
                         Disarankan dgn Pertimbangan <i class="fa fa-file"></i>
-                      </a>
+                      </a> -->
                     </div>
                 </div>
                 <hr>
