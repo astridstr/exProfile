@@ -8,7 +8,7 @@
       <ul class="sidebar-menu" data-widget="tree">
         <li class="header">MAIN NAVIGATION</li>
         <li>
-          <a href="{{ route('exprofile') }}">
+          <a href="{{ route('pegawai.dashboard') }}">
             <i class="fa fa-user"></i> <span>Executive Profile</span>
           </a>
         </li>
@@ -17,11 +17,6 @@
             <i class="fa fa-edit"></i> <span>Edit Profile</span>
           </a>
         </li>
-<!--         <li>
-          <a href="{{ route('riwayat') }}">
-            <i class="fa fa-dashboard"></i> <span>Keterangan Keluarga <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; dan Referensi</span>
-          </a>
-        </li> -->
       </ul>
     </section>
     <!-- /.sidebar -->

@@ -23,60 +23,51 @@
               <!-- User Profile -->
               <div class="row">
                 <div class="col-md-12">
-                  <table>
+                  <table class="table table-condensed table-responsive">
                     <tr>
                       <!-- foto profil -->
                       <td rowspan="4" style="width: 37%;">
                       @if(File::exists(public_path("fotoupload/".$exprofile->File_Foto.".JPG")))
-                      <img style="margin: 0px 7px; width: 5cm; height: 7cm; border-style: groove; vertical-align: bottom;"  class="img-responsive" src="{{ asset('fotoupload/'.$exprofile->File_Foto.'.JPG')  }}" alt= "User profile" />
+                      <img style="margin: 0; width: 5cm; height: 7cm; border-style: groove; vertical-align: bottom;"  class="img-responsive" src="{{ asset('fotoupload/'.$exprofile->File_Foto.'.JPG')  }}" alt= "User profile" />
                       @elseif(File::exists(public_path("fotoupload/".$exprofile->File_Foto.".PNG"))) 
-                      <img style="margin: 0px 7px; width: 5cm; height: 7cm; border-style: groove; vertical-align: bottom;" class="img-responsive" src="{{ asset('fotoupload/'.$exprofile->File_Foto.'.PNG')  }}" alt= "User profile" />
+                      <img style="margin: 0; width: 5cm; height: 7cm; border-style: groove; vertical-align: bottom;" class="img-responsive" src="{{ asset('fotoupload/'.$exprofile->File_Foto.'.PNG')  }}" alt= "User profile" />
                       @elseif(File::exists(public_path("fotoupload/".$exprofile->File_Foto.".jpg"))) 
-                      <img style="margin: 0px 7px; width: 5cm; height: 7cm; border-style: groove; vertical-align: bottom;" class="img-responsive" src="{{ asset('fotoupload/'.$exprofile->File_Foto.'.jpg')  }}" alt= "User profile" />
-                      @elseif(File::exists(public_path("fotoupload/".$exprofile->File_Foto.".jpg"))) 
-                      <img style="margin: 0px 7px; width: 5cm; height: 7cm; border-style: groove; vertical-align: bottom;" class="img-responsive" src="{{ asset('fotoupload/'.$exprofile->File_Foto.'.jpg')  }}" alt= "User profile" />
+                      <img style="margin: 0; width: 5cm; height: 7cm; border-style: groove; vertical-align: bottom;" class="img-responsive" src="{{ asset('fotoupload/'.$exprofile->File_Foto.'.jpg')  }}" alt= "User profile" />
+                      @elseif(File::exists(public_path("fotoupload/".$exprofile->File_Foto.".png"))) 
+                      <img style="margin: 0; width: 5cm; height: 7cm; border-style: groove; vertical-align: bottom;" class="img-responsive" src="{{ asset('fotoupload/'.$exprofile->File_Foto.'.png')  }}" alt= "User profile" />
                       @elseif(File::exists(public_path("fotoupload/".$exprofile->File_Foto.".JPEG"))) 
-                      <img style="margin: 0px 7px; width: 5cm; height: 7cm; border-style: groove; vertical-align: bottom;" class="img-responsive" src="{{ asset('fotoupload/'.$exprofile->File_Foto.'.JPEG')  }}" alt= "User profile" />
+                      <img style="margin: 0; width: 5cm; height: 7cm; border-style: groove; vertical-align: bottom;" class="img-responsive" src="{{ asset('fotoupload/'.$exprofile->File_Foto.'.JPEG')  }}" alt= "User profile" />
                       @elseif(File::exists(public_path("fotoupload/".$exprofile->File_Foto.".jpeg"))) 
-                      <img style="margin: 0px 7px; width: 5cm; height: 7cm; border-style: groove; vertical-align: bottom;" class="img-responsive" src="{{ asset('fotoupload/'.$exprofile->File_Foto.'.jpeg')  }}" alt= "User profile" />
+                      <img style="margin: 0; width: 5cm; height: 7cm; border-style: groove; vertical-align: bottom;" class="img-responsive" src="{{ asset('fotoupload/'.$exprofile->File_Foto.'.jpef')  }}" alt= "User profile" />
                       @else
-                      <img style="margin: 0px 7px; width: 5cm; height: 7cm; border-style: groove; vertical-align: bottom;" class="img-responsive" src="{{ asset('img/user-profile.png') }}" alt="User profile" />
+                      <img style="margin: 0 width: 5cm; height: 7cm; border-style: groove; vertical-align: bottom;" class="img-responsive" src="{{ asset('img/user-profile.png') }}" alt= "User profile" />
                       @endif
-                      <br>
                       </td>
 
                       <!-- nama lengkap -->
-                      <td style="width: 45%;" style="padding: 0;"><p style="font-size: 28px;"><b>{{$exprofile->Nama_Lengkap}}</b></p></td>
+                      <td style="width: 45%;"><b style="font-size: 28px;">{{$exprofile->Nama_Lengkap}}</b></td>
 
                       <!-- NIP / Grade -->
-                      <td style="width: 20%;" valign="top"><p><span class="label label-info" style="font-size: 14px;">{{$exprofile->NIP}} / {{$exprofile->Grade}}</span></p></td>
+                      <td style="width: 20%;"><p><span class="label label-info" style="font-size: 14px; vertical-align: middle;">{{$exprofile->NIP}} / {{$exprofile->Grade}}</span></p></td>
                     </tr>
                     <tr>
                       <!-- Jabatan & Divisi -->
-                      <td colspan="2" style="margin: 0px;"> 
-                        <p style="margin: 2px;" class="text-muted text-left" style="font-size: 16px;">{{$exprofile->Jabatan_Saat_ini}}</p>
-                        <p style="margin: 2px;" class="text-muted text-left" style="font-size: 16px;">{{$exprofile->Divisi_Satuan}}</p>
+                      <td colspan="2"> 
+                        <p style="margin: 3px 0px;" class="text-muted text-left" style="font-size: 16px;">{{$exprofile->Jabatan_Saat_ini}}</p>
+                        <p style="margin: 3px 0px;" class="text-muted text-left" style="font-size: 16px;">{{$exprofile->Divisi_Satuan}}</p>
                       </td>
                     </tr>
                     <tr style="margin: 0;">
-                      <td>
+                      <td colspan="2">
                         <ul class="list-group box-primary">
                           <li class="list-group-item" style="padding: 0;">
-                            <b style="font-size: 16px; text-align: center;">
-                                ITMS Stat : 
-                                @if ($exprofile->Jenjang == 'Manajemen Atas') BOD-1
-                                @elseif ($exprofile->Jenjang == 'Manajemen Menengah') BOD-2
-                                @elseif ($exprofile->Jenjang == 'Manajemen Dasar') BOD-3
-                                @elseif ($exprofile->Jenjang == 'Supervisior Atas') BOD-4
-                                @elseif ($exprofile->Jenjang == 'Supervisior Dasar') BOD-5
-                                @endif</b>
-                          </li>
-                        </ul>
-                      </td>
-                      <td>
-                        <ul class="list-group box-primary">
-                          <li class="list-group-item" style="padding: 0;">
-                            <b style="font-size: 16px;">{{ $exprofile->age }} y.o</b>
+                            <b style="font-size: 16px; text-align: center;">ITMS Stat : </b>
+                            @if ($exprofile->Jenjang == 'Manajemen Atas') <b>BOD-1</b> ({{$exprofile->Jenjang}}) <span class="pull-right"><b>{{ $exprofile->age }} years old</b></span>
+                            @elseif ($exprofile->Jenjang == 'Manajemen Menengah') <b>BOD-1</b> ({{$exprofile->Jenjang}}) <span class="pull-right"><b>{{ $exprofile->age }} years old</b></span>
+                            @elseif ($exprofile->Jenjang == 'Manajemen Dasar') <b>BOD-1</b> ({{$exprofile->Jenjang}}) <span class="pull-right"><b>{{ $exprofile->age }} years old</b></span>
+                            @elseif ($exprofile->Jenjang == 'Supervisori Atas') <b>BOD-1</b> ({{$exprofile->Jenjang}}) <span class="pull-right"><b>{{ $exprofile->age }} years old</b></span>
+                            @elseif ($exprofile->Jenjang == 'Supervisori Dasar') <b>BOD-1</b> ({{$exprofile->Jenjang}}) <span class="pull-right"><b>{{ $exprofile->age }} years old</b></span>
+                            @endif</b>
                           </li>
                         </ul>
                       </td>
@@ -348,10 +339,10 @@
                         
                       </div>
                       <div class="col-md-4">
-                        <a href="{{route('form.view')}}"><button type="button" class="btn btn-block btn-info btn-flat">Edit</button></a>
+                        <a href="{{route('form.view')}}"><button type="button" class="btn btn-block btn-success"><i class="fa fa-edit"></i>&nbsp; Edit</button></a>
                       </div>
                       <div class="col-md-4">
-                        <a href="{{action('PdfGenerateController@download')}}"<button type="button" class="btn btn-block btn-info btn-flat">Download as PDF</button></a>
+                        <a href="{{action('PdfGenerateController@download')}}" target="_blank"> <button type="button" class="btn btn-block btn-success"><i class="fa fa-download"></i>&nbsp; Download as PDF</button></a>
                         
                       </div>
                     </div>
