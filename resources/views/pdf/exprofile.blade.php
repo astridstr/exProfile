@@ -99,11 +99,13 @@ tr > th {
                               <table>
                                 <tr><td class="text-center"><b style="font-size: 16px; text-align: center;">
                                 ITMS Stat : 
-                                @if ($exprofile->Jenjang == 'Manajemen Atas') BOD-1
-                                @elseif ($exprofile->Jenjang == 'Manajemen Menengah') BOD-2
-                                @elseif ($exprofile->Jenjang == 'Manajemen Dasar') BOD-3
-                                @elseif ($exprofile->Jenjang == 'Supervisior Atas') BOD-4
-                                @elseif ($exprofile->Jenjang == 'Supervisior Dasar') BOD-5
+                                @if ($exprofile->Jenjang == 'Manajemen Atas') BOD-1 ({{$exprofile->Jenjang}})
+                                @elseif ($exprofile->Jenjang == 'Manajemen Menengah') BOD-2 ({{$exprofile->Jenjang}})
+                                @elseif ($exprofile->Jenjang == 'Manajemen Dasar') BOD-3 ({{$exprofile->Jenjang}})
+                                @elseif ($exprofile->Jenjang == 'Supervisori Atas') BOD-4 ({{$exprofile->Jenjang}})
+                                @elseif ($exprofile->Jenjang == 'Supervisori Dasar') BOD-5 ({{$exprofile->Jenjang}})
+                                @else
+                                Fungsional
                                 @endif</b></td></tr>
                                 <tr><td><b style="font-size: 16px; text-align: center;">{{$exprofile->NIP}} / {{$exprofile->Grade}}</b></td></tr>
                               </table>
