@@ -125,7 +125,18 @@ tr > th {
                           <tr>
                             <td colspan="2">
                               <b>{{$exprofile->Gender}}</b>, lahir di <b>{{$exprofile->Kota_Lahir }}</b>, <b>{{$exprofile-> tgl_lahir}}</b>, <b>{{$exprofile->Religion}}</b><br>
-                            Email: {{$exprofile->email_korporat}}; HP: {{$exprofile->handphone}}<br>{{$exprofile->Sosmed_Aktif}}: {{$exprofile-> akun_sosmed_aktif_twitter_instagram_facebook}};
+                            Email: {{$exprofile->email_korporat}}; HP: {{$exprofile->handphone}};<br>@if(!empty($exprofile->Akun_Facebook))Facebook: {{$exprofile->Akun_Facebook}};
+                            @else
+                            @endif
+                            @if(!empty($exprofile->Akun_Twitter))Twitter: {{$exprofile->Akun_Twitter}};<br>
+                            @else
+                            @endif
+                            @if(!empty($exprofile->Akun_Instagram))Instagram: &nbsp;{{$exprofile->Akun_Instagram}};
+                            @else
+                            @endif
+                            @if(!empty($exprofile->Akun_LinkedIn))LinkedIn: {{$exprofile->Akun_LinkedIn}};
+                            @else
+                            @endif
                           </td>
                           </tr>
                         <!-- end of biodata -->
