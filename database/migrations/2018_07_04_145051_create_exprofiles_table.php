@@ -31,8 +31,10 @@ class CreateExprofilesTable extends Migration
             $table->string('Alamat_Tinggal_Saat_Ini', 190)->nullable();
             $table->string('email_korporat', 190)->nullable();
             $table->string('handphone', 190)->nullable();
-            $table->string('Sosmed_Aktif', 190)->nullable();
-            $table->string('akun_sosmed_aktif_twitter_instagram_facebook', 190)->nullable();
+            $table->string('Akun_Facebook', 190)->nullable();
+            $table->string('Akun_Twitter', 190)->nullable();
+            $table->string('Akun_Instagram', 190)->nullable();
+            $table->string('Akun_LinkedIn', 190)->nullable();
             $table->string('Jabatan_Saat_ini', 190)->nullable();
             $table->string('Divisi_Satuan', 190)->nullable();
             $table->string('Area_of_Expertise_1', 190)->nullable();

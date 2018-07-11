@@ -19,7 +19,7 @@
             <ul class="nav nav-tabs">
               <li class="active"><a href="#activity" data-toggle="tab">Data Diri</a></li>
               <li><a href="#pendidikan" data-toggle="tab">Pendidikan dan Penghargaan</a></li>
-              <li><a href="#carier" data-toggle="tab">Carier and Interest</a></li>
+              <li><a href="#carier" data-toggle="tab">Career and Interest</a></li>
               <li><a href="#masterpiece" data-toggle="tab">Masterpieces</a></li>
             </ul>
     <div class="tab-content">
@@ -60,44 +60,42 @@
                   <input type="email" class="form-control" id="exampleInputPassword1" value="{{$exprofile->email_korporat}}" placeholder="Email Korporat" name="email" disabled >
               </div>
               <div class="form-group">
-                <label>Media Sosial</label>
-                <select class="form-control select2" style="width: 100%;" name="media_sosial">
-                @if($exprofile->Sosmed_Aktif == 'Instagram')
-                  <option selected="selected" value="Instagram">Instagram</option>
-                  <option value="Facebook" >Facebook</option>
-                  <option value="Twitter" >Twitter</option>
-                  <option value="" ></option>
-                @elseif($exprofile->Sosmed_Aktif == 'Facebook')
-                  <option selected="selected" value="Facebook">Facebook</option>
-                  <option value="Instagram" >Instagram</option>
-                  <option value="Twitter" >Twitter</option>
-                  <option value="" ></option>
-                @elseif($exprofile->Sosmed_Aktif == 'Twitter')
-                  <option selected="selected" value="Twitter" >Twitter</option>
-                  <option value="Instagram" >Instagram</option>
-                  <option value="Facebook" >Facebook</option>
-                  <option value="" ></option>
-                @else
-                  <option selected="selected" value="" ></option>
-                  <option value="Instagram">Instagram</option>
-                  <option value="Facebook" >Facebook</option>
-                  <option value="Twitter" >Twitter</option>
-                @endif
-                </select>
+              <label for="exampleInputPassword1">Media Sosial</label>
+              <div class="input-group">
+                <span class="input-group-addon"><i class="fa  fa-facebook-square"></i></span>
+                <input type="text" class="form-control" placeholder="Akun Facebook" name="facebook" value="{{$exprofile->Akun_Facebook}}">
+                </div>
               </div>
               <div class="form-group">
-                  <label for="exampleInputPassword1">Alamat Tinggal</label>
-                  <input type="text" class="form-control" id="exampleInputPassword1" value="{{$exprofile->Alamat_Tinggal_Saat_Ini}}" placeholder="Alamat Tinggal Saat Ini" name="alamat_tinggal">
+              <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-twitter-square"></i></span>
+                <input type="text" class="form-control" placeholder="Akun Twitter" name="twitter" value="{{$exprofile->Akun_Twitter}}">
+                </div>
+              </div>
+              <div class="form-group">
+              <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-instagram"></i></span>
+                <input type="text" class="form-control" placeholder="Akun Instagram" name="instagram" value="{{$exprofile->Akun_Instagram}}">
+                </div>
+              </div>
+              <div class="form-group">
+              <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-linkedin-square"></i></span>
+                <input type="text" class="form-control" placeholder="Akun LinkedIn" name="linkedin" value="{{$exprofile->Akun_LinkedIn}}">
+              </div>
               </div>
               <div class="form-group">
                   <label>About and Experience</label>
                   <br>
                   <small>Paragraf 1</small>
-                  <textarea class="form-control" rows="3" placeholder="Data Diri" name ="ae_1" value="{{$exprofile->About_and_Experience_1}}">{{$exprofile->About_and_Experience_1}}</textarea>
+                  <textarea class="form-control" rows="3" placeholder="Deskripsikan Data Diri Anda
+" name ="ae_1" value="{{$exprofile->About_and_Experience_1}}" required>{{$exprofile->About_and_Experience_1}}</textarea>
                   <small>Paragraf 2</small>
-                  <textarea class="form-control" rows="3" placeholder="Riwayat Jabatan dan Karir" name="ae_2" value="{{$exprofile->About_and_Experience_2}}" >{{$exprofile->About_and_Experience_2}}</textarea>
+                  <textarea class="form-control" rows="3" placeholder="Jabarkan Riwayat Jabatan dan Karir (Align pada Career and Interest )
+" name="ae_2" value="{{$exprofile->About_and_Experience_2}}" required>{{$exprofile->About_and_Experience_2}}</textarea>
                   <small>Paragraf 3</small>
-                  <textarea class="form-control" rows="3" placeholder="Bidang Minat" name="ae_3" value="{{$exprofile->About_and_Experience_3}}">{{$exprofile->About_and_Experience_3}}</textarea>
+                  <textarea class="form-control" rows="3" placeholder=" Jabarkan Bidang dan Minat Anda (Align pada Career and Interest)
+" name="ae_3" value="{{$exprofile->About_and_Experience_3}}" required>{{$exprofile->About_and_Experience_3}}</textarea>
               </div>
               <div class="form-group">
                   <label for="exampleInputFile">Foto</label>
@@ -129,7 +127,7 @@
               </div>
               <div class="form-group">
                 <label>Jenis Kelamin</label>
-                <select class="form-control select2" style="width: 100%;" name="gender">
+                <select class="form-control select2" style="width: 100%;" name="gender" disabled>
                 @if($exprofile->Gender == 'LAKI LAKI')
                   <option selected="selected" value="LAKI LAKI">Laki Laki</option>
                   <option value="PEREMPUAN" >Perempuan</option>
@@ -141,15 +139,15 @@
               </div>
               <div class="form-group">
                   <label for="exampleInputPassword1">HP</label>
-                  <input type="text" class="form-control" id="exampleInputPassword1" value="{{$exprofile->handphone}}" placeholder="Nomor Handphone" name="handphone">
-              </div>
-              <div class="form-group">
-                  <label for="exampleInputPassword1">Akun</label>
-                  <input type="text" class="form-control" id="exampleInputPassword1" value="{{$exprofile->akun_sosmed_aktif_twitter_instagram_facebook}}" placeholder="Akun Media Sosial Aktif" name="akun">
+                  <input type="text" class="form-control" id="exampleInputPassword1" value="{{$exprofile->handphone}}" placeholder="Nomor Handphone" name="handphone" required>
               </div>
               <div class="form-group">
                   <label for="exampleInputPassword1">Domisili</label>
-                  <input type="text" class="form-control" id="exampleInputPassword1" value="{{$exprofile->Kota_Domisili_Utama}}" name="domisili">
+                  <input type="text" class="form-control" id="exampleInputPassword1" value="{{$exprofile->Kota_Domisili_Utama}}" name="domisili" required>
+              </div>
+              <div class="form-group">
+                  <label for="exampleInputPassword1">Alamat Tinggal</label>
+                  <input type="text" class="form-control" id="exampleInputPassword1" value="{{$exprofile->Alamat_Tinggal_Saat_Ini}}" placeholder="Alamat Tinggal Saat Ini" name="alamat_tinggal" required>
               </div>
               <!-- /.form-group -->
             </div>
@@ -170,11 +168,11 @@
               <div class="col-md-6"> 
               <div class="form-group">
                   <label>Pendidikan Terakhir 1</label>
-                  <textarea class="form-control" rows="3" value="{{$exprofile->Education_1}} " name="edu1" placeholder="Pendidikan Terakhir 1" >{{$exprofile->Education_1}}</textarea>
+                  <textarea class="form-control" rows="3" value="{{$exprofile->Education_1}} " name="edu1" placeholder="Pendidikan Terakhir 1" required>{{$exprofile->Education_1}}</textarea>
               </div>
               <div class="form-group">
                   <label>Pendidikan Terakhir 1</label>
-                  <textarea class="form-control" rows="3" value="{{$exprofile->Education_2}}"  name="edu2" placeholder="Pendidikan Terakhir 2">{{$exprofile->Education_1}}</textarea>
+                  <textarea class="form-control" rows="3" value="{{$exprofile->Education_2}}"  name="edu2" placeholder="Pendidikan Terakhir 2" required>{{$exprofile->Education_1}}</textarea>
               </div>
           <!-- /.form-group -->
               </div>
@@ -182,15 +180,15 @@
             <div class="col-md-6"> 
                 <div class="form-group">
                   <label>Penghargaan 1</label>
-                  <textarea class="form-control" rows="3" value="{{$exprofile->Professional_Certification_1}}" name="certif1" placeholder="Penghargaan atau Sertifikasi">{{$exprofile->Professional_Certification_1}}</textarea>
+                  <textarea class="form-control" rows="3" value="{{$exprofile->Professional_Certification_1}}" name="certif1" placeholder="Penghargaan atau Sertifikasi" required>{{$exprofile->Professional_Certification_1}}</textarea>
               </div>
               <div class="form-group">
                   <label>Penghargaan 2</label>
-                  <textarea class="form-control" rows="3" value="{{$exprofile->Professional_Certification_2}}" placeholder="Penghargaan atau Sertifikasi" name="certif2">{{$exprofile->Professional_Certification_2}}</textarea>
+                  <textarea class="form-control" rows="3" value="{{$exprofile->Professional_Certification_2}}" placeholder="Penghargaan atau Sertifikasi" name="certif2" required>{{$exprofile->Professional_Certification_2}}</textarea>
               </div>
               <div class="form-group">
                   <label>Penghargaan 3</label>
-                  <textarea class="form-control" rows="3" value="{{$exprofile->Professional_Certification_3}} " placeholder="Penghargaan atau Sertifikasi" name="certif3">{{$exprofile->Professional_Certification_3}}</textarea>
+                  <textarea class="form-control" rows="3" value="{{$exprofile->Professional_Certification_3}} " placeholder="Penghargaan atau Sertifikasi" name="certif3" required>{{$exprofile->Professional_Certification_3}}</textarea>
               </div>
               <!-- /.form-group -->
             </div>

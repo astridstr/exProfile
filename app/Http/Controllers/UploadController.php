@@ -52,8 +52,10 @@ class UploadController extends Controller
                         'Alamat_Tinggal_Saat_Ini' => $value->alamat_tinggal_saat_ini,
                         'email_korporat'=> $value->email_korporat,
                         'handphone'=> $value->handphone,
-                        'Sosmed_Aktif'=> $value->sosmed_aktif,
-                        'akun_sosmed_aktif_twitter_instagram_facebook'=> $value->akun_sosmed_aktif_twitter_instagram_facebook,
+                        'Akun_Facebook'=> $value->akun_facebook,
+                        'Akun_Twitter'=> $value->akun_twitter,
+                        'Akun_Instagram'=> $value->akun_instagram,
+                        'Akun_LinkedIn'=> $value->akun_linkedin,
                         'Jabatan_Saat_ini'=> $value->jabatan_saat_ini,
                         'Divisi_Satuan' => $value->divisi_satuan,
                         'Area_of_Expertise_1' => $value->area_of_expertise_1,
@@ -72,14 +74,7 @@ class UploadController extends Controller
                         'About_and_Experience_2' => $value->about_and_experience_2,
                         'About_and_Experience_3' => $value->about_and_experience_3,
                         ]);
-                        // $user[] = [
-                        //     'email' => $value->nip,
-                        //     'password' => Hash::make($value->tgl_lahir),
-                        // ];
-                        // $role[] = [
-                        // 'role_id' => '4',
-                        // 'user_id' => $user->id,
-                        // ];
+
                     }
 
                     foreach ($data as $key => $value) {
