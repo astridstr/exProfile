@@ -7,21 +7,21 @@
       <!-- sidebar menu: : style can be found in sidebar.less -->
       <ul class="sidebar-menu" data-widget="tree">
         <li class="header">Dashboard</li>
-        <li>
+<!--         <li>
           <a href="#">
             <i class="fa fa-dashboard"></i> <span>Monitoring</span>
           </a>
-        </li>
+        </li> -->
         <li>
           <a href="{{ route('upload') }}">
             <i class="fa fa-archive"></i> <span>Upload File</span>
           </a>
         </li>
-        <li>
+<!--         <li>
           <a href="{{ route('riwayat') }}">
             <i class="fa fa-dashboard"></i> <span>Keterangan Keluarga <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; dan Referensi</span>
           </a>
-        </li>
+        </li> -->
       </ul>
     </section>
     <!-- /.sidebar -->
