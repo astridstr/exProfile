@@ -62,11 +62,11 @@
                         <ul class="list-group box-primary">
                           <li class="list-group-item" style="padding: 0;">
                             <b style="font-size: 16px; text-align: center;">ITMS Stat : </b>
-                            @if ($exprofile->Jenjang == 'Manajemen Atas') <b>BOD-1</b> ({{$exprofile->Jenjang}}) <span class="pull-right"><b>{{ $exprofile->age }} years old</b></span>
-                            @elseif ($exprofile->Jenjang == 'Manajemen Menengah') <b>BOD-1</b> ({{$exprofile->Jenjang}}) <span class="pull-right"><b>{{ $exprofile->age }} years old</b></span>
-                            @elseif ($exprofile->Jenjang == 'Manajemen Dasar') <b>BOD-1</b> ({{$exprofile->Jenjang}}) <span class="pull-right"><b>{{ $exprofile->age }} years old</b></span>
-                            @elseif ($exprofile->Jenjang == 'Supervisori Atas') <b>BOD-1</b> ({{$exprofile->Jenjang}}) <span class="pull-right"><b>{{ $exprofile->age }} years old</b></span>
-                            @elseif ($exprofile->Jenjang == 'Supervisori Dasar') <b>BOD-1</b> ({{$exprofile->Jenjang}}) <span class="pull-right"><b>{{ $exprofile->age }} years old</b></span>
+                            @if ($exprofile->Jenjang == 'Manajemen Atas') <b>BOD-1</b> ({{$exprofile->Jenjang}}) <span class="pull-right"></span>
+                            @elseif ($exprofile->Jenjang == 'Manajemen Menengah') <b>BOD-1</b> ({{$exprofile->Jenjang}}) <span class="pull-right"></span>
+                            @elseif ($exprofile->Jenjang == 'Manajemen Dasar') <b>BOD-1</b> ({{$exprofile->Jenjang}}) <span class="pull-right"></span>
+                            @elseif ($exprofile->Jenjang == 'Supervisori Atas') <b>BOD-1</b> ({{$exprofile->Jenjang}}) <span class="pull-right"></span>
+                            @elseif ($exprofile->Jenjang == 'Supervisori Dasar') <b>BOD-1</b> ({{$exprofile->Jenjang}}) <span class="pull-right"></span>
                             @endif</b>
                           </li>
                         </ul>
@@ -74,7 +74,7 @@
                     </tr>
                     <tr>
                       <!-- keterangan -->
-                      <td colspan="2">
+                      <td>
                         <ul class="list-group" style="margin-top: -20px;">
                           <li class="list-group-item" style="padding: 0;">
                             <i class="fa fa-user fa-fw" aria-hidden="true"></i>&nbsp; {{$exprofile->Gender}}<br>
@@ -95,6 +95,9 @@
                             @endif
                           </li>
                         </ul>
+                      </td>
+                      <td>
+                      <b class="pull-right" style="padding-top: 0px;">{{ $exprofile->age }} years old</b>
                       </td>
                     </tr>
                   </table>

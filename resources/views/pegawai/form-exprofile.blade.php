@@ -88,14 +88,14 @@
                   <label>About and Experience</label>
                   <br>
                   <small>Paragraf 1</small>
-                  <textarea class="form-control" rows="3" placeholder="Deskripsikan Data Diri Anda
-" name ="ae_1" value="{{$exprofile->About_and_Experience_1}}" required>{{$exprofile->About_and_Experience_1}}</textarea>
+                  <textarea class="form-control" rows="3" placeholder="Deskripsikan Data Diri Anda (Maksimal 500 karakter)
+" name ="ae_1" value="{{$exprofile->About_and_Experience_1}}" maxlength="500"  required>{{$exprofile->About_and_Experience_1}}</textarea>
                   <small>Paragraf 2</small>
-                  <textarea class="form-control" rows="3" placeholder="Jabarkan Riwayat Jabatan dan Karir (Align dengan Career and Interest )
-" name="ae_2" value="{{$exprofile->About_and_Experience_2}}" required>{{$exprofile->About_and_Experience_2}}</textarea>
+                  <textarea class="form-control" rows="3" placeholder="Jabarkan Riwayat Jabatan dan Karir (Align dengan Career and Interest ) (Maksimal 500 karakter)
+" name="ae_2" value="{{$exprofile->About_and_Experience_2}}" maxlength="500" required>{{$exprofile->About_and_Experience_2}}</textarea>
                   <small>Paragraf 3</small>
-                  <textarea class="form-control" rows="3" placeholder=" Jabarkan Bidang dan Minat Anda (Align dengan Career and Interest)
-" name="ae_3" value="{{$exprofile->About_and_Experience_3}}" required>{{$exprofile->About_and_Experience_3}}</textarea>
+                  <textarea class="form-control" rows="3" placeholder=" Jabarkan Bidang dan Minat Anda (Align dengan Career and Interest) (Maksimal 500 karakter)
+" name="ae_3" value="{{$exprofile->About_and_Experience_3}}" maxlength="500" required>{{$exprofile->About_and_Experience_3}}</textarea>
               </div>
               <div class="form-group">
                   <label for="exampleInputFile">Foto</label>
@@ -290,15 +290,15 @@
               <div class="col-md-6"> 
               <div class="form-group">
                   <label>Masterpiece 1</label>
-                  <textarea class="form-control" rows="3" placeholder="Tuliskan Pencapaian Terbaik Anda Selama Bekerja " value ="{{$exprofile->Masterpiece_1}}" name="master1" > {{$exprofile->Masterpiece_1}}</textarea>
+                  <textarea class="form-control" rows="3" placeholder="Tuliskan Pencapaian Terbaik Anda Selama Bekerja (Maksimal 250 karakter) " value ="{{$exprofile->Masterpiece_1}}" name="master1" maxlength="250" > {{$exprofile->Masterpiece_1}}</textarea>
               </div>
               <div class="form-group">
                   <label>Masterpiece 2</label>
-                  <textarea class="form-control" rows="3" placeholder="Tuliskan Pencapaian Terbaik Anda Selama Bekerja " value ="{{$exprofile->Masterpiece_1}}" name="master2"> {{$exprofile->Masterpiece_2}}</textarea>
+                  <textarea class="form-control" rows="3" placeholder="Tuliskan Pencapaian Terbaik Anda Selama Bekerja (Maksimal 250 karakter)" value ="{{$exprofile->Masterpiece_2}}" name="master2" maxlength="250" > {{$exprofile->Masterpiece_2}}</textarea>
               </div>
               <div class="form-group">
                   <label>Masterpiece 3</label>
-                  <textarea class="form-control" rows="3" placeholder="Tuliskan Pencapaian Terbaik Anda Selama Bekerja " value ="{{$exprofile->Masterpiece_1}}" name="master3"> {{$exprofile->Masterpiece_3}}</textarea>
+                  <textarea class="form-control" rows="3" placeholder="Tuliskan Pencapaian Terbaik Anda Selama Bekerja (Maksimal 250 karakter) " value ="{{$exprofile->Masterpiece_3}}" name="master3" maxlength="250" > {{$exprofile->Masterpiece_3}}</textarea>
               </div>
           <!-- /.form-group -->
               </div>
