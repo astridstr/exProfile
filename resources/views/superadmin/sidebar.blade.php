@@ -7,14 +7,10 @@
       <!-- sidebar menu: : style can be found in sidebar.less -->
       <ul class="sidebar-menu" data-widget="tree">
         <li class="header">Dashboard</li>
-<!--         <li>
-          <a href="#">
-            <i class="fa fa-dashboard"></i> <span>Monitoring</span>
-          </a>
-        </li> -->
+
         <li>
           <a href="{{ route('monitoring') }}">
-            <i class="fa fa-pc"></i> <span>Monitoring</span>
+            <i class="fa fa-bar-chart"></i> <span>Monitoring</span>
           </a>
         </li>
         <li>

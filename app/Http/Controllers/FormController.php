@@ -70,15 +70,15 @@ class FormController extends Controller
         if ($request->hasFile('foto')) {
             //Found existing file then delete
             $foto_new = $exprofile->File_Foto;
-            // if( File::exists(public_path('/fotoupload/' . $foto_new .'.jpeg' ))){
-            //     File::delete(public_path('/fotoupload/' . $foto_new .'.jpeg' ));
-            // }
-            // if( File::exists(public_path('/fotoupload/' . $foto_new .'.jpg' ))){
-            //     File::delete(public_path('/fotoupload/' . $foto_new .'.jpg' ));
-            // }
-            // if( File::exists(public_path('/fotoupload/' . $foto_new .'.png' ))){
-            //     File::delete(public_path('/fotoupload/' . $foto_new .'.png' ));
-            // }
+            if( File::exists(public_path('/fotoupload/' . $foto_new .'.jpeg' ))){
+                File::delete(public_path('/fotoupload/' . $foto_new .'.jpeg' ));
+            }
+            if( File::exists(public_path('/fotoupload/' . $foto_new .'.jpg' ))){
+                File::delete(public_path('/fotoupload/' . $foto_new .'.jpg' ));
+            }
+            if( File::exists(public_path('/fotoupload/' . $foto_new .'.png' ))){
+                File::delete(public_path('/fotoupload/' . $foto_new .'.png' ));
+            }
 
             $foto = $request->file('foto');
             $foto_name = $foto_new . '.' .$foto->getClientOriginalExtension();
