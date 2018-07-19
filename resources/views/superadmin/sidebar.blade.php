@@ -13,6 +13,11 @@
           </a>
         </li> -->
         <li>
+          <a href="{{ route('monitoring') }}">
+            <i class="fa fa-pc"></i> <span>Monitoring</span>
+          </a>
+        </li>
+        <li>
           <a href="{{ route('upload') }}">
             <i class="fa fa-archive"></i> <span>Upload File</span>
           </a>
