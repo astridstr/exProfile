@@ -81,11 +81,11 @@
               <div class="form-group">
               <div class="input-group">
                 <span class="input-group-addon"><i class="fa fa-linkedin-square"></i></span>
-                <input type="text" class="form-control" placeholder="Akun LinkedIn" name="linkedin" value="{{$exprofile->Akun_LinkedIn}}">
+                <input type="text" class="form-control" placeholder="Akun LinkedIn" name="linkedin" value="{{$exprofile->Akun_Linkedin}}">
               </div>
               </div>
               <div class="form-group">
-                  <label>About and Experience</label>
+                  <label>About and Experience <b style="color: red;">*</b></label>
                   <br>
                   <small>Paragraf 1</small>
                   <textarea class="form-control" rows="3" placeholder="Deskripsikan Data Diri Anda (Maksimal 500 karakter)
@@ -125,28 +125,20 @@
                   <label for="exampleInputPassword1">Tanggal Lahir</label>
                   <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Tanggal Kelahiran" value="{{$exprofile->tgl_lahir}}" name="tgl_lahir" disabled>
               </div>
-              <div class="form-group">
-                <label>Jenis Kelamin</label>
-                <select class="form-control select2" style="width: 100%;" name="gender" disabled>
-                @if($exprofile->Gender == 'LAKI LAKI')
-                  <option selected="selected" value="LAKI LAKI">Laki Laki</option>
-                  <option value="PEREMPUAN" >Perempuan</option>
-                @else
-                  <option selected="selected" value="LAKI LAKI" >Perempuan</option>
-                  <option value="PEREMPUAN" >Laki Laki</option>
-                @endif
-                </select>
+               <div class="form-group">
+                  <label for="exampleInputPassword1">Jenis Kelamin</label>
+                  <input type="text" class="form-control" id="exampleInputPassword1" value="{{$exprofile->Gender}}" placeholder="Jenis Kelamin" name="gender" disabled>
               </div>
               <div class="form-group">
-                  <label for="exampleInputPassword1">HP</label>
+                  <label for="exampleInputPassword1">HP <b style="color: red;">*</b></label>
                   <input type="text" class="form-control" id="exampleInputPassword1" value="{{$exprofile->handphone}}" placeholder="Nomor Handphone" name="handphone" required>
               </div>
               <div class="form-group">
-                  <label for="exampleInputPassword1">Domisili</label>
+                  <label for="exampleInputPassword1">Domisili <b style="color: red;">*</b></label>
                   <input type="text" class="form-control" id="exampleInputPassword1" value="{{$exprofile->Kota_Domisili_Utama}}" name="domisili" required>
               </div>
               <div class="form-group">
-                  <label for="exampleInputPassword1">Alamat Tinggal</label>
+                  <label for="exampleInputPassword1">Alamat Tinggal <b style="color: red;">*</b></label>
                   <input type="text" class="form-control" id="exampleInputPassword1" value="{{$exprofile->Alamat_Tinggal_Saat_Ini}}" placeholder="Alamat Tinggal Saat Ini" name="alamat_tinggal" required>
               </div>
               <!-- /.form-group -->
@@ -167,11 +159,11 @@
           <div class="row">
               <div class="col-md-6"> 
               <div class="form-group">
-                  <label>Pendidikan Terakhir 1</label>
+                  <label>Pendidikan Terakhir 1 <b style="color: red;">*</b></label>
                   <textarea class="form-control" rows="3" value="{{$exprofile->Education_1}} " name="edu1" placeholder="Pendidikan Terakhir 1" required>{{$exprofile->Education_1}}</textarea>
               </div>
               <div class="form-group">
-                  <label>Pendidikan Terakhir 1</label>
+                  <label>Pendidikan Terakhir 2 <b style="color: red;">*</b></label>
                   <textarea class="form-control" rows="3" value="{{$exprofile->Education_2}}"  name="edu2" placeholder="Pendidikan Terakhir 2" required>{{$exprofile->Education_1}}</textarea>
               </div>
           <!-- /.form-group -->
@@ -209,15 +201,15 @@
           <div class="row">
             <div class="col-md-6">
               <div class="form-group">
-                  <label for="exampleInputEmail1">1st Expertise </label>
+                  <label for="exampleInputEmail1">1st Expertise <b style="color: red;">*</b></label>
                   <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Keahlian 1" name="expert1" value="{{$exprofile->Area_of_Expertise_1}}" required>
               </div>
               <div class="form-group">
-                  <label for="exampleInputPassword1">2nd Expertise</label>
+                  <label for="exampleInputPassword1">2nd Expertise <b style="color: red;">*</b></label>
                   <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Keahlian 2" name="expert2" value="{{$exprofile->Area_of_Expertise_2}}" required>
               </div>
               <div class="form-group">
-                  <label for="exampleInputPassword1">3rd Expertise</label>
+                  <label for="exampleInputPassword1">3rd Expertise <b style="color: red;">*</b></label>
                   <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Keahlian 3" name="expert3" value="{{$exprofile->Area_of_Expertise_3}} " required>
               </div>
               <button type="submit" class="btn btn-primary">Simpan</button>
@@ -225,7 +217,7 @@
             <!-- /.col -->
             <div class="col-md-6">
              <div class="form-group">
-                <label> 1st Interest</label>
+                <label> 1st Interest <b style="color: red;">*</b></label>
                 <select class="form-control select2" style="width: 100%;" name="interest1"  required>
                 @if(is_null($exprofile->Career_Interest_1))
                 <option value="" disabled selected> Mohon Diisi </option>
@@ -241,7 +233,7 @@
                 </select>
               </div>
               <div class="form-group">
-                <label> 2nd Interest</label>
+                <label> 2nd Interest <b style="color: red;">*</b></label>
                 <select class="form-control select2" style="width: 100%;" name="interest2"  required>
                 @if(is_null($exprofile->Career_Interest_2))
                 <option value="" disabled selected> Mohon Diisi </option>
@@ -257,7 +249,7 @@
                 </select>
               </div>
               <div class="form-group">
-                <label> 3rd Interest</label>
+                <label> 3rd Interest <b style="color: red;">*</b></label>
                 <select class="form-control select2" style="width: 100%;" name="interest3"  required>
                 @if(is_null($exprofile->Career_Interest_3))
                 <option value="" disabled selected> Mohon Diisi </option>
