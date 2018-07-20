@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>AdminLTE 2 | Dashboard</title>
+  <title>XProfile | Monitoring</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.7 -->
@@ -12,39 +12,20 @@
   <link rel="stylesheet" href="{{ URL::asset('dist/bower_components/font-awesome/css/font-awesome.min.css')}}">
   <!-- Ionicons -->
   <link rel="stylesheet" href="{{ URL::asset('dist/bower_components/Ionicons/css/ionicons.min.css')}}">
-  <!-- jvectormap -->
-  <link rel="stylesheet" href="{{ URL::asset('dist/bower_components/jvectormap/jquery-jvectormap.css')}}">
   <!-- Theme style -->
   <link rel="stylesheet" href="{{ URL::asset('dist/dist/css/AdminLTE.min.css')}}">
-  <!-- DataTables -->
-  <link rel="stylesheet" href="{{ URL::asset('dist/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css')}}">
+  <!-- AdminLTE Skins. Choose a skin from the css/skins
+       folder instead of downloading all of them to reduce the load. -->
   <link rel="stylesheet" href="{{ URL::asset('dist/dist/css/skins/_all-skins.min.css')}}">
 
   <!-- Google Font -->
   <link rel="stylesheet"
         href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
-  <style>
-    .example-modal .modal {
-      position: relative;
-      top: auto;
-      bottom: auto;
-      right: auto;
-      left: auto;
-      display: block;
-      z-index: 1;
-    }
-
-    .example-modal .modal {
-      background: transparent !important;
-    }
-  </style>
 </head>
-
 <body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">
 
   <header class="main-header">
-
     <!-- Logo -->
     <a href="{{route('index')}}" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
@@ -52,7 +33,6 @@
       <!-- logo for regular state and mobile devices -->
       <span class="logo-lg"><b>PLN</b>Pusat</span>
     </a>
-
     <!-- Header Navbar: style can be found in header.less -->
     <nav class="navbar navbar-static-top">
       <!-- Sidebar toggle button-->
@@ -76,11 +56,121 @@
       </div>
     </nav>  
   </header>
+  <!-- Left side column. contains the logo and sidebar -->
+  @include('superadmin.sidebar')
 
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <h1>
+        Monitoring
+        <small>Executive Profile</small>
+      </h1>
+    </section>
 
-      
-  @yield('content')
+    <!-- Main content -->
+    <section class="content">
+      <div class="row">
+        <div class="col-md-6">
+          <!-- AREA CHART -->
+          <div class="box box-primary" hidden="">
+            <div class="box-body">
+              <div class="chart">
+                <canvas id="areaChart" style="height:250px" hidden=""></canvas>
+              </div>
+            </div>
+            <!-- /.box-body -->
+          </div>
+          <!-- /.box -->
+          <div class="col-md-12 ">
+            <div class="box box-success">
+              <div class="col-md-6">
+                <div class="box-primary">
+                <div class="box-header with-border">
+                  <h3 class="box-title">Bar Chart</h3>
+                  <div class="box-tools pull-right">
+                    <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                    </button>
+                  </div>
+                </div>
+                  
+                </div>
+                <div class="box-body">
+                  <div class="chart">
+                    <canvas id="barChart" style="height:230px"></canvas>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
 
+        </div>
+        <div class="col-md-6">
+                  <div class="box">
+            <div class="box-header">
+              <h3 class="box-title">Data Table With Full Features</h3>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body">
+              <table id="example1" class="table table-bordered table-striped">
+                <thead>
+                <tr>
+                  <th>No</th>
+                  <th>Divisi/Satuan Unit</th>
+                  <th>NIP</th>
+                  <th>Nama</th>
+                  <th>Status Pengisian</th>
+                  <th>PDF</th>
+                  <th>Foto</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                  <td>1</td>
+                  <td>Divisi A
+                  </td>
+                  <td>6687902AD</td>
+                  <td>Astrid</td>
+                  <td>X</td>
+                  <td>X</td>
+                  <td>X</td>
+                </tr>
+                <tr>
+                  <td>2</td>
+                  <td>Divisi B
+                  </td>
+                  <td>6687902AS</td>
+                  <td>Sirria</td>
+                  <td>X</td>
+                  <td>X</td>
+                  <td>X</td>
+                </tr>
+              </tbody>
+              </table>
+            </div>
+            <!-- /.box-body -->
+        </div>
+        </div>
+        <!-- /.col (LEFT) -->
+
+        <!-- /.col (RIGHT) -->
+      </div>
+      <!-- /.row -->
+
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+  <footer class="main-footer">
+    <div class="pull-right hidden-xs">
+      <b>Version</b> 2.4.0
+    </div>
+    <strong>Copyright &copy; 2014-2016 <a href="https://adminlte.io">Almsaeed Studio</a>.</strong> All rights
+    reserved.
+  </footer>
+
+  <div class="control-sidebar-bg"></div>
 </div>
 <!-- ./wrapper -->
 
@@ -88,27 +178,15 @@
 <script src="{{ URL::asset('dist/bower_components/jquery/dist/jquery.min.js')}}"></script>
 <!-- Bootstrap 3.3.7 -->
 <script src="{{ URL::asset('dist/bower_components/bootstrap/dist/js/bootstrap.min.js')}}"></script>
+<!-- ChartJS -->
+<script src="{{ URL::asset('dist/bower_components/chart.js/Chart.js')}}"></script>
 <!-- FastClick -->
 <script src="{{ URL::asset('dist/bower_components/fastclick/lib/fastclick.js')}}"></script>
 <!-- AdminLTE App -->
 <script src="{{ URL::asset('dist/dist/js/adminlte.min.js')}}"></script>
-<!-- Sparkline -->
-<script src="{{ URL::asset('dist/bower_components/jquery-sparkline/dist/jquery.sparkline.min.js')}}"></script>
-<!-- jvectormap  -->
-<script src="{{ URL::asset('dist/plugins/jvectormap/jquery-jvectormap-1.2.2.min.js')}}"></script>
-<script src="{{ URL::asset('dist/plugins/jvectormap/jquery-jvectormap-world-mill-en.js')}}"></script>
-<!-- SlimScroll -->
-<script src="{{ URL::asset('dist/bower_components/jquery-slimscroll/jquery.slimscroll.min.js')}}"></script>
-<!-- ChartJS -->
-<script src="{{ URL::asset('dist/bower_components/chart.js/Chart.js')}}"></script>
-<!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-<script src="{{ URL::asset('dist/dist/js/pages/dashboard2.js')}}"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="{{ URL::asset('dist/dist/js/demo.js')}}"></script>
-<!-- FastClick -->
-<script src="{{ URL::asset('dist/bower_components/fastclick/lib/fastclick.js')}}"></script>
-<!-- AdminLTE for demo purposes -->
-<script src="{{ URL::asset('lte/dist/js/demo.js')}}"></script>
+<!-- page script -->
 <!-- DataTables -->
 <script src="{{ URL::asset('dist/bower_components/datatables.net/js/jquery.dataTables.min.js')}}"></script>
 <script src="{{ URL::asset('dist/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js')}}"></script>
@@ -126,7 +204,6 @@
     })
   })
 </script>
-
 <script>
   $(function () {
     /* ChartJS
@@ -207,9 +284,6 @@
       //Boolean - whether to make the chart responsive to window resizing
       responsive              : true
     }
-
-    //Create the line chart
-    areaChart.Line(areaChartData, areaChartOptions)
 
     //-------------
     //- BAR CHART -
