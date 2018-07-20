@@ -4,6 +4,28 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>XProfile | Monitoring</title>
+  <!-- CSS -->
+<style>
+/* Scrollbar styles */
+::-webkit-scrollbar {
+width: 12px;
+height: 12px;
+}
+
+::-webkit-scrollbar-track {
+background: #f5f5f5;
+border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+border-radius: 10px;
+background: #ccc;  
+}
+
+::-webkit-scrollbar-thumb:hover {
+background: #999;  
+}
+</style>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.7 -->
@@ -21,6 +43,8 @@
   <!-- Google Font -->
   <link rel="stylesheet"
         href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+   <!-- iCheck for checkboxes and radio inputs -->
+  <link rel="stylesheet" href="../../plugins/iCheck/all.css">
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">
@@ -107,9 +131,9 @@
 
         </div>
         <div class="col-md-6">
-                  <div class="box">
-            <div class="box-header">
-              <h3 class="box-title">Data Table With Full Features</h3>
+        <div class= "box" style="overflow: scroll; max-height: 550px;">
+          <div class="box-header">
+              <h3 class="box-title">Tabel Monitoring Pegawai</h3>
             </div>
             <!-- /.box-header -->
             <div class="box-body">
@@ -123,34 +147,66 @@
                   <th>Status Pengisian</th>
                   <th>PDF</th>
                   <th>Foto</th>
+                  <th>Download</th>
                 </tr>
                 </thead>
                 <tbody>
+                @foreach($pegawai as $peg)
                 <tr>
-                  <td>1</td>
-                  <td>Divisi A
+                  <td>{{$peg->id}}</td>
+                  <td>{{$peg->Divisi_Satuan}}</td>
+                  <td>{{$peg->Divisi_Satuan}}</td>
+                  <td>{{$peg->Nama_Lengkap}}</td>
+                  <td>                 </td>
+                  <td>
+                  <div class="form-group">
+                    <label>
+                      <input type="checkbox" class="minimal" checked>
+                    </label>
+                  </div> 
                   </td>
-                  <td>6687902AD</td>
-                  <td>Astrid</td>
-                  <td>X</td>
-                  <td>X</td>
-                  <td>X</td>
-                </tr>
-                <tr>
-                  <td>2</td>
-                  <td>Divisi B
+                  <td>
+                  <div class="form-group">
+                    <label>
+                      <input type="checkbox" class="minimal" checked>
+                    </label>
+                  </div>
                   </td>
-                  <td>6687902AS</td>
-                  <td>Sirria</td>
-                  <td>X</td>
-                  <td>X</td>
-                  <td>X</td>
+                  <td>
+                  @if(File::exists(public_path("fotoupload/".$peg->File_Foto.".JPG")))
+                  <a href="fotoupload/{{$peg->File_Foto}}.JPG" download="{{$peg->File_Foto}}.JPG">
+                  <button type="button" class="btn btn-block btn-primary"><i class="fa fa-download"></i></button>
+                  </a>
+                  @elseif(File::exists(public_path("fotoupload/".$peg->File_Foto.".PNG")))
+                  <a href="fotoupload/{{$peg->File_Foto}}.PNG" download="{{$peg->File_Foto}}.PNG">
+                  <button type="button" class="btn btn-block btn-primary"><i class="fa fa-download"></i></button>
+                  </a>
+                  @elseif(File::exists(public_path("fotoupload/".$peg->File_Foto.".JPEG")))
+                  <a href="fotoupload/{{$peg->File_Foto}}.JPEG" download="{{$peg->File_Foto}}.JPEG">
+                  <button type="button" class="btn btn-block btn-primary"><i class="fa fa-download"></i></button>
+                  </a>
+                  @elseif(File::exists(public_path("fotoupload/".$peg->File_Foto.".jpg")))
+                  <a href="fotoupload/{{$peg->File_Foto}}.jpg" download="{{$peg->File_Foto}}.jpg">
+                  <button type="button" class="btn btn-block btn-primary"><i class="fa fa-download"></i></button>
+                  </a>
+                  @elseif(File::exists(public_path("fotoupload/".$peg->File_Foto.".png")))
+                  <a href="fotoupload/{{$peg->File_Foto}}.png" download="{{$peg->File_Foto}}.png">
+                  <button type="button" class="btn btn-block btn-primary"><i class="fa fa-download"></i></button>
+                  </a>
+                  @elseif(File::exists(public_path("fotoupload/".$peg->File_Foto.".jpeg")))
+                  <a href="fotoupload/{{$peg->File_Foto}}.jpeg" download="{{$peg->File_Foto}}.jpeg">
+                  <button type="button" class="btn btn-block btn-primary"><i class="fa fa-download"></i></button>
+                  </a>
+                  @endif
+                  </td>
                 </tr>
+                @endforeach
               </tbody>
               </table>
             </div>
             <!-- /.box-body -->
-        </div>
+          
+          </div>
         </div>
         <!-- /.col (LEFT) -->
 

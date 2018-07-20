@@ -14,8 +14,9 @@ class SuperadminController extends Controller
     }
 
     public function showMonitoring()
-    {        
-        // dd($exprofile);
-        return view('superadmin.monitoring.app');
+    {    
+
+        $pegawai=DB::table('exprofiles')->get();
+        return view('superadmin.monitoring.app', compact('pegawai'));
     }
 }
