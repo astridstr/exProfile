@@ -19,6 +19,7 @@ class CreateExprofilesTable extends Migration
             $table->string('File_Foto')->nullable();
             $table->string('Nama_Lengkap', 190)->nullable();
             $table->string('NIP', 190)->nullable();
+            $table->string('Personnel_area', 190)->nullable();
             $table->string('Grade', 190)->nullable();
             $table->string('Jenjang', 190)->nullable();
             $table->string('Education_1', 190)->nullable();
