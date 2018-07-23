@@ -24,46 +24,70 @@ class SuperadminController extends Controller
 
     public function showMonitoring()
     {    
+        // CHART ALL -> Persentase total pegawai pada divisi satuan unit direktorat
+        $chart_all = Exprofile::select(DB::raw('left(Divisi_Satuan, 6) as kategori_all'), DB::raw('count(*) as total_all'))
+                            ->groupBy('kategori_all')->get();    
+                        $total_all = array_column($chart_all->toArray(), 'total_all');
+                        $kategori_all = array_column($chart_all->toArray(), 'kategori_all');
 
-        $pegawai=DB::table('exprofiles')->get();
-        $listMA = Exprofile::where('Jenjang', 'Manajemen Atas')->select('id')->get();       $countMA = $listMA->count();
-        $listMM = Exprofile::where('Jenjang', 'Manajemen Menengah')->select('id')->get();   $countMM = $listMM->count();
-        $listMD = Exprofile::where('Jenjang', 'Manajemen Dasar')->select('id')->get();      $countMD = $listMD->count();
-        $listSPVA = Exprofile::where('Jenjang', 'Supervisori Atas')->select('id')->get();   $countSPVA = $listSPVA->count();
-        $listSPVD = Exprofile::where('Jenjang', 'Supervisori Dasar')->select('id')->get();  $countSPVD = $listSPVD->count();
-        $listF1 = Exprofile::where('Jenjang', 'Fungsional 1')->select('id')->get();         $countF1 = $listF1->count();
-        $listF2 = Exprofile::where('Jenjang', 'Fungsional 2')->select('id')->get();         $countF2 = $listF2->count();
-        $listF3 = Exprofile::where('Jenjang', 'Fungsional 3')->select('id')->get();         $countF3 = $listF3->count();
-        $listF4 = Exprofile::where('Jenjang', 'Fungsional 4')->select('id')->get();         $countF4 = $listF4->count();
-        $listF5 = Exprofile::where('Jenjang', 'Fungsional 5')->select('id')->get();         $countF5 = $listF5->count();
-        $listF6 = Exprofile::where('Jenjang', 'Fungsional 6')->select('id')->get();         $countF6 = $listF6->count();
+        $chart_all_full = Exprofile::select(DB::raw('left(Divisi_Satuan, 6) as kategori'), DB::raw('count(*) as total'))
+                                ->whereNotNull('Foto')->whereNotNull('Education_1')->whereNotNull('Kota_Domisili_Utama')
+                                ->whereNotNull('Alamat_Tinggal_Saat_Ini')->whereNotNull('handphone')->whereNotNull('Area_of_Expertise_1')
+                                ->whereNotNull('Career_Interest_1')->whereNotNull('Professional_Certification_1')->whereNotNull('Masterpiece_1')
+                                ->whereNotNull('About_and_Experience_1')->whereNotNull('About_and_Experience_2')->whereNotNull('About_and_Experience_3')
+                                ->groupBy('kategori')->get();   
+                            $total_all_full = array_column($chart_all_full->toArray(), 'total');
 
-        $countUnt = Exprofile::where(DB::raw('left(Divisi_Satuan, 6)'),'!=','divisi')->where(DB::raw('left(Divisi_Satuan, 6)'),'!=','satuan')->where(DB::raw('left(Divisi_Satuan, 6)'),'!=','direktorat')->count();
+        // CHART ALL DIVISI
+        $chart_all_divisi = Exprofile::select(DB::raw('Divisi_Satuan as list_divisi'), DB::raw('count(*) as total_all_divisi'))
+                                ->groupBy('list_divisi')
+                                ->where(DB::raw('left(Divisi_Satuan, 6)'),'=','divisi')
+                                ->get();    
+                            $list_divisi = array_column($chart_all_divisi->toArray(), 'list_divisi');
+                            $total_all_divisi = array_column($chart_all_divisi->toArray(), 'total_all_divisi');
 
-        // query -> menampilkan jumlah pegawai dari masing-masing divisi, satuan, direktorat, dan unit (ALL)
-        $chart1 = Exprofile::select(DB::raw('left(Divisi_Satuan, 6) as kategori'), DB::raw('count(*) as total'))
-            ->groupBy('kategori')
-            ->get();    
-        $total_all = array_column($chart1->toArray(), 'total');
-        // dd($total_all);
-        $kategori = array_column($chart1->toArray(), 'kategori');
-        // dd($kategori);
+        $chart_all_divisi_full = Exprofile::select(DB::raw('Divisi_Satuan as list_divisi_full'), DB::raw('count(*) as total_all_divisi_full'))
+                                    ->where(DB::raw('left(Divisi_Satuan, 6)'),'=','divisi')
+                                    ->whereNotNull('Foto')->whereNotNull('Education_1')->whereNotNull('Kota_Domisili_Utama')
+                                    ->whereNotNull('Alamat_Tinggal_Saat_Ini')->whereNotNull('handphone')->whereNotNull('Area_of_Expertise_1')
+                                    ->whereNotNull('Career_Interest_1')->whereNotNull('Professional_Certification_1')->whereNotNull('Masterpiece_1')
+                                    ->whereNotNull('About_and_Experience_1')->whereNotNull('About_and_Experience_2')->whereNotNull('About_and_Experience_3')
+                                    ->groupBy('list_divisi_full')->get();   
+                            $total_all_divisi_full = array_column($chart_all_divisi_full->toArray(), 'total_all_divisi_full');
 
-        //query -> menampilkan jumlah pegawai dari tiap jenjang MA, MM, MD, SPVA, SPVD, F!-6
-        $chart2 = Exprofile::select(DB::raw('Jenjang as jenjang'), DB::raw('count(*) as total_per_jenjang'))->groupBy('jenjang')->get();
-        $jenjang = array_column($chart2->toArray(), 'jenjang');
-        $total_per_jenjang = array_column($chart2->toArray(), 'total_per_jenjang');
+        // CHART ALL SATUAN
+        $chart_all_satuan = Exprofile::select(DB::raw('Divisi_Satuan as list_satuan'), DB::raw('count(*) as total_all_satuan'))
+                                ->groupBy('list_satuan')
+                                ->where(DB::raw('left(Divisi_Satuan, 6)'),'=','satuan')
+                                ->get();    
+                            $list_satuan = array_column($chart_all_satuan->toArray(), 'list_satuan');
+                            $total_all_satuan = array_column($chart_all_satuan->toArray(), 'total_all_satuan');
 
-        // query -> menampilkan jumlah pegawai dari masing-masing divisi, satuan, direktorat, dan unit (ALL)
-        $chart3 = Exprofile::select(DB::raw('Divisi_Satuan as dsu'), DB::raw('count(*) as total'))
-            ->where(DB::raw('left(Divisi_Satuan, 6)'),'!=','divisi')
-            ->groupBy('dsu')
-            ->get();    
+        $chart_all_satuan_full = Exprofile::select(DB::raw('Divisi_Satuan as list_satuan_full'), DB::raw('count(*) as total_all_satuan_full'))
+                                    ->where(DB::raw('left(Divisi_Satuan, 6)'),'=','satuan')
+                                    ->whereNotNull('Foto')->whereNotNull('Education_1')->whereNotNull('Kota_Domisili_Utama')
+                                    ->whereNotNull('Alamat_Tinggal_Saat_Ini')->whereNotNull('handphone')->whereNotNull('Area_of_Expertise_1')
+                                    ->whereNotNull('Career_Interest_1')->whereNotNull('Professional_Certification_1')->whereNotNull('Masterpiece_1')
+                                    ->whereNotNull('About_and_Experience_1')->whereNotNull('About_and_Experience_2')->whereNotNull('About_and_Experience_3')
+                                    ->groupBy('list_satuan_full')->get();   
+                            $total_all_satuan_full = array_column($chart_all_satuan_full->toArray(), 'total_all_satuan_full');
 
-        $total = array_column($chart3->toArray(), 'total');
-        $kategori3 = array_column($chart3->toArray(), 'kategori3');
+        // CHART ALL JENJANG
+        $chart_all_jenjang = Exprofile::select(DB::raw('Jenjang as list_jenjang'), DB::raw('count(*) as total_all_jenjang'))
+                                ->groupBy('list_jenjang')
+                                ->get();
+                            $list_jenjang = array_column($chart_all_jenjang->toArray(), 'list_jenjang');
+                            $total_all_jenjang = array_column($chart_all_jenjang->toArray(), 'total_all_jenjang');
 
-        return view('superadmin.monitoring.app', compact('pegawai', 'total_all', 'kategori', 'jenjang', 'total_per_jenjang'));
+        $chart_all_jenjang_full = Exprofile::select(DB::raw('Jenjang as list_jenjang_full'), DB::raw('count(*) as total_all_jenjang_full'))
+                                    ->whereNotNull('Foto')->whereNotNull('Education_1')->whereNotNull('Kota_Domisili_Utama')
+                                    ->whereNotNull('Alamat_Tinggal_Saat_Ini')->whereNotNull('handphone')->whereNotNull('Area_of_Expertise_1')
+                                    ->whereNotNull('Career_Interest_1')->whereNotNull('Professional_Certification_1')->whereNotNull('Masterpiece_1')
+                                    ->whereNotNull('About_and_Experience_1')->whereNotNull('About_and_Experience_2')->whereNotNull('About_and_Experience_3')
+                                    ->groupBy('list_jenjang_full')->get();   
+                            $total_all_jenjang_full = array_column($chart_all_jenjang_full->toArray(), 'total_all_jenjang_full');
+
+        return view('superadmin.monitoring.app', compact('total_all','kategori_all','total_all_full','list_divisi','total_all_divisi','total_all_divisi_full','list_satuan','total_all_satuan','total_all_satuan_full','list_jenjang_full','list_jenjang','total_all_jenjang','total_all_jenjang_full'));
     }
 
     public function showTable()
