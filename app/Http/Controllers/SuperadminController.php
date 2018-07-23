@@ -36,8 +36,10 @@ class SuperadminController extends Controller
         $chart1 = Exprofile::select(DB::raw('left(Divisi_Satuan, 6) as kategori'), DB::raw('count(*) as total'))
             ->groupBy('kategori')
             ->get();    
-        $total = array_column($chart1->toArray(), 'total');
+        $total_all = array_column($chart1->toArray(), 'total');
+        // dd($total_all);
         $kategori = array_column($chart1->toArray(), 'kategori');
+        // dd($kategori);
 
         //query -> menampilkan jumlah pegawai dari tiap jenjang MA, MM, MD, SPVA, SPVD, F!-6
         $chart2 = Exprofile::select(DB::raw('Jenjang as jenjang'), DB::raw('count(*) as total_per_jenjang'))->groupBy('jenjang')->get();
@@ -51,8 +53,8 @@ class SuperadminController extends Controller
             ->get();    
 
         $total = array_column($chart3->toArray(), 'total');
-        $kategori = array_column($chart3->toArray(), 'kategori');
+        $kategori3 = array_column($chart3->toArray(), 'kategori3');
 
-        return view('superadmin.monitoring.app', compact('pegawai', 'total', 'kategori', 'jenjang', 'total_per_jenjang'));
+        return view('superadmin.monitoring.app', compact('pegawai', 'total_all', 'kategori', 'jenjang', 'total_per_jenjang'));
     }
 }
