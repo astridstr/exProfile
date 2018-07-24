@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
-<<<<<<< HEAD
 use PDF;
 use File;
 use Image;
@@ -12,11 +11,9 @@ use Response;
 use Zipper;
 use Illuminate\Contracts\View\View;
 use Maatwebsite\Excel\Concerns\FromView;
-
-=======
 use App\Exprofile;
 use App\Monitoring;
->>>>>>> master
+
 class SuperadminController extends Controller
 {
     public function index()
