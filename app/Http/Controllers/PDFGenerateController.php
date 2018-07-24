@@ -23,4 +23,5 @@ class PdfGenerateController extends Controller
         // return $pdf->download('ExecutiveProfile.pdf');
         return $pdf->stream('my.pdf',array('Attachment'=>0));
     }
+
 }

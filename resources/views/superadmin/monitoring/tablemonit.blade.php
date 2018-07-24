@@ -114,69 +114,6 @@ background: #999;
     <section class="content">
       <div class="row">
         <div class="col-md-6">
-          <div id="myDiv" class="box">
-            <div class="box-header">
-              <h3 class="box-title">Data Table With Full Features</h3>
-              <div class="pull-right">
-                <button class="btn btn-box-tool"><i class="glyphicon glyphicon-resize-full"></i></button>
-              </div>
-            </div>
-            <div class="box-body">
-                <div class="row">
-                  <div class="col-lg-6">
-                    <div class="box-primary">
-                      <div class="box-header with-border">
-                        <h3 class="box-title">Bar Chart</h3>
-                      </div>
-                    </div>
-                    <div class="box-body">
-                      <div class="chart">
-                        <canvas id="barChart" style="height:200px"></canvas>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-lg-6">
-                    <div class="box-primary">
-                      <div class="box-header with-border">
-                        <h3 class="box-title">Bar2 Chart</h3>
-                      </div>
-                    </div>
-                    <div class="box-body">
-                      <div class="chart">
-                        <canvas id="barChart2" style="height:200px"></canvas>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="row">
-                  <div class="col-lg-6">
-                    <div class="box-primary">
-                      <div class="box-header with-border">
-                        <h3 class="box-title">Jenjang</h3>
-                      </div>
-                    </div>
-                    <div class="box-body">
-                      <div class="chart">
-                        <canvas id="barChart3" style="height:200px"></canvas>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-lg-6">
-                    <div class="box-primary">
-                      <div class="box-header with-border">
-                        <h3 class="box-title">Divisi/Satuan/Unit</h3>
-                      </div>
-                    </div>
-                    <div class="box-body">
-                      <div class="chart">
-                        <canvas id="barChart4" style="height:200px"></canvas>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-            </div>     
-          </div>
         </div>
         <div class="col-md-6">
         <div class="nav-tabs-custom">

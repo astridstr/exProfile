@@ -33,8 +33,12 @@ Route::get('/', function () {
 Route::group(['prefix' => '1', 'middleware' => ['auth', 'role:superadmin']], function(){
     Route::get('/dashboard', 'SuperadminController@index')->name('superadmin.dashboard');    
     Route::get('/monitoring', 'SuperadminController@showMonitoring')->name('monitoring');
+    Route::get('/monit/table', 'SuperadminController@showTable')->name('mytable');
+    Route::post('/monittable', 'SuperadminController@downloadpdf')->name('monittable');
 	Route::get('/upload', 'UploadController@index')->name('upload');
 	Route::post('import', 'UploadController@import')->name('import');
+    Route::get('/laporan/download', 'SuperadminController@downloadlapor')->name('laporDownload');
+    Route::get('/excel/download', 'SuperadminController@downloadexcel')->name('excelDownload');
 });
 
 

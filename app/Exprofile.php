@@ -9,6 +9,7 @@ class Exprofile extends Model
 {
     protected $table = 'exprofiles';
     protected $primaryKey = 'id';
+    public $timestamps = true;
     protected $fillable =[
     'Foto',
     'File_Foto',
