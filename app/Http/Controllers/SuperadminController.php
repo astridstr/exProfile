@@ -12,7 +12,9 @@ use Zipper;
 use Illuminate\Contracts\View\View;
 use Maatwebsite\Excel\Concerns\FromView;
 use App\Exprofile;
-use App\Monitoring;
+use App\Exports;
+use Excel;
+
 
 class SuperadminController extends Controller
 {
@@ -169,18 +171,8 @@ class SuperadminController extends Controller
         return $pdf->stream('my.pdf',array('Attachment'=>0));
     }
 
-    public function downloadexcel(): View {
+    public function downloadexcel() {
 
-    // Execute the query used to retrieve the data. In this example
-    // we're joining hypothetical users and exprofile tables, retrieving
-    // the exprofile table's primary key, the user's first and last name, 
-    // the user's e-mail address, the amount paid, and the payment
-    // timestamp.
-
-    $exprofile = DB::table('exprofiles')
-            ->select('*')
-            ->get(); 
-
-    return view('superadmin.excel', ['exprofile' => $exprofile]);
+     return (new Exports)->download('xprofile.xlsx');
     }
 }

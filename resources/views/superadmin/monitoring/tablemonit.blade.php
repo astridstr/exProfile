@@ -113,9 +113,7 @@ background: #999;
     <!-- Main content -->
     <section class="content">
       <div class="row">
-        <div class="col-md-6">
-        </div>
-        <div class="col-md-6">
+        <div class="col-md-12">
         <div class="nav-tabs-custom">
           <ul class="nav nav-tabs">
               <li class="active"><a href="#done" data-toggle="tab">Sudah Mengisi</a></li>
@@ -123,7 +121,7 @@ background: #999;
           </ul>
         <div class="tab-content">
         <div class="active tab-pane" id="done">
-          <div class="box" style="overflow: scroll; max-height: 600px;">
+          <div class="box">
             <div class="box-header">
               <h3 class="box-title">Tabel Monitoring Pegawai</h3>
             </div>
@@ -241,7 +239,7 @@ background: #999;
               <a href="{{action('SuperadminController@downloadlapor')}}" target="_blank"> <button type="button" class="btn btn-block btn-success"><i class="fa fa-download"></i>&nbsp; Download ZIP</button></a>
               </div>
               <div class="col-md-4">
-              <a href="{{action('SuperadminController@downloadexcel')}}" > <button type="button" class="btn btn-block btn-success"><i class="fa fa-download"></i>&nbsp; Download Excel</button></a>
+              <a href="{{action('SuperadminController@downloadexcel')}}" class="btn btn-block btn-success"> <i class="fa fa-download"></i>&nbsp; Download Excel</a>
               </div>
               <div class="col-md-4">
               <a href="{{action('SuperadminController@downloadlapor')}}" target="_blank"> <button type="button" class="btn btn-block btn-success"><i class="fa fa-download"></i>&nbsp; Download as PDF</button></a>
@@ -252,7 +250,7 @@ background: #999;
           </div>
         </div>
         <div class="tab-pane" id="yet">
-          <div class="box" style="overflow: scroll; max-height: 600px;">
+          <div class="box">
             <div class="box-header">
               <h3 class="box-title">Tabel Monitoring Pegawai</h3>
             </div>
