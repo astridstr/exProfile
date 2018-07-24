@@ -11,6 +11,7 @@ use File;
 use App\User;
 use App\UserRole;
 use App\Exprofile;
+
 class UploadController extends Controller
 {
     public function index()

@@ -95,8 +95,39 @@ class SuperadminController extends Controller
     public function showTable()
     {    
 
-        $pegawai=DB::table('exprofiles')->get();
-        return view('superadmin.monitoring.tablemonit', compact('pegawai'));
+        $pegawai=DB::table('exprofiles')
+                    ->whereNotNull('Foto')
+                    ->whereNotNull('Education_1')
+                    ->whereNotNull('Kota_Domisili_Utama')
+                    ->whereNotNull('Alamat_Tinggal_Saat_Ini')
+                    ->whereNotNull('handphone')
+                    ->whereNotNull('Area_of_Expertise_1')
+                    ->whereNotNull('Career_Interest_1')
+                    ->whereNotNull('Professional_Certification_1')
+                    ->whereNotNull('Masterpiece_1')
+                    ->whereNotNull('About_and_Experience_1')
+                    ->whereNotNull('About_and_Experience_2')
+                    ->whereNotNull('About_and_Experience_3')
+                    ->get();
+        $pegawainip=DB::table('exprofiles')
+                    ->whereNotNull('Foto')
+                    ->whereNotNull('Education_1')
+                    ->whereNotNull('Kota_Domisili_Utama')
+                    ->whereNotNull('Alamat_Tinggal_Saat_Ini')
+                    ->whereNotNull('handphone')
+                    ->whereNotNull('Area_of_Expertise_1')
+                    ->whereNotNull('Career_Interest_1')
+                    ->whereNotNull('Professional_Certification_1')
+                    ->whereNotNull('Masterpiece_1')
+                    ->whereNotNull('About_and_Experience_1')
+                    ->whereNotNull('About_and_Experience_2')
+                    ->whereNotNull('About_and_Experience_3')
+                    ->select('NIP')
+                    ->get();
+        $pegawai2 = DB::table('exprofiles')
+                    ->whereNotIn('NIP', $pegawainip)->get();
+       
+        return view('superadmin.monitoring.tablemonit', compact('pegawai'), compact('pegawai2'));
     }
 
     public function downloadpdf(Request $request)
@@ -199,6 +230,20 @@ class SuperadminController extends Controller
 
     public function downloadexcel() {
 
-     return (new Exports)->download('xprofile.xlsx');
+     $products = Exprofile::get()->toArray();
+     $type = 'xls';
+
+
+        return \Excel::create('hdtuto_demo', function($excel) use ($products) {
+
+            $excel->sheet('sheet name', function($sheet) use ($products)
+
+            {
+
+                $sheet->fromArray($products);
+
+            });
+
+        })->download($type);
     }
 }
