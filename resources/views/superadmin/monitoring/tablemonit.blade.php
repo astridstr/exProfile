@@ -100,6 +100,8 @@
             <br>
             <!-- /.box-header -->
             <div class="box-body">
+            <form action="" method="post" enctype="multipart/form-data">
+                  {{ csrf_field() }}
               <table id="example1" class="table table-bordered table-striped">
                 <thead>
                 <tr>
@@ -118,7 +120,7 @@
                   <th>Download</th>
                 </tr>
                 </thead>
-                <tbody>
+              <tbody>
                 @foreach($pegawai as $peg)
                 <tr>
                   <td>{{$peg->id}}</td>
@@ -155,13 +157,11 @@
                   @else
                   <td bgcolor="green"> </td>
                   @endif
-                  <form action="{{route('monittable')}}" method="post" enctype="multipart/form-data">
-                  {{ csrf_field() }}
                   <input type="hidden" name="nippeg" id="nippeg" value="{{$peg->NIP}}" />
                   <td>
                   <div class="form-group">
                     <label>
-                      <input type="checkbox" class="minimal" name="pdf" value="{{$peg->File_Foto}}" checked>
+                      <input type="checkbox" class="minimal" name="pdf" value="{{$peg->File_Foto}}">
                     </label>
                   </div> 
                   </td>
@@ -204,6 +204,7 @@
                   </form>
                 </tr>
                 @endforeach
+              
               </tbody>
               </table>
               <div class="row">
@@ -217,6 +218,7 @@
               <a href="{{action('SuperadminController@downloadlapor')}}" target="_blank"> <button type="button" class="btn btn-block btn-success"><i class="fa fa-download"></i>&nbsp; Download as PDF</button></a>
               </div>
               </div>
+              </form>
             </div>
             <!-- /.box-body -->          
           </div>
@@ -290,7 +292,7 @@
                   <td>
                   <div class="form-group">
                     <label>
-                      <input type="checkbox" class="minimal" name="pdf" value="{{$peg2->File_Foto}}" checked>
+                      <input type="checkbox" class="minimal" name="pdf[]" value="{{$peg2->File_Foto}}" checked>
                     </label>
                   </div> 
                   </td>
@@ -298,51 +300,54 @@
                   <div class="form-group">
                   @if(File::exists(public_path("fotoupload/".$peg2->File_Foto.".JPG")))
                   <label>
-                      <input type="checkbox" class="minimal" name="foto" value="{{$peg2->File_Foto}}" checked>
+                      <input type="checkbox" class="minimal" name="foto[]" value="{{$peg2->File_Foto}}" checked>
                   </label>
                   @elseif(File::exists(public_path("fotoupload/".$peg2->File_Foto.".PNG")))
                   <label>
-                    <input type="checkbox" class="minimal" name="foto" value="{{$peg2->File_Foto}}" checked>
+                    <input type="checkbox" class="minimal" name="foto[]" value="{{$peg2->File_Foto}}" checked>
                   </label>
                   @elseif(File::exists(public_path("fotoupload/".$peg2->File_Foto.".JPEG")))
                   <label>
-                    <input type="checkbox" class="minimal" name="foto" value="{{$peg2->File_Foto}}" checked>
+                    <input type="checkbox" class="minimal" name="foto[]" value="{{$peg2->File_Foto}}" checked>
                   </label>
                   @elseif(File::exists(public_path("fotoupload/".$peg2->File_Foto.".jpg")))
                  <label>
-                    <input type="checkbox" class="minimal" name="foto" value="{{$peg2->File_Foto}}" checked>
+                    <input type="checkbox" class="minimal" name="foto[]" value="{{$peg2->File_Foto}}" checked>
                   </label>
                   @elseif(File::exists(public_path("fotoupload/".$peg2->File_Foto.".png")))
                   <label>
-                      <input type="checkbox" class="minimal" name="foto" value="{{$peg2->File_Foto}}" checked>
+                      <input type="checkbox" class="minimal" name="foto[]" value="{{$peg2->File_Foto}}" checked>
                   </label>
                   @elseif(File::exists(public_path("fotoupload/".$peg2->File_Foto.".jpeg")))
                   <label>
-                    <input type="checkbox" class="minimal" name="foto" value="{{$peg2->File_Foto}}" checked>
+                    <input type="checkbox" class="minimal" name="foto[]" value="{{$peg2->File_Foto}}" checked>
                   </label>
                   @else
                   <label>
-                    <input type="checkbox" class="minimal" name="foto" value="">
+                    <input type="checkbox" class="minimal" name="foto[]" value="">
                   </label>
                   @endif
                   </div>
                   </td>
                   <td>
-                  <a href="{{action('SuperadminController@downloadpdf')}}"> <button type="submit" class="btn btn-block btn-primary"><i class="fa fa-download"></i></button></a>
+                  <button type="submit" class="btn btn-block btn-primary" name="submitbutton" value="1"><i class="fa fa-download"></i></button>
                   </td>
-                  </form>
                 </tr>
+                </form>
                 @endforeach
               </tbody>
               </table>
               <div class="row">
-              <div class="col-md-4">
-              <a href="{{action('SuperadminController@downloadlapor')}}" target="_blank"> <button type="button" class="btn btn-block btn-success"><i class="fa fa-download"></i>&nbsp; Download ZIP</button></a>
+              <div class="col-md-3">
+              <a href="{{action('SuperadminController@downloadfotoall')}}" class="btn btn-block btn-success"><i class="fa fa-download"></i>&nbsp; Download Foto</a>
               </div>
-              <div class="col-md-4">
+              <div class="col-md-3">
+              <a href="{{action('SuperadminController@downloadpdfall')}}" class="btn btn-block btn-success"><i class="fa fa-download"></i>&nbsp; Download Pdf</a>
+              </div>
+              <div class="col-md-3">
               <a href="{{action('SuperadminController@downloadexcel')}}" class="btn btn-block btn-success"> <i class="fa fa-download"></i>&nbsp; Download Excel</a>
               </div>
-              <div class="col-md-4">
+              <div class="col-md-3">
               <a href="{{action('SuperadminController@downloadlapor')}}" target="_blank"> <button type="button" class="btn btn-block btn-success"><i class="fa fa-download"></i>&nbsp; Download as PDF</button></a>
               </div>
               </div>
