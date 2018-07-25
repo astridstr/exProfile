@@ -133,9 +133,11 @@ class SuperadminController extends Controller
     public function downloadpdf(Request $request)
     {
         $nipnya= $request->input('nippeg');
-        $file_foto = $request->input('foto');
-        $file_pdf = $request->input('pdf');
-        //dd($file_foto);
+        $hai = $request->all();
+        $file_fotoku = $request->input('foto');
+        $file_foto = $file_fotoku[0];
+        $file_pdfku = $request->input('pdf');
+        $file_pdf = $file_pdfku[0];
         $exprofile = DB::table('exprofiles')
             ->where('NIP',$nipnya)
             ->select('*')
@@ -234,7 +236,7 @@ class SuperadminController extends Controller
      $type = 'xls';
 
 
-        return \Excel::create('hdtuto_demo', function($excel) use ($products) {
+        return \Excel::create('Xprofile', function($excel) use ($products) {
 
             $excel->sheet('sheet name', function($sheet) use ($products)
 
@@ -245,5 +247,61 @@ class SuperadminController extends Controller
             });
 
         })->download($type);
+    }
+
+    public function downloadfotoall() {
+
+        $filepath = glob(public_path('/fotoupload/*'));
+
+        if( File::exists(public_path('xprofile.zip'))){
+               File::delete(public_path('xprofile.zip'));
+            }
+
+        $zip = Zipper::make('xprofile.zip');
+        $zip->add($filepath);
+        $zip->close();
+
+        return Response::download(public_path('xprofile.zip'));
+    }
+
+    public function downloadpdfall(){
+
+        $exprofile = DB::table('exprofiles')
+            ->select('File_Foto')
+            ->get(); 
+
+
+        foreach($exprofile as $exprof){
+            $file_pdf = $exprof->File_Foto;
+
+            $exprofile = DB::table('exprofiles')
+            ->where('File_Foto',$file_pdf)
+            ->select('*')
+            ->first(); 
+
+            //dd($exprofile);
+            PDF::setOptions(['dpi' => 150, "default_paper_size" => "a4", "default_font" => "verdana"]);
+            $pdf = PDF::loadView('pdf.exprofile', ['exprofile' => $exprofile])->setPaper('a4', 'landscape');
+
+            if( File::exists(public_path('/pdfxprofile/' . $file_pdf .'.pdf' ))){
+                File::delete(public_path('/pdfxprofile/' . $file_pdf .'.pdf' ));
+                }
+
+            $pdf->save( public_path('/pdfxprofile/' . $file_pdf. '.pdf' ));
+            $filepdf = public_path('/pdfxprofile/' . $file_pdf. '.pdf' );
+        }
+
+        $filepath = glob(public_path('/pdfxprofile/*'));
+
+        if( File::exists(public_path('xprofile.zip'))){
+               File::delete(public_path('xprofile.zip'));
+            }
+
+        $zip = Zipper::make('xprofile.zip');
+        $zip->add($filepath);
+        $zip->close();
+
+        return Response::download(public_path('xprofile.zip'));
+
     }
 }
