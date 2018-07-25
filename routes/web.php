@@ -39,9 +39,16 @@ Route::group(['prefix' => '1', 'middleware' => ['auth', 'role:superadmin']], fun
 	Route::post('import', 'UploadController@import')->name('import');
     Route::get('/laporan/download', 'SuperadminController@downloadlapor')->name('laporDownload');
     Route::get('/downloadExcel', 'SuperadminController@downloadexcel')->name('excelDownload');
+<<<<<<< HEAD
+    Route::post('/filter-unit', 'SuperadminController@filterUnit')->name('filter.unit');
+=======
     Route::get('/downloadFotoAll', 'SuperadminController@downloadfotoall')->name('fotoallDownload');
     Route::get('/downloadPdfAll', 'SuperadminController@downloadpdfall')->name('pdfallDownload');
+<<<<<<< HEAD
     Route::post('/showfilter', 'SuperadminController@showfilter')->name('showfilter');
+=======
+>>>>>>> 94fd74cb754e14e580ab1666316cd2b894f306e6
+>>>>>>> master
 });
 
 

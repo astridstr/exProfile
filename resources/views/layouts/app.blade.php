@@ -62,29 +62,29 @@
 <!-- ./wrapper -->
 
 <!-- jQuery 3 -->
-<script src="{{ URL::asset('lte/bower_components/jquery/dist/jquery.min.js')}}"></script>
+<script src="{{ URL::asset('dist/bower_components/jquery/dist/jquery.min.js')}}"></script>
 <!-- Bootstrap 3.3.7 -->
-<script src="{{ URL::asset('lte/bower_components/bootstrap/dist/js/bootstrap.min.js')}}"></script>
+<script src="{{ URL::asset('dist/bower_components/bootstrap/dist/js/bootstrap.min.js')}}"></script>
 <!-- FastClick -->
-<script src="{{ URL::asset('lte/bower_components/fastclick/lib/fastclick.js')}}"></script>
+<script src="{{ URL::asset('dist/bower_components/fastclick/lib/fastclick.js')}}"></script>
 <!-- AdminLTE App -->
-<script src="{{ URL::asset('lte/dist/js/adminlte.min.js')}}"></script>
+<script src="{{ URL::asset('dist/dist/js/adminlte.min.js')}}"></script>
 <!-- Sparkline -->
-<script src="{{ URL::asset('lte/bower_components/jquery-sparkline/dist/jquery.sparkline.min.js')}}"></script>
+<script src="{{ URL::asset('dist/bower_components/jquery-sparkline/dist/jquery.sparkline.min.js')}}"></script>
 <!-- jvectormap  -->
-<script src="{{ URL::asset('lte/plugins/jvectormap/jquery-jvectormap-1.2.2.min.js')}}"></script>
-<script src="{{ URL::asset('lte/plugins/jvectormap/jquery-jvectormap-world-mill-en.js')}}"></script>
+<script src="{{ URL::asset('dist/plugins/jvectormap/jquery-jvectormap-1.2.2.min.js')}}"></script>
+<script src="{{ URL::asset('dist/plugins/jvectormap/jquery-jvectormap-world-mill-en.js')}}"></script>
 <!-- SlimScroll -->
-<script src="{{ URL::asset('lte/bower_components/jquery-slimscroll/jquery.slimscroll.min.js')}}"></script>
+<script src="{{ URL::asset('dist/bower_components/jquery-slimscroll/jquery.slimscroll.min.js')}}"></script>
 <!-- ChartJS -->
-<script src="{{ URL::asset('lte/bower_components/Chart.js/Chart.js')}}"></script>
+<script src="{{ URL::asset('dist/bower_components/Chart.js/Chart.js')}}"></script>
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-<script src="{{ URL::asset('lte/dist/js/pages/dashboard2.js')}}"></script>
+<script src="{{ URL::asset('dist/dist/js/pages/dashboard2.js')}}"></script>
 <!-- AdminLTE for demo purposes -->
-<script src="{{ URL::asset('lte/dist/js/demo.js')}}"></script>
-<!-- FastClick -->
-<script src="{{ URL::asset('lte/bower_components/fastclick/lib/fastclick.js')}}"></script>
+<script src="{{ URL::asset('dist/dist/js/demo.js')}}"></script>
+<!-- FastClick dist
+<script src="{{ URL::asset('dist/bower_components/fastclick/lib/fastclick.js')}}"></script>
 <!-- AdminLTE for demo purposes -->
-<script src="{{ URL::asset('lte/dist/js/demo.js')}}"></script>
+<script src="{{ URL::asset('dist/dist/js/demo.js')}}"></script>
 </body>
 </html>

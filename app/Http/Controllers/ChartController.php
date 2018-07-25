@@ -26,4 +26,11 @@ class ChartController extends Controller
         return view('superadmin.monitoring.app', ['exprofile' => $exprofile,'divisi' => $divisi, 'interest' => $interest] );
 
     }
+
+    public function chart()
+      {
+
+        $result = Exprofile::select(DB::raw('left(Divisi_Satuan, 6) as list_kategori'), DB::raw('count(*) as total_kategori'))->groupBy('kategori_all')->get();    
+        return response()->json($result);
+      }
 }
