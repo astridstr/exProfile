@@ -94,6 +94,9 @@ class SuperadminController extends Controller
 
     public function showTable()
     {    
+        $divisi = DB::table('divisi')
+            ->select('*')
+            ->get();
 
         $pegawai=DB::table('exprofiles')
                     ->whereNotNull('Foto')
@@ -127,7 +130,7 @@ class SuperadminController extends Controller
         $pegawai2 = DB::table('exprofiles')
                     ->whereNotIn('NIP', $pegawainip)->get();
        
-        return view('superadmin.monitoring.tablemonit', compact('pegawai'), compact('pegawai2'));
+        return view('superadmin.monitoring.tablemonit', ['pegawai' => $pegawai,'pegawai2' => $pegawai2, 'divisi' => $divisi]);
     }
 
     public function downloadpdf(Request $request)
@@ -303,5 +306,54 @@ class SuperadminController extends Controller
 
         return Response::download(public_path('xprofile.zip'));
 
+    }
+
+    public function showfilter(Request $request){
+
+        $divisi = DB::table('divisi')
+            ->select('*')
+            ->get();
+
+        $unit= $request->input('unit');
+        if($unit == 'all'){
+            return $this->showTable();
+        }
+
+        $pegawai=DB::table('exprofiles')
+                    ->whereNotNull('Foto')
+                    ->whereNotNull('Education_1')
+                    ->whereNotNull('Kota_Domisili_Utama')
+                    ->whereNotNull('Alamat_Tinggal_Saat_Ini')
+                    ->whereNotNull('handphone')
+                    ->whereNotNull('Area_of_Expertise_1')
+                    ->whereNotNull('Career_Interest_1')
+                    ->whereNotNull('Professional_Certification_1')
+                    ->whereNotNull('Masterpiece_1')
+                    ->whereNotNull('About_and_Experience_1')
+                    ->whereNotNull('About_and_Experience_2')
+                    ->whereNotNull('About_and_Experience_3')
+                    ->where('Divisi_Satuan',$unit)
+                    ->get();
+        $pegawainip=DB::table('exprofiles')
+                    ->whereNotNull('Foto')
+                    ->whereNotNull('Education_1')
+                    ->whereNotNull('Kota_Domisili_Utama')
+                    ->whereNotNull('Alamat_Tinggal_Saat_Ini')
+                    ->whereNotNull('handphone')
+                    ->whereNotNull('Area_of_Expertise_1')
+                    ->whereNotNull('Career_Interest_1')
+                    ->whereNotNull('Professional_Certification_1')
+                    ->whereNotNull('Masterpiece_1')
+                    ->whereNotNull('About_and_Experience_1')
+                    ->whereNotNull('About_and_Experience_2')
+                    ->whereNotNull('About_and_Experience_3')
+                    ->select('NIP')
+                    ->get();
+        $pegawai2 = DB::table('exprofiles')
+                    ->whereNotIn('NIP', $pegawainip)
+                    ->where('Divisi_Satuan',$unit)
+                    ->get();
+       
+        return view('superadmin.monitoring.tablemonit', ['pegawai' => $pegawai,'pegawai2' => $pegawai2, 'divisi' => $divisi]);
     }
 }

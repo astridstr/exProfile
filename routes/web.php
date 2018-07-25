@@ -41,6 +41,7 @@ Route::group(['prefix' => '1', 'middleware' => ['auth', 'role:superadmin']], fun
     Route::get('/downloadExcel', 'SuperadminController@downloadexcel')->name('excelDownload');
     Route::get('/downloadFotoAll', 'SuperadminController@downloadfotoall')->name('fotoallDownload');
     Route::get('/downloadPdfAll', 'SuperadminController@downloadpdfall')->name('pdfallDownload');
+    Route::post('/showfilter', 'SuperadminController@showfilter')->name('showfilter');
 });
 
 

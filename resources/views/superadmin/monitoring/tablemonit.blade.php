@@ -231,6 +231,28 @@
             <br>
             <!-- /.box-header -->
             <div class="box-body">
+              <div class="row pull-right">
+                  <div class="col-lg-12 ">
+                    <form action="{{route('showfilter')}}" class="form-inline" method="post" enctype="multipart/form-data">
+                      {{ csrf_field() }}
+                        <div class="row"> 
+                          <div class="col-lg-8">
+                            <div class="form-group">
+                              <select class="form-control select2" style="width: 100%;" name="unit">
+                                <option selected="selected" value="all" >Semua Unit</option>
+                                @foreach($divisi as $div)
+                                <option value="{{$div->nama_divisi}}">{{$div->nama_divisi}}</option>
+                                @endforeach
+                                </select>
+                                </div>
+                              </div>
+                            <div class="col-lg-4">
+                          <button type="submit" class="btn btn-primary">Filter</button>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                </div>          
               <table id="example2" class="table table-bordered table-striped">
                 <thead>
                 <tr>
@@ -257,34 +279,34 @@
                   <td>{{$peg2->NIP}}</td>
                   <td>{{$peg2->Nama_Lengkap}}</td>
                   @if($peg2->Education_1 === null)
-                  <td bgcolor="red"> </td>
+                  <td> <span class="glyphicon glyphicon-remove-sign" style="font-size: 35px;color: red;"></span></td>
                   @else
-                  <td bgcolor="green"> </td>
+                  <td> <span class="glyphicon glyphicon-ok-sign" style="font-size: 35px;color: green;"></span></td>
                   @endif
                   @if($peg2->Professional_Certification_1 === null)
-                  <td bgcolor="red"> </td>
+                  <td> <span class="glyphicon glyphicon-remove-sign" style="font-size: 35px;color: red;"></span></td>
                   @else
-                  <td bgcolor="green"> </td>
+                  <td> <span class="glyphicon glyphicon-ok-sign" style="font-size: 35px;color: green;"></span></td>
                   @endif
                   @if($peg2->Area_of_Expertise_1 === null)
-                  <td bgcolor="red"> </td>
+                  <td> <span class="glyphicon glyphicon-remove-sign" style="font-size: 35px;color: red;"></span></td>
                   @else
-                  <td bgcolor="green"> </td>
+                  <td> <span class="glyphicon glyphicon-ok-sign" style="font-size: 35px;color: green;"></span></td>
                   @endif
                   @if($peg2->Career_Interest_1 === null)
-                  <td bgcolor="red"> </td>
+                  <td> <span class="glyphicon glyphicon-remove-sign" style="font-size: 35px;color: red;"></span></td>
                   @else
-                  <td bgcolor="green"> </td>
+                  <td> <span class="glyphicon glyphicon-ok-sign" style="font-size: 35px;color: green;"></span></td>
                   @endif
                   @if($peg2->About_and_Experience_1 === null)
-                  <td bgcolor="red"> </td>
+                  <td> <span class="glyphicon glyphicon-remove-sign" style="font-size: 35px;color: red;"></span></td>
                   @else
-                  <td bgcolor="green"> </td>
+                  <td> <span class="glyphicon glyphicon-ok-sign" style="font-size: 35px;color: green;"></span></td>
                   @endif
                   @if($peg2->Masterpiece_1 === null)
-                  <td bgcolor="red"> </td>
+                  <td> <span class="glyphicon glyphicon-remove-sign" style="font-size: 35px;color: red;"></span></td>
                   @else
-                  <td bgcolor="green"> </td>
+                  <td> <span class="glyphicon glyphicon-ok-sign" style="font-size: 35px;color: green;"></span></td>
                   @endif
                   <form action="{{route('monittable')}}" method="post" enctype="multipart/form-data">
                   {{ csrf_field() }}
