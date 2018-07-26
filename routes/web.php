@@ -35,10 +35,10 @@ Route::group(['prefix' => '1', 'middleware' => ['auth', 'role:superadmin']], fun
     Route::get('/monitoring', 'SuperadminController@showMonitoring')->name('monitoring');
     Route::get('/monit/table', 'SuperadminController@showTable')->name('mytable');
     Route::post('/monittable', 'SuperadminController@downloadpdf')->name('monittable');
-	Route::get('/upload', 'UploadController@index')->name('upload');
-	Route::post('import', 'UploadController@import')->name('import');
+    Route::get('/upload', 'UploadController@index')->name('upload');
+    Route::post('import', 'UploadController@import')->name('import');
     Route::get('/laporan/download', 'SuperadminController@downloadlapor')->name('laporDownload');
-    Route::get('/downloadExcel', 'SuperadminController@downloadexcel')->name('excelDownload');
+    Route::post('/downloadExcel', 'SuperadminController@downloadexcel')->name('excelDownload');
     Route::post('/filter-unit', 'SuperadminController@filterUnit')->name('filter.unit');
     Route::get('/downloadFotoAll', 'SuperadminController@downloadfotoall')->name('fotoallDownload');
     Route::get('/downloadPdfAll', 'SuperadminController@downloadpdfall')->name('pdfallDownload');
