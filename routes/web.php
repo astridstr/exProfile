@@ -46,17 +46,17 @@ Route::group(['prefix' => '1', 'middleware' => ['auth', 'role:superadmin']], fun
 });
 
 
-// PLN Pusat Route
+// Superadmin Route
 Route::group(['prefix' => '2', 'middleware' => ['auth', 'role:plnpusat']], function(){
     Route::get('/dashboard', 'SuperadminController@index')->name('plnpusat.dashboard');
 });
 
-// Unit Route
+// Superadmin Route
 Route::group(['prefix' => '3', 'middleware' => ['auth', 'role:unit']], function(){
-    Route::get('/dashboard', 'UnitadminController@index')->name('unit.dashboard');
+    Route::get('/dashboard', 'SuperadminController@index')->name('unit.dashboard');
 });
 
-// Pegawai Route
+// Superadmin Route
 Route::group(['prefix' => '4', 'middleware' => ['auth', 'role:pegawai']], function(){
     Route::get('/dashboard', 'ExecutiveController@index')->name('pegawai.dashboard');
     Route::post('/form/exprofile/v1','FormController@formeditdiri')->name('formeditdiri');

@@ -14,7 +14,7 @@ use Maatwebsite\Excel\Concerns\FromView;
 use App\Exprofile;
 use App\Exports;
 use Excel;
-
+use Carbon\Carbon;
 
 class SuperadminController extends Controller
 {
@@ -193,6 +193,8 @@ class SuperadminController extends Controller
             ->select('*')
             ->get();
 
+        $unit='all';
+
         $pegawai=DB::table('exprofiles')
                     ->whereNotNull('Foto')
                     ->whereNotNull('Education_1')
@@ -225,7 +227,7 @@ class SuperadminController extends Controller
         $pegawai2 = DB::table('exprofiles')
                     ->whereNotIn('NIP', $pegawainip)->get();
        
-        return view('superadmin.monitoring.tablemonit', ['pegawai' => $pegawai,'pegawai2' => $pegawai2, 'divisi' => $divisi]);
+        return view('superadmin.monitoring.tablemonit', ['pegawai' => $pegawai,'pegawai2' => $pegawai2, 'divisi' => $divisi ,'unit' => $unit]);
     }
 
     public function downloadpdf(Request $request)
@@ -267,11 +269,11 @@ class SuperadminController extends Controller
             $pdf->save( public_path('/pdfxprofile/' . $file_foto. '.pdf' ));
             $filepdf = glob(public_path('/pdfxprofile/' . $file_pdf. '.pdf' ));
 
-            if( File::exists(public_path('xprofile.zip'))){
-               File::delete(public_path('xprofile.zip'));
+            if( File::exists(public_path($file_foto.'zip'))){
+               File::delete(public_path($file_foto.'zip'));
             }
 
-            $zip = Zipper::make('xprofile.zip');
+            $zip = Zipper::make($file_foto.'zip');
             $zip->add($filepath);
             $zip->add($filepdf);
             $zip->close();
@@ -328,23 +330,38 @@ class SuperadminController extends Controller
         return $pdf->stream('my.pdf',array('Attachment'=>0));
     }
 
-    public function downloadexcel() {
+    public function downloadexcel(Request $request) {
 
-     $products = Exprofile::get()->toArray();
-     $type = 'xls';
+    $unit= $request->input('unit');
+
+    if($unit == 'all'){
+        $exprofile=Exprofile::get();
+        $filename = 'EP_All_Pegawai_'.Carbon::now('Asia/Jakarta');
+    }
+    else{
+        $exprofile=Exprofile::where('Divisi_Satuan',$unit)->get();
+        $filename = 'EP_'.$unit.Carbon::now('Asia/Jakarta');
+    }
+    $type = 'xls';
 
 
-        return \Excel::create('Xprofile', function($excel) use ($products) {
+    Excel::create($filename, function($excel) use($exprofile) {
+            $excel->sheet('Data Rekap', function($sheet) use($exprofile) {
+                $sheet->loadView('superadmin.excel', ['exprofile' => $exprofile]);
+                $sheet->getStyle('B:J')->getAlignment()->setWrapText(true);
+                $sheet->cell('A1:J1', function($cell) { 
+                    $cell->setFontSize(10);
+                });
+            });
 
-            $excel->sheet('sheet name', function($sheet) use ($products)
+            $excel->sheet('Data Lengkap', function($sheet) use ($exprofile)
 
             {
 
-                $sheet->fromArray($products);
+                $sheet->fromArray($exprofile);
 
             });
-
-        })->download($type);
+        })->download('xlsx');
     }
 
     public function downloadfotoall() {
@@ -391,11 +408,11 @@ class SuperadminController extends Controller
 
         $filepath = glob(public_path('/pdfxprofile/*'));
 
-        if( File::exists(public_path('xprofile.zip'))){
-               File::delete(public_path('xprofile.zip'));
+        if( File::exists(public_path('EP_All_Pegawai_PDF.zip'))){
+               File::delete(public_path('EP_All_Pegawai_PDF.zip'));
             }
 
-        $zip = Zipper::make('xprofile.zip');
+        $zip = Zipper::make('EP_All_Pegawai_PDF.zip');
         $zip->add($filepath);
         $zip->close();
 
@@ -449,6 +466,6 @@ class SuperadminController extends Controller
                     ->where('Divisi_Satuan',$unit)
                     ->get();
        
-        return view('superadmin.monitoring.tablemonit', ['pegawai' => $pegawai,'pegawai2' => $pegawai2, 'divisi' => $divisi]);
+        return view('superadmin.monitoring.tablemonit', ['pegawai' => $pegawai,'pegawai2' => $pegawai2, 'divisi' => $divisi, 'unit' => $unit]);
     }
 }
