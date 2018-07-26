@@ -39,16 +39,13 @@ Route::group(['prefix' => '1', 'middleware' => ['auth', 'role:superadmin']], fun
 	Route::post('import', 'UploadController@import')->name('import');
     Route::get('/laporan/download', 'SuperadminController@downloadlapor')->name('laporDownload');
     Route::get('/downloadExcel', 'SuperadminController@downloadexcel')->name('excelDownload');
-<<<<<<< HEAD
+
     Route::post('/filter-unit', 'SuperadminController@filterUnit')->name('filter.unit');
-=======
+
     Route::get('/downloadFotoAll', 'SuperadminController@downloadfotoall')->name('fotoallDownload');
     Route::get('/downloadPdfAll', 'SuperadminController@downloadpdfall')->name('pdfallDownload');
-<<<<<<< HEAD
+
     Route::post('/showfilter', 'SuperadminController@showfilter')->name('showfilter');
-=======
->>>>>>> 94fd74cb754e14e580ab1666316cd2b894f306e6
->>>>>>> master
 });
 
 
@@ -59,7 +56,19 @@ Route::group(['prefix' => '2', 'middleware' => ['auth', 'role:plnpusat']], funct
 
 // Superadmin Route
 Route::group(['prefix' => '3', 'middleware' => ['auth', 'role:unit']], function(){
-    Route::get('/dashboard', 'SuperadminController@index')->name('unit.dashboard');
+    Route::get('/dashboard', 'UnitController@index')->name('unit.dashboard');
+    Route::get('/monitoring', 'UnitController@showMonitoring')->name('monitoring');
+    Route::get('/monit/table', 'UnitController@showTable')->name('mytable');
+    Route::post('/monittable', 'UnitController@downloadpdf')->name('monittable');
+    Route::get('/upload', 'UploadController@index')->name('upload');
+    Route::post('import', 'UploadController@import')->name('import');
+    Route::get('/laporan/download', 'UnitController@downloadlapor')->name('laporDownload');
+    Route::get('/downloadExcel', 'UnitController@downloadexcel')->name('excelDownload');
+
+    Route::get('/downloadFotoAll', 'UnitController@downloadfotoall')->name('fotoallDownload');
+    Route::get('/downloadPdfAll', 'UnitController@downloadpdfall')->name('pdfallDownload');
+
+    Route::post('/showfilter', 'UnitController@showfilter')->name('showfilter');
 });
 
 // Superadmin Route
