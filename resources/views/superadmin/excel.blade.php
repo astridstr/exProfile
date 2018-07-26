@@ -1,3 +1,12 @@
+<!doctype html>
+<html>
+  <head>
+
+  </head>
+  <body>
+  <div>
+      <p>Data Executive Profile</p>
+
 <table id="example1" class="table table-bordered table-striped">
                 <thead>
                 <tr>
@@ -22,51 +31,55 @@
                   <td>{{$peg->NIP}}</td>
                   <td>{{$peg->Nama_Lengkap}}</td>
                   @if($peg->Education_1 === null)
-                  <td bgcolor="red"> </td>
+                  <td> Belum </td>
                   @else
-                  <td bgcolor="green"> </td>
+                  <td> Sudah </td>
                   @endif
-                   @if($peg->Professional_Certification_1 === null)
-                  <td bgcolor="red"> </td>
+                  @if($peg->Professional_Certification_1 === null)
+                  <td> Belum </td>
                   @else
-                  <td bgcolor="green"> </td>
+                  <td> Sudah </td>
                   @endif
                   @if($peg->Area_of_Expertise_1 === null)
-                  <td bgcolor="red"> </td>
+                  <td> Belum </td>
                   @else
-                  <td bgcolor="green"> </td>
+                  <td> Sudah </td>
                   @endif
                   @if($peg->Career_Interest_1 === null)
-                  <td bgcolor="red"> </td>
+                  <td> Belum </td>
                   @else
-                  <td bgcolor="green"> </td>
+                  <td> Sudah </td>
                   @endif
                   @if($peg->About_and_Experience_1 === null)
-                  <td bgcolor="red"> </td>
+                  <td> Belum </td>
                   @else
-                  <td bgcolor="green"> </td>
+                  <td> Sudah </td>
                   @endif
                   @if($peg->Masterpiece_1 === null)
-                  <td bgcolor="red"> </td>
+                  <td> Belum </td>
                   @else
-                  <td bgcolor="green"> </td>
+                  <td> Sudah </td>
                   @endif
-                  <td>
-                    @if(File::exists(base_path("public/fotoupload/".$peg->File_Foto.".JPG")))
-                    <div class="form-group">
-                    <label>
-                      <input type="checkbox" class="minimal" name="pdf" value="{{$peg->File_Foto}}" checked>
-                    </label>
-                    </div>
-                    @elseif(File::exists(base_path("public/fotoupload/".$peg->File_Foto.".jpg")))
-                    <div class="form-group">
-                    <label>
-                      <input type="checkbox" class="minimal" name="pdf" value="{{$peg->File_Foto}}" checked>
-                    </label>
-                    </div>
-                    @endif  
-                  </td>                  
+                  @if(File::exists(base_path("public/fotoupload/".$peg->File_Foto.".JPG")))
+                  <td> Sudah </td>
+                  @elseif(File::exists(base_path("public/fotoupload/".$peg->File_Foto.".jpg")))
+                  <td> Sudah </td>
+                  @elseif(File::exists(base_path("public/fotoupload/".$peg->File_Foto.".png")))
+                  <td> Sudah </td>
+                  @elseif(File::exists(base_path("public/fotoupload/".$peg->File_Foto.".PNG")))
+                  <td> Sudah </td>
+                  @elseif(File::exists(base_path("public/fotoupload/".$peg->File_Foto.".JPEG")))
+                  <td> Sudah </td>
+                  @elseif(File::exists(base_path("public/fotoupload/".$peg->File_Foto.".jpeg")))
+                  <td> Sudah </td>
+                  @else
+                  <td> Belum </td>
+                  @endif                    
                 </tr>
                 @endforeach
               </tbody>
               </table>
+              </div>
+
+  </body>
+</html>

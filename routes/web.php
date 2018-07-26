@@ -13,7 +13,7 @@ Route::get('/', function () {
                     ->first();
         // dd($userrole);
         if ( $userrole->role_id == '1' ) {
-               return redirect()->route('superadmin.monitoring');
+               return redirect()->route('superadmin.dashboard');
         }
         elseif ( $userrole->role_id == '2' ) {
                return redirect()->route('plnpusat.dashboard');
@@ -32,7 +32,7 @@ Route::get('/', function () {
 // Superadmin Route
 Route::group(['prefix' => '1', 'middleware' => ['auth', 'role:superadmin']], function(){
     Route::get('/dashboard', 'SuperadminController@index')->name('superadmin.dashboard');    
-    Route::get('/monitoring', 'SuperadminController@showMonitoring')->name('superadmin.monitoring');
+    Route::get('/monitoring', 'SuperadminController@showMonitoring')->name('monitoring');
     Route::get('/monit/table', 'SuperadminController@showTable')->name('mytable');
     Route::post('/monittable', 'SuperadminController@downloadpdf')->name('monittable');
 	Route::get('/upload', 'UploadController@index')->name('upload');
@@ -54,13 +54,9 @@ Route::group(['prefix' => '2', 'middleware' => ['auth', 'role:plnpusat']], funct
     Route::get('/dashboard', 'SuperadminController@index')->name('plnpusat.dashboard');
 });
 
-// Unit Route
+// Superadmin Route
 Route::group(['prefix' => '3', 'middleware' => ['auth', 'role:unit']], function(){
-    Route::get('/dashboard', 'UnitController@index')->name('unit.dashboard');
-    Route::get('/upload', 'UploadController@index')->name('unit.upload');
-    Route::post('import', 'UploadController@import')->name('unit.import');
-
-
+    Route::get('/dashboard', 'UnitadminController@index')->name('unit.dashboard');
 });
 
 // Superadmin Route
