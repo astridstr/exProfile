@@ -16,8 +16,8 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="{{ route('monitoring') }}"><i class="fa fa-circle-o"></i> Diagram</a></li>
-            <li><a href="{{ route('mytable') }}"><i class="fa fa-circle-o"></i> Table </a></li>
+            <li><a href="{{ route('unit.dashboard') }}"><i class="fa fa-circle-o"></i> Diagram</a></li>
+            <li><a href="{{ route('unit.mytable') }}"><i class="fa fa-circle-o"></i> Table </a></li>
           </ul>
         </li>
       </ul>

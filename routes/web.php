@@ -31,12 +31,12 @@ Route::get('/', function () {
 
 // Superadmin Route
 Route::group(['prefix' => '1', 'middleware' => ['auth', 'role:superadmin']], function(){
-    Route::get('/dashboard', 'SuperadminController@index')->name('superadmin.dashboard');    
+    Route::get('/dashboard', 'SuperadminController@showMonitoring')->name('superadmin.dashboard');    
     Route::get('/monitoring', 'SuperadminController@showMonitoring')->name('monitoring');
+    Route::get('/upload', 'UploadController@index')->name('upload');
+    Route::post('import', 'UploadController@import')->name('import');
     Route::get('/monit/table', 'SuperadminController@showTable')->name('mytable');
     Route::post('/monittable', 'SuperadminController@downloadpdf')->name('monittable');
-	Route::get('/upload', 'UploadController@index')->name('upload');
-	Route::post('import', 'UploadController@import')->name('import');
     Route::get('/laporan/download', 'SuperadminController@downloadlapor')->name('laporDownload');
     Route::post('/downloadExcel', 'SuperadminController@downloadexcel')->name('excelDownload');
     Route::post('/filter-unit', 'SuperadminController@filterUnit')->name('filter.unit');
@@ -53,7 +53,14 @@ Route::group(['prefix' => '2', 'middleware' => ['auth', 'role:plnpusat']], funct
 
 // Superadmin Route
 Route::group(['prefix' => '3', 'middleware' => ['auth', 'role:unit']], function(){
-    Route::get('/dashboard', 'SuperadminController@index')->name('unit.dashboard');
+   Route::get('/dashboard', 'UnitController@showMonitoring')->name('unit.dashboard'); 
+   Route::get('/monit/table', 'UnitController@showTable')->name('unit.mytable');
+   Route::post('/monittable', 'UnitController@downloadpdf')->name('unit.monittable');
+   Route::get('/laporan/download', 'UnitController@downloadlapor')->name('unit.laporDownload');
+   Route::post('/downloadExcel', 'UnitController@downloadexcel')->name('unit.excelDownload');
+   Route::get('/downloadFotoAll', 'UnitController@downloadfotoall')->name('unit.fotoallDownload');
+   Route::get('/downloadPdfAll', 'UnitController@downloadpdfall')->name('unit.pdfallDownload');
+   Route::post('/showfilter', 'SuperadminController@showfilter')->name('unit.showfilter');
 });
 
 // Superadmin Route
