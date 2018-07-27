@@ -416,10 +416,10 @@
               </table>
               <div class="row">
               <div class="col-md-3">
-              <a href="{{action('SuperadminController@downloadfotoall')}}" class="btn btn-block btn-success"><i class="fa fa-download"></i>&nbsp; Download Foto</a>
+              <a href="{{action('SuperadminController@downloadfotoall')}}" class="btn btn-block btn-success"><i class="fa fa-download"></i>&nbsp; Download All Photo</a>
               </div>
               <div class="col-md-3">
-              <a href="{{action('SuperadminController@downloadpdfall')}}" class="btn btn-block btn-success"><i class="fa fa-download"></i>&nbsp; Download Pdf</a>
+              <a href="{{action('SuperadminController@downloadpdfall')}}" class="btn btn-block btn-success"><i class="fa fa-download"></i>&nbsp; Download All Pdf</a>
               </div>
               <div class="col-md-3">
               <form action="{{route('excelDownload')}}" method="post" enctype="multipart/form-data">

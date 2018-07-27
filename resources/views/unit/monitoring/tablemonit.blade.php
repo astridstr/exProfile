@@ -100,7 +100,7 @@
                                 @foreach($divisi as $div)
                                   @if($div == $unit)
                                   @else
-                                  <option value="{{$div->nama_divisi}}">{{$div->nama_divisi}}</option>
+                                  <option value="{{$div->nama_divisi}}" disabled>{{$div->nama_divisi}}</option>
                                   @endif
                                 @endforeach
                                   <option value="all">Semua Unit</option>
@@ -225,12 +225,6 @@
               </table>
               <div class="row">
               <div class="col-md-3">
-              <a href="{{action('UnitController@downloadfotoall')}}" class="btn btn-block btn-success"><i class="fa fa-download"></i>&nbsp; Download Foto</a>
-              </div>
-              <div class="col-md-3">
-              <a href="{{action('UnitController@downloadpdfall')}}" class="btn btn-block btn-success"><i class="fa fa-download"></i>&nbsp; Download Pdf</a>
-              </div>
-              <div class="col-md-3">
               <form action="{{route('excelDownload')}}" method="post" enctype="multipart/form-data">
               <input name="unit" type="hidden" value="{{$unit}}">
                {{ csrf_field() }}
@@ -273,7 +267,7 @@
                                 @foreach($divisi as $div)
                                   @if($div == $unit)
                                   @else
-                                  <option value="{{$div->nama_divisi}}">{{$div->nama_divisi}}</option>
+                                  <option value="{{$div->nama_divisi}}" disabled>{{$div->nama_divisi}}</option>
                                   @endif
                                 @endforeach
                                 <option value="all">Semua Unit</option>
@@ -395,12 +389,6 @@
               </tbody>
               </table>
               <div class="row">
-              <div class="col-md-3">
-              <a href="{{action('UnitController@downloadfotoall')}}" class="btn btn-block btn-success"><i class="fa fa-download"></i>&nbsp; Download Foto</a>
-              </div>
-              <div class="col-md-3">
-              <a href="{{action('UnitController@downloadpdfall')}}" class="btn btn-block btn-success"><i class="fa fa-download"></i>&nbsp; Download Pdf</a>
-              </div>
               <div class="col-md-3">
               <form action="{{route('excelDownload')}}" method="post" enctype="multipart/form-data">
               <input name="unit" type="hidden" value="{{$unit}}">

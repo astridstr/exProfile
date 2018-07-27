@@ -15,6 +15,8 @@ use App\Exprofile;
 use App\Exports;
 use Excel;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Auth;
 
 class UnitController extends Controller
 {
@@ -189,13 +191,16 @@ class UnitController extends Controller
 
     public function showTable()
     {    
+        $user = Auth::user();
+
         $divisi = DB::table('divisi')
             ->select('*')
             ->get();
 
-        $unit='all';
+        $unit=$user->email;
 
         $pegawai=DB::table('exprofiles')
+                    ->where('Divisi_Satuan',$user->email)
                     ->whereNotNull('Foto')
                     ->whereNotNull('Education_1')
                     ->whereNotNull('Kota_Domisili_Utama')
@@ -210,6 +215,7 @@ class UnitController extends Controller
                     ->whereNotNull('About_and_Experience_3')
                     ->get();
         $pegawainip=DB::table('exprofiles')
+                    ->where('Divisi_Satuan',$user->email)
                     ->whereNotNull('Foto')
                     ->whereNotNull('Education_1')
                     ->whereNotNull('Kota_Domisili_Utama')
@@ -225,6 +231,7 @@ class UnitController extends Controller
                     ->select('NIP')
                     ->get();
         $pegawai2 = DB::table('exprofiles')
+                    ->where('Divisi_Satuan',$user->email)
                     ->whereNotIn('NIP', $pegawainip)->get();
        
         return view('unit.monitoring.tablemonit', ['pegawai' => $pegawai,'pegawai2' => $pegawai2, 'divisi' => $divisi ,'unit' => $unit]);
