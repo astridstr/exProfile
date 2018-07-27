@@ -269,16 +269,16 @@ class SuperadminController extends Controller
             $pdf->save( public_path('/pdfxprofile/' . $file_foto. '.pdf' ));
             $filepdf = glob(public_path('/pdfxprofile/' . $file_pdf. '.pdf' ));
 
-            if( File::exists(public_path($file_foto.'zip'))){
-               File::delete(public_path($file_foto.'zip'));
+            if( File::exists(public_path($file_foto.'.zip'))){
+               File::delete(public_path($file_foto.'.zip'));
             }
 
-            $zip = Zipper::make($file_foto.'zip');
+            $zip = Zipper::make($file_foto.'.zip');
             $zip->add($filepath);
             $zip->add($filepdf);
             $zip->close();
 
-            return Response::download(public_path('xprofile.zip'));
+            return Response::download(public_path($file_foto.'.zip'));
         }
         else if(!empty($file_foto)){
            if( File::exists(public_path('/fotoupload/' . $file_foto .'.jpeg' ))){
