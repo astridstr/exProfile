@@ -193,6 +193,8 @@ class SuperadminController extends Controller
             ->select('*')
             ->get();
 
+        $unit='all';
+
         $pegawai=DB::table('exprofiles')
                     ->whereNotNull('Foto')
                     ->whereNotNull('Education_1')
@@ -225,7 +227,7 @@ class SuperadminController extends Controller
         $pegawai2 = DB::table('exprofiles')
                     ->whereNotIn('NIP', $pegawainip)->get();
        
-        return view('superadmin.monitoring.tablemonit', ['pegawai' => $pegawai,'pegawai2' => $pegawai2, 'divisi' => $divisi]);
+        return view('superadmin.monitoring.tablemonit', ['pegawai' => $pegawai,'pegawai2' => $pegawai2, 'divisi' => $divisi ,'unit' => $unit]);
     }
 
     public function downloadpdf(Request $request)
@@ -328,23 +330,35 @@ class SuperadminController extends Controller
         return $pdf->stream('my.pdf',array('Attachment'=>0));
     }
 
-    public function downloadexcel() {
+    public function downloadexcel(Request $request) {
 
-     $products = Exprofile::get()->toArray();
-     $type = 'xls';
+    $unit= $request->input('unit');
 
+    if($unit == 'all'){
+        $exprofile=Exprofile::get();
+    }
+    else{
+        $exprofile=Exprofile::where('Divisi_Satuan',$unit)->get();
+    }
+    $type = 'xls';
 
-        return \Excel::create('Xprofile', function($excel) use ($products) {
+    Excel::create('Exprofile', function($excel) use($exprofile) {
+            $excel->sheet('Data Rekap', function($sheet) use($exprofile) {
+                $sheet->loadView('superadmin.excel', ['exprofile' => $exprofile]);
+                $sheet->getStyle('B:J')->getAlignment()->setWrapText(true);
+                $sheet->cell('A1:J1', function($cell) { 
+                    $cell->setFontSize(10);
+                });
+            });
 
-            $excel->sheet('sheet name', function($sheet) use ($products)
+            $excel->sheet('Data Lengkap', function($sheet) use ($exprofile)
 
             {
 
-                $sheet->fromArray($products);
+                $sheet->fromArray($exprofile);
 
             });
-
-        })->download($type);
+        })->download('xlsx');
     }
 
     public function downloadfotoall() {
@@ -449,6 +463,6 @@ class SuperadminController extends Controller
                     ->where('Divisi_Satuan',$unit)
                     ->get();
        
-        return view('superadmin.monitoring.tablemonit', ['pegawai' => $pegawai,'pegawai2' => $pegawai2, 'divisi' => $divisi]);
+        return view('superadmin.monitoring.tablemonit', ['pegawai' => $pegawai,'pegawai2' => $pegawai2, 'divisi' => $divisi, 'unit' => $unit]);
     }
 }

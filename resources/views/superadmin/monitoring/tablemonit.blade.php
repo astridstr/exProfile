@@ -100,9 +100,44 @@
             <br>
             <!-- /.box-header -->
             <div class="box-body">
-            <form action="" method="post" enctype="multipart/form-data">
-                  {{ csrf_field() }}
-              <table id="example1" class="table table-bordered table-striped">
+              <div class="row pull-right">
+                  <div class="col-lg-12 ">
+                    <form action="{{route('showfilter')}}" class="form-inline" method="post" enctype="multipart/form-data">
+                      {{ csrf_field() }}
+                        <div class="row"> 
+                          <div class="col-lg-8">
+                            <div class="form-group">
+                            @if($unit == 'all')
+                                <select class="form-control select2" style="width: 100%;" name="unit">
+                                <option selected="selected" value="all" >Semua Unit</option>
+                                @foreach($divisi as $div)
+                                <option value="{{$div->nama_divisi}}">{{$div->nama_divisi}}</option>
+                                @endforeach
+                                </select>
+                            @else
+                                <select class="form-control select2" style="width: 100%;" name="unit">
+                                <option selected="selected" value="$unit" >{{$unit}}</option>
+                                @foreach($divisi as $div)
+                                  @if($div == $unit)
+                                  @else
+                                  <option value="{{$div->nama_divisi}}">{{$div->nama_divisi}}</option>
+                                  @endif
+                                @endforeach
+                                  <option value="all">Semua Unit</option>
+                                </select>
+                            @endif
+                                </div>
+                              </div>
+                            <div class="col-lg-4">
+                          <button type="submit" class="btn btn-primary">Filter</button>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+              </div>
+              <br>
+              <br>          
+              <table id="example3" class="table table-bordered table-striped">
                 <thead>
                 <tr>
                   <th>No</th>
@@ -120,7 +155,7 @@
                   <th>Download</th>
                 </tr>
                 </thead>
-              <tbody>
+                <tbody>
                 @foreach($pegawai as $peg)
                 <tr>
                   <td>{{$peg->id}}</td>
@@ -128,40 +163,42 @@
                   <td>{{$peg->NIP}}</td>
                   <td>{{$peg->Nama_Lengkap}}</td>
                   @if($peg->Education_1 === null)
-                  <td bgcolor="red"> </td>
+                  <td> <span class="glyphicon glyphicon-remove-sign" style="font-size: 35px;color: red;"></span></td>
                   @else
-                  <td bgcolor="green"> </td>
+                  <td> <span class="glyphicon glyphicon-ok-sign" style="font-size: 35px;color: green;"></span></td>
                   @endif
                   @if($peg->Professional_Certification_1 === null)
-                  <td bgcolor="red"> </td>
+                  <td> <span class="glyphicon glyphicon-remove-sign" style="font-size: 35px;color: red;"></span></td>
                   @else
-                  <td bgcolor="green"> </td>
+                  <td> <span class="glyphicon glyphicon-ok-sign" style="font-size: 35px;color: green;"></span></td>
                   @endif
                   @if($peg->Area_of_Expertise_1 === null)
-                  <td bgcolor="red"> </td>
+                  <td> <span class="glyphicon glyphicon-remove-sign" style="font-size: 35px;color: red;"></span></td>
                   @else
-                  <td bgcolor="green"> </td>
+                  <td> <span class="glyphicon glyphicon-ok-sign" style="font-size: 35px;color: green;"></span></td>
                   @endif
                   @if($peg->Career_Interest_1 === null)
-                  <td bgcolor="red"> </td>
+                  <td> <span class="glyphicon glyphicon-remove-sign" style="font-size: 35px;color: red;"></span></td>
                   @else
-                  <td bgcolor="green"> </td>
+                  <td> <span class="glyphicon glyphicon-ok-sign" style="font-size: 35px;color: green;"></span></td>
                   @endif
-                  @if($peg->About_and_Experience_1 === null)
-                  <td bgcolor="red"> </td>
+                  @if($peg->About_and_Experience_1 === null && $peg->About_and_Experience_3 === null && $peg->About_and_Experience_2 === null)
+                  <td> <span class="glyphicon glyphicon-remove-sign" style="font-size: 35px;color: red;"></span></td>
                   @else
-                  <td bgcolor="green"> </td>
+                  <td> <span class="glyphicon glyphicon-ok-sign" style="font-size: 35px;color: green;"></span></td>
                   @endif
                   @if($peg->Masterpiece_1 === null)
-                  <td bgcolor="red"> </td>
+                  <td> <span class="glyphicon glyphicon-remove-sign" style="font-size: 35px;color: red;"></span></td>
                   @else
-                  <td bgcolor="green"> </td>
+                  <td> <span class="glyphicon glyphicon-ok-sign" style="font-size: 35px;color: green;"></span></td>
                   @endif
+                  <form action="{{route('monittable')}}" method="post" enctype="multipart/form-data">
+                  {{ csrf_field() }}
                   <input type="hidden" name="nippeg" id="nippeg" value="{{$peg->NIP}}" />
                   <td>
                   <div class="form-group">
                     <label>
-                      <input type="checkbox" class="minimal" name="pdf" value="{{$peg->File_Foto}}">
+                      <input type="checkbox" class="minimal" name="pdf[]" value="{{$peg->File_Foto}}" checked>
                     </label>
                   </div> 
                   </td>
@@ -169,56 +206,61 @@
                   <div class="form-group">
                   @if(File::exists(public_path("fotoupload/".$peg->File_Foto.".JPG")))
                   <label>
-                      <input type="checkbox" class="minimal" name="foto" value="{{$peg->File_Foto}}" checked>
+                      <input type="checkbox" class="minimal" name="foto[]" value="{{$peg->File_Foto}}" checked>
                   </label>
                   @elseif(File::exists(public_path("fotoupload/".$peg->File_Foto.".PNG")))
                   <label>
-                    <input type="checkbox" class="minimal" name="foto" value="{{$peg->File_Foto}}" checked>
+                    <input type="checkbox" class="minimal" name="foto[]" value="{{$peg->File_Foto}}" checked>
                   </label>
                   @elseif(File::exists(public_path("fotoupload/".$peg->File_Foto.".JPEG")))
                   <label>
-                    <input type="checkbox" class="minimal" name="foto" value="{{$peg->File_Foto}}" checked>
+                    <input type="checkbox" class="minimal" name="foto[]" value="{{$peg->File_Foto}}" checked>
                   </label>
                   @elseif(File::exists(public_path("fotoupload/".$peg->File_Foto.".jpg")))
                  <label>
-                    <input type="checkbox" class="minimal" name="foto" value="{{$peg->File_Foto}}" checked>
+                    <input type="checkbox" class="minimal" name="foto[]" value="{{$peg->File_Foto}}" checked>
                   </label>
                   @elseif(File::exists(public_path("fotoupload/".$peg->File_Foto.".png")))
                   <label>
-                      <input type="checkbox" class="minimal" name="foto" value="{{$peg->File_Foto}}" checked>
+                      <input type="checkbox" class="minimal" name="foto[]" value="{{$peg->File_Foto}}" checked>
                   </label>
                   @elseif(File::exists(public_path("fotoupload/".$peg->File_Foto.".jpeg")))
                   <label>
-                    <input type="checkbox" class="minimal" name="foto" value="{{$peg->File_Foto}}" checked>
+                    <input type="checkbox" class="minimal" name="foto[]" value="{{$peg->File_Foto}}" checked>
                   </label>
                   @else
                   <label>
-                    <input type="checkbox" class="minimal" name="foto" value="">
+                    <input type="checkbox" class="minimal" name="foto[]" value="" disabled>
                   </label>
                   @endif
                   </div>
                   </td>
                   <td>
-                  <a href="{{action('SuperadminController@downloadpdf')}}"> <button type="submit" class="btn btn-block btn-primary"><i class="fa fa-download"></i></button></a>
+                  <button type="submit" class="btn btn-block btn-primary" name="submitbutton" value="1"><i class="fa fa-download"></i></button>
                   </td>
-                  </form>
                 </tr>
+                </form>
                 @endforeach
-              
               </tbody>
               </table>
               <div class="row">
-              <div class="col-md-4">
-              <a href="{{action('SuperadminController@downloadlapor')}}" target="_blank"> <button type="button" class="btn btn-block btn-success"><i class="fa fa-download"></i>&nbsp; Download ZIP</button></a>
+              <div class="col-md-3">
+              <a href="{{action('SuperadminController@downloadfotoall')}}" class="btn btn-block btn-success"><i class="fa fa-download"></i>&nbsp; Download Foto</a>
               </div>
-              <div class="col-md-4">
-              <a href="{{action('SuperadminController@downloadexcel')}}" class="btn btn-block btn-success"> <i class="fa fa-download"></i>&nbsp; Download Excel</a>
+              <div class="col-md-3">
+              <a href="{{action('SuperadminController@downloadpdfall')}}" class="btn btn-block btn-success"><i class="fa fa-download"></i>&nbsp; Download Pdf</a>
               </div>
-              <div class="col-md-4">
+              <div class="col-md-3">
+              <form action="{{route('excelDownload')}}" method="post" enctype="multipart/form-data">
+              <input name="unit" type="hidden" value="{{$unit}}">
+               {{ csrf_field() }}
+              <a href="{{action('SuperadminController@downloadexcel')}}"> <button type="submit" class="btn btn-block btn-success"><i class="fa fa-download"></i>&nbsp; Download Excel</button></a>
+              </form>
+              </div>
+              <div class="col-md-3">
               <a href="{{action('SuperadminController@downloadlapor')}}" target="_blank"> <button type="button" class="btn btn-block btn-success"><i class="fa fa-download"></i>&nbsp; Download as PDF</button></a>
               </div>
               </div>
-              </form>
             </div>
             <!-- /.box-body -->          
           </div>
@@ -238,14 +280,27 @@
                         <div class="row"> 
                           <div class="col-lg-8">
                             <div class="form-group">
-                              <select class="form-control select2" style="width: 100%;" name="unit">
+                            @if($unit == 'all')
+                                <select class="form-control select2" style="width: 100%;" name="unit">
                                 <option selected="selected" value="all" >Semua Unit</option>
                                 @foreach($divisi as $div)
                                 <option value="{{$div->nama_divisi}}">{{$div->nama_divisi}}</option>
                                 @endforeach
                                 </select>
-                                </div>
-                              </div>
+                            @else
+                                <select class="form-control select2" style="width: 100%;" name="unit">
+                                <option selected="selected" value="$unit" >{{$unit}}</option>
+                                @foreach($divisi as $div)
+                                  @if($div == $unit)
+                                  @else
+                                  <option value="{{$div->nama_divisi}}">{{$div->nama_divisi}}</option>
+                                  @endif
+                                @endforeach
+                                <option value="all">Semua Unit</option>
+                                </select>
+                            @endif
+                            </div>
+                          </div>
                             <div class="col-lg-4">
                           <button type="submit" class="btn btn-primary">Filter</button>
                         </div>
@@ -298,7 +353,7 @@
                   @else
                   <td> <span class="glyphicon glyphicon-ok-sign" style="font-size: 35px;color: green;"></span></td>
                   @endif
-                  @if($peg2->About_and_Experience_1 === null)
+                  @if($peg2->About_and_Experience_1 === null && $peg2->About_and_Experience_3 === null && $peg2->About_and_Experience_2 === null)
                   <td> <span class="glyphicon glyphicon-remove-sign" style="font-size: 35px;color: red;"></span></td>
                   @else
                   <td> <span class="glyphicon glyphicon-ok-sign" style="font-size: 35px;color: green;"></span></td>
@@ -346,7 +401,7 @@
                   </label>
                   @else
                   <label>
-                    <input type="checkbox" class="minimal" name="foto[]" value="">
+                    <input type="checkbox" class="minimal" name="foto[]" value="" disabled>
                   </label>
                   @endif
                   </div>
@@ -367,7 +422,11 @@
               <a href="{{action('SuperadminController@downloadpdfall')}}" class="btn btn-block btn-success"><i class="fa fa-download"></i>&nbsp; Download Pdf</a>
               </div>
               <div class="col-md-3">
-              <a href="{{action('SuperadminController@downloadexcel')}}" class="btn btn-block btn-success"> <i class="fa fa-download"></i>&nbsp; Download Excel</a>
+              <form action="{{route('excelDownload')}}" method="post" enctype="multipart/form-data">
+              <input name="unit" type="hidden" value="{{$unit}}">
+               {{ csrf_field() }}
+              <a href="{{action('SuperadminController@downloadexcel')}}"> <button type="submit" class="btn btn-block btn-success"><i class="fa fa-download"></i>&nbsp; Download Excel</button></a>
+              </form>
               </div>
               <div class="col-md-3">
               <a href="{{action('SuperadminController@downloadlapor')}}" target="_blank"> <button type="button" class="btn btn-block btn-success"><i class="fa fa-download"></i>&nbsp; Download as PDF</button></a>
@@ -424,6 +483,19 @@
   $(function () {
     $('#example1').DataTable()
     $('#example2').DataTable({
+      'paging'      : true,
+      'lengthChange': true,
+      'searching'   : false,
+      'ordering'    : true,
+      'info'        : true,
+      'autoWidth'   : true,
+    })
+  })
+</script>
+<script>
+  $(function () {
+    $('#example1').DataTable()
+    $('#example3').DataTable({
       'paging'      : true,
       'lengthChange': true,
       'searching'   : false,

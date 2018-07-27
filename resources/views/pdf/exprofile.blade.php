@@ -240,7 +240,7 @@ tr > th {
                       <table class="table table-pdf">
                         <tr><th style="text-align: center;">ABOUT AND EXPERIENCE</th></tr>
                         <tr>
-                          <td><p style="text-align: justify;text-justify: inter-word;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                          <td><p style="text-align: justify;text-justify: inter-word;font-size: 13px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                 {{$exprofile->About_and_Experience_1}}
                               <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                 {{$exprofile->About_and_Experience_2}}
@@ -252,9 +252,9 @@ tr > th {
                         <tr>
                           <td>
                             <ul style="padding-left: 10px;">
-                              <li><p style="text-align: justify;text-justify: inter-word;">{{$exprofile->Masterpiece_1}}</p></li>
-                              <li><p style="text-align: justify;text-justify: inter-word;">{{$exprofile->Masterpiece_2}}</p></li>
-                              <li><p style="text-align: justify;text-justify: inter-word;">{{$exprofile->Masterpiece_3}}</p></li>
+                              <li><p style="text-align: justify;text-justify: inter-word;font-size: 12px;">{{$exprofile->Masterpiece_1}}</p></li>
+                              <li><p style="text-align: justify;text-justify: inter-word;font-size: 12px;">{{$exprofile->Masterpiece_2}}</p></li>
+                              <li><p style="text-align: justify;text-justify: inter-word;font-size: 12px;">{{$exprofile->Masterpiece_3}}</p></li>
                             </ul>
                           </td>
                         </tr>
