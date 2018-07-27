@@ -38,7 +38,7 @@ Route::group(['prefix' => '1', 'middleware' => ['auth', 'role:superadmin']], fun
 	Route::get('/upload', 'UploadController@index')->name('upload');
 	Route::post('import', 'UploadController@import')->name('import');
     Route::get('/laporan/download', 'SuperadminController@downloadlapor')->name('laporDownload');
-    Route::post('/downloadExcel', 'SuperadminController@downloadexcel')->name('excelDownload');
+    Route::get('/downloadExcel', 'SuperadminController@downloadexcel')->name('excelDownload');
     Route::post('/filter-unit', 'SuperadminController@filterUnit')->name('filter.unit');
     Route::get('/downloadFotoAll', 'SuperadminController@downloadfotoall')->name('fotoallDownload');
     Route::get('/downloadPdfAll', 'SuperadminController@downloadpdfall')->name('pdfallDownload');
@@ -46,17 +46,29 @@ Route::group(['prefix' => '1', 'middleware' => ['auth', 'role:superadmin']], fun
 });
 
 
-// Superadmin Route
+// PLN Pusat Route
 Route::group(['prefix' => '2', 'middleware' => ['auth', 'role:plnpusat']], function(){
     Route::get('/dashboard', 'SuperadminController@index')->name('plnpusat.dashboard');
 });
 
-// Superadmin Route
+// Unit Route
 Route::group(['prefix' => '3', 'middleware' => ['auth', 'role:unit']], function(){
-    Route::get('/dashboard', 'SuperadminController@index')->name('unit.dashboard');
+    Route::get('/dashboard', 'UnitController@index')->name('unit.dashboard');
+    Route::get('/monitoring', 'UnitController@showMonitoring')->name('monitoring');
+    Route::get('/monit/table', 'UnitController@showTable')->name('mytable');
+    Route::post('/monittable', 'UnitController@downloadpdf')->name('monittable');
+    Route::get('/upload', 'UploadController@index')->name('upload');
+    Route::post('import', 'UploadController@import')->name('import');
+    Route::get('/laporan/download', 'UnitController@downloadlapor')->name('laporDownload');
+    Route::get('/downloadExcel', 'UnitController@downloadexcel')->name('excelDownload');
+
+    Route::get('/downloadFotoAll', 'UnitController@downloadfotoall')->name('fotoallDownload');
+    Route::get('/downloadPdfAll', 'UnitController@downloadpdfall')->name('pdfallDownload');
+
+    Route::post('/showfilter', 'UnitController@showfilter')->name('showfilter');
 });
 
-// Superadmin Route
+// Pegawai Route
 Route::group(['prefix' => '4', 'middleware' => ['auth', 'role:pegawai']], function(){
     Route::get('/dashboard', 'ExecutiveController@index')->name('pegawai.dashboard');
     Route::post('/form/exprofile/v1','FormController@formeditdiri')->name('formeditdiri');

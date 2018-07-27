@@ -15,13 +15,8 @@ class UsersTableSeeder extends Seeder
     public function run()
     {
 
-        DB::table('users')->insert([
-            'id' => '1',
-            
-        ]);
-
         $units = [
-            [   'email' => 'superadmin@plnpusat',
+            [   'email' => 'superadmin@plnpusat', 
                 'password' => bcrypt('icon@2018')],
             [   'email' => 'DIVISI ADMINISTRASI KONSTRUKSI', 
                 'password' => bcrypt('DIVISI ADMINISTRASI KONSTRUKSI')],
@@ -144,21 +139,25 @@ class UsersTableSeeder extends Seeder
         ];
 
         foreach($units as $unit){
-            User::create($unit);
-        }
+           $user = User::create($unit);
+           $user->save();
 
-        foreach($units as $unit){
-            if($unit['email'] == 'superadmin@plnpusat') {
+           if($unit['email'] == 'superadmin@plnpusat') {
                 DB::table('role_user')->insert([
-                'user_id' => $unit['id'],
+                'user_id' => $user['id'],
                 'role_id' => '1',
                 ]);
             } else {
                 DB::table('role_user')->insert([
-                'user_id' => $unit['id'],
+                'user_id' => $user['id'],
                 'role_id' => '3',
                 ]);
             }
+        }
+        
+
+        foreach($units as $unit){
+            
         }
 
         $roles = [

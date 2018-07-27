@@ -269,11 +269,11 @@ class SuperadminController extends Controller
             $pdf->save( public_path('/pdfxprofile/' . $file_foto. '.pdf' ));
             $filepdf = glob(public_path('/pdfxprofile/' . $file_pdf. '.pdf' ));
 
-            if( File::exists(public_path('xprofile.zip'))){
-               File::delete(public_path('xprofile.zip'));
+            if( File::exists(public_path($file_foto.'zip'))){
+               File::delete(public_path($file_foto.'zip'));
             }
 
-            $zip = Zipper::make('xprofile.zip');
+            $zip = Zipper::make($file_foto.'zip');
             $zip->add($filepath);
             $zip->add($filepdf);
             $zip->close();
@@ -405,11 +405,11 @@ class SuperadminController extends Controller
 
         $filepath = glob(public_path('/pdfxprofile/*'));
 
-        if( File::exists(public_path('xprofile.zip'))){
-               File::delete(public_path('xprofile.zip'));
+        if( File::exists(public_path('EP_All_Pegawai_PDF.zip'))){
+               File::delete(public_path('EP_All_Pegawai_PDF.zip'));
             }
 
-        $zip = Zipper::make('xprofile.zip');
+        $zip = Zipper::make('EP_All_Pegawai_PDF.zip');
         $zip->add($filepath);
         $zip->close();
 
