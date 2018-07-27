@@ -14,7 +14,7 @@ use Maatwebsite\Excel\Concerns\FromView;
 use App\Exprofile;
 use App\Exports;
 use Excel;
-
+use Carbon\Carbon;
 
 class SuperadminController extends Controller
 {
@@ -336,13 +336,16 @@ class SuperadminController extends Controller
 
     if($unit == 'all'){
         $exprofile=Exprofile::get();
+        $filename = 'EP_All_Pegawai_'.Carbon::now('Asia/Jakarta');
     }
     else{
         $exprofile=Exprofile::where('Divisi_Satuan',$unit)->get();
+        $filename = 'EP_'.$unit.Carbon::now('Asia/Jakarta');
     }
     $type = 'xls';
 
-    Excel::create('Exprofile', function($excel) use($exprofile) {
+
+    Excel::create($filename, function($excel) use($exprofile) {
             $excel->sheet('Data Rekap', function($sheet) use($exprofile) {
                 $sheet->loadView('superadmin.excel', ['exprofile' => $exprofile]);
                 $sheet->getStyle('B:J')->getAlignment()->setWrapText(true);
